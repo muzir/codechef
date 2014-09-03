@@ -1,6 +1,10 @@
+package org.muzir.codechef.practice.easy;
+
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
 
 /**
@@ -41,7 +45,7 @@ import java.util.StringTokenizer;
  * 
  * 
  * @author muzir
- *
+ * 
  */
 class Account {
 	private int withdraw;
@@ -97,12 +101,16 @@ public class ATM {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(
 				System.in));
 		StringTokenizer tokenizer = new StringTokenizer(reader.readLine());
+		reader.close();
 		String withdraw = tokenizer.nextToken(" ");
 		String balance = tokenizer.nextToken(" ");
 		account.setWithdraw(Integer.parseInt(withdraw));
 		account.setBalance(Double.parseDouble(balance));
-		System.out.println(account);
-		System.out.println(account.isWithdrawSuccessful());
-		reader.close();
+		// System.out.println(account);
+		// System.out.println(account.isWithdrawSuccessful());
+		BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(
+				System.out));
+		writer.write("" + account.isWithdrawSuccessful());
+		writer.close();
 	}
 }
