@@ -21,7 +21,7 @@ public class LCH15JAB {
 				char[] charArray = reader.readLine().toCharArray();
 				System.out.println(isCharCountEqualsOtherSum(charArray));
 			}
-		}
+		}			
 	}
 
 	private static String isCharCountEqualsOtherSum(char[] charArray) {
