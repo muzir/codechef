@@ -196,7 +196,7 @@ class LeadingGame {
 	}
 }
 
-public class Main {
+public class LeadGame {
 	public static void main(String[] args) throws NumberFormatException,
 			IOException {
 		String filePath = System.getProperty("user.dir");
