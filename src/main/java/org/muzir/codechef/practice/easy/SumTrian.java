@@ -1,7 +1,9 @@
 package org.muzir.codechef.practice.easy;
 
 import java.io.BufferedInputStream;
+import java.io.DataInputStream;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -14,86 +16,122 @@ import java.util.StringTokenizer;
  *
  */
 public class SumTrian {
-	private final static byte NL = 10;// new line
-	private final static byte EOF = -1;// end of file
-	private final static byte EOL = 0;// end of line
-	private final static int SIZE = 1;
+
+	private static List<Integer> finalList;
+	private static List<Integer> newList;
+	private static List<Integer> lookUpList;
+
+	private static boolean isCodechefModeOff = false;
 
 	public static void main(String[] args) throws IOException {
-		String path = System.getProperty("user.dir");
-		InputStream in = new FileInputStream(path + "/SumTrian.txt");
+		InputStream in = createInputStream();
 		BufferedInputStream reader = new BufferedInputStream(in);
-		String lineOfInputCount = readLine(reader);
-		// System.out.println(lineOfInputCount);
+		DataInputStream dis = new DataInputStream(reader);
+		String lineOfInputCount = readLine(dis);
 		for (int j = 0; j < Integer.parseInt(lineOfInputCount); j++) {
-			String lineOfTriangleRowCount = readLine(reader);
+			String lineOfTriangleRowCount = readLine(dis);
+			if (isEmptyOrNullLine(lineOfTriangleRowCount)) {
+				break;
+			}
 			lineOfTriangleRowCount = lineOfTriangleRowCount.trim();
-			// System.out.println(lineOfTriangleRowCount);
-			List<Integer> finalList = new ArrayList<Integer>();
+			finalList = new ArrayList<Integer>();
 			for (int i = 0; i < Integer.parseInt(lineOfTriangleRowCount); i++) {
-				String newLine = readLine(reader);
-				// System.out.println(newLine);
-				List<Integer> newList = createNewList(newLine);
-				finalList = addToFinalList(newList, finalList);
+				String newLine = readLine(dis);
+				newList = createNewList(newLine);
+				lookUpList = copyList(finalList);
+				addToFinalList();
 			}
 			System.out.println(Collections.max(finalList));
 		}
 		in.close();
-		// System.out.println("Finished");
+		dis.close();
 	}
 
-	private static List<Integer> addToFinalList(List<Integer> newList,
-			List<Integer> oldFinalList) {
-		if (newList.size() == 1) {
-			return new ArrayList<Integer>(newList);
+	private static InputStream createInputStream() {
+		if (isCodechefModeOff) {
+			String path = System.getProperty("user.dir");
+			try {
+				InputStream in = new FileInputStream(path + "/SumTrian.txt");
+				return in;
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
-		List<Integer> newFinalList = new ArrayList<Integer>();
+		return System.in;
+	}
+
+	private static boolean isEmptyOrNullLine(String lineOfTriangleRowCount) {
+		if (lineOfTriangleRowCount == null
+				|| "".equalsIgnoreCase(lineOfTriangleRowCount)) {
+			return true;
+		}
+		return false;
+	}
+
+	private static List<Integer> copyList(List<Integer> finalList2) {
+		return new ArrayList<Integer>(finalList2);
+	}
+
+	private static void addToFinalList() {
+		if (newList.size() == 1) {
+			finalList = copyList(newList);
+			return;
+		}
 		for (int i = 0; i < newList.size(); i++) {
 			int newListCurrentValue = newList.get(i);
-			newFinalList = addOneIndexBefore(newListCurrentValue, oldFinalList,
-					i, newFinalList);
-			newFinalList = addCurrentValue(newListCurrentValue, oldFinalList,
-					i, newFinalList);
+			addOneIndexBefore(newListCurrentValue, i);
+			addCurrentValue(newListCurrentValue, i);
 		}
-		return newFinalList;
+		return;
 	}
 
-	private static List<Integer> addCurrentValue(int newListCurrentValue,
-			List<Integer> oldFinalList, int index, List<Integer> newFinalList) {
-		int finalListSameRowValue = oldFinalList.get(index);
-		int newValue = finalListSameRowValue + newListCurrentValue;
-		if (!checkFinalListCurrentIndexExist(oldFinalList, index)) {
-			newFinalList.add(index, newValue);
-			return newFinalList;
+	private static void addCurrentValue(int newListCurrentValue, int index) {
+		if (isIndexNull(index, lookUpList)) {
+			return;
 		}
-		if (newFinalList.get(index).compareTo(newValue) < 0) {
-			newFinalList.remove(index);
-			newFinalList.add(index, newValue);
+		int lookUpListSameRowValue = lookUpList.get(index);
+		int newValue = lookUpListSameRowValue + newListCurrentValue;
+		if (isIndexNull(index, finalList)) {
+			finalList.add(index, newValue);
+			return;
 		}
-		return newFinalList;
+		addFinalList(index, newValue);
+		return;
 	}
 
-	private static boolean checkFinalListCurrentIndexExist(
-			List<Integer> finalList, int index) {
-		try {
-			finalList.get(index);
-		} catch (IndexOutOfBoundsException e) {
-			return false;
-		}
-		return true;
-	}
-
-	private static List<Integer> addOneIndexBefore(int newListCurrentValue,
-			List<Integer> oldFinalList, int index, List<Integer> newFinalList) {
+	private static void addOneIndexBefore(int newListCurrentValue, int index) {
 		int finalListOneIndexBeforeValue = 0;
-		try {
-			finalListOneIndexBeforeValue = oldFinalList.get(index - 1);
-		} catch (IndexOutOfBoundsException e) {
-			return new ArrayList<Integer>(oldFinalList);
+		if (isIndexNull(index - 1, lookUpList)) {
+			return;
 		}
+		finalListOneIndexBeforeValue = lookUpList.get(index - 1);
 		int newValue = finalListOneIndexBeforeValue + newListCurrentValue;
-		newFinalList.add(index - 1, newValue);
-		return newFinalList;
+		addFinalList(index, newValue);
+	}
+
+	private static void addFinalList(int index, Integer newValue) {
+		if (isIndexNull(index, finalList)) {
+			finalList.add(index, newValue);
+			return;
+		}
+		Integer existingValue = finalList.get(index);
+		if (existingValue.compareTo(newValue) < 0) {
+			finalList.remove(index);
+			finalList.add(index, newValue);
+		}
+		return;
+	}
+
+	private static boolean isIndexNull(int index, List<Integer> checkList) {
+		try {
+			boolean isNull = checkList.get(index) == null ? Boolean.TRUE
+					: Boolean.FALSE;
+			return isNull;
+		} catch (IndexOutOfBoundsException e) {
+			return true;
+		}
+
 	}
 
 	private static List<Integer> createNewList(String newLine) {
@@ -119,19 +157,7 @@ public class SumTrian {
 		return true;
 	}
 
-	private static String readLine(BufferedInputStream reader)
-			throws IOException {
-		String line = "";
-		byte[] container = new byte[SIZE];
-		reader.read(container);
-		byte byteRead = container[0];
-		while (byteRead != NL && byteRead != EOL && byteRead != EOF) {
-			String input = "";
-			input = new String(container, 0, SIZE);
-			line = line + input;
-			reader.read(container);
-			byteRead = container[0];
-		}
-		return line;
+	private static String readLine(DataInputStream reader) throws IOException {
+		return reader.readLine();
 	}
 }
