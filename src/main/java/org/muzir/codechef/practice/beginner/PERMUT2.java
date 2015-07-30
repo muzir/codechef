@@ -6,8 +6,13 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.concurrent.ArrayBlockingQueue;
 
+/**
+ * Started on 31/07/2015 9:30 PM
+ * 
+ * @author erhun.baycelik
+ *
+ */
 public class PERMUT2 {
 	private static boolean isCodechefModeOn = true;
 
@@ -23,12 +28,12 @@ public class PERMUT2 {
 			}
 			int[] inversePermutationArray = createInversePermutationArray(lineOfInputCount);
 			String input = readLine(dis);
-			int inputArray=convertToInputArray(input);
+			int inputArray = convertToInputArray(input);
 		}
 	}
 
 	private static int convertToInputArray(String input) {
-		
+
 		return 0;
 	}
 
