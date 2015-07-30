@@ -1,4 +1,4 @@
-package org.muzir.codechef.practice.easy;
+package org.muzir.codechef.practice.beginner;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -96,7 +96,6 @@ class Round implements Comparable {
 		return roundWinner + "  " + maxLead;
 	}
 
-	@Override
 	public int compareTo(Object o2) {
 		Round round2 = (Round) o2;
 		if (this.maxLead == round2.maxLead) {

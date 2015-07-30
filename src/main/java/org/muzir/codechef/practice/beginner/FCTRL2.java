@@ -1,4 +1,4 @@
-package org.muzir.codechef.practice.easy;
+package org.muzir.codechef.practice.beginner;
 
 import java.io.BufferedReader;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package org.muzir.codechef.practice.school;
+package org.muzir.codechef.practice.beginner;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -14,14 +14,14 @@ public class LCH15JAB {
 		StringBuffer sb = new StringBuffer();
 		sb.append(userDir);
 		sb.append("/LCH15JAB.txt");
-		try (BufferedReader reader = new BufferedReader(new FileReader(
-				sb.toString()))) {
-			int linesOfParamater = Integer.parseInt(reader.readLine());
-			for (int i = 0; i < linesOfParamater; i++) {
-				char[] charArray = reader.readLine().toCharArray();
-				System.out.println(isCharCountEqualsOtherSum(charArray));
-			}
-		}			
+		BufferedReader reader = new BufferedReader(
+				new FileReader(sb.toString()));
+		int linesOfParamater = Integer.parseInt(reader.readLine());
+		for (int i = 0; i < linesOfParamater; i++) {
+			char[] charArray = reader.readLine().toCharArray();
+			System.out.println(isCharCountEqualsOtherSum(charArray));
+		}
+		reader.close();
 	}
 
 	private static String isCharCountEqualsOtherSum(char[] charArray) {

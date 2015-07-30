@@ -1,4 +1,4 @@
-package org.muzir.codechef.practice.easy;
+package org.muzir.codechef.practice.beginner;
 
 /**
  * For example, they defined the function Z. For any positive integer N, Z(N) is
