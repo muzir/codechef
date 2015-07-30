@@ -157,6 +157,7 @@ public class SumTrian {
 		return true;
 	}
 
+	@SuppressWarnings("deprecation")
 	private static String readLine(DataInputStream reader) throws IOException {
 		return reader.readLine();
 	}

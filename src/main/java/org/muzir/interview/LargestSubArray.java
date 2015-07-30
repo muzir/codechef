@@ -1,7 +1,6 @@
 package org.muzir.interview;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -31,11 +30,11 @@ import java.util.List;
  */
 public class LargestSubArray {
 
-	static List subArrayList = new ArrayList<List>();
-	static List subList = new ArrayList<Integer>();
+	@SuppressWarnings("rawtypes")
+	static List<List> subArrayList = new ArrayList<List>();
+	static List<Integer> subList = new ArrayList<Integer>();
 
 	public static void seperateSubArr(int[] array) {
-		List sequence = Arrays.asList(array);
 		for (int i = 0; i < array.length; i++) {
 			int current = array[i];
 			subList.add(current);
@@ -54,20 +53,17 @@ public class LargestSubArray {
 	}
 
 	public static void main(String[] args) {
-		int arr[] = { 3, 5, 7, 3, 8, 4, 7, 5, 2, 7, 9, 5, 3 };
-		int arr1[] = { 1 };
-		int arr2[] = { 1, 9, 4, 3, 2 };
 		int arr3[] = { 1, 2, 5, 8, 2, 5, 6, 9, 1, 5 };
 		seperateSubArr(arr3);
 		int maxIndex = 0;
 		int maxSize = 0;
 		for (int i = 0; i < subArrayList.size(); i++) {
-			int tempSize = ((ArrayList) subArrayList.get(i)).size();
+			int tempSize = ((ArrayList<?>) subArrayList.get(i)).size();
 			if (tempSize > maxSize) {
 				maxIndex = i;
 				maxSize = tempSize;
 			}
 		}
-		System.out.println(((ArrayList) subArrayList.get(maxIndex)));
+		System.out.println(((ArrayList<?>) subArrayList.get(maxIndex)));
 	}
 }

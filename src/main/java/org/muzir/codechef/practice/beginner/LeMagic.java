@@ -17,7 +17,6 @@ public class LeMagic {
 	public int[][] initMagicBoard(String fileName) throws IOException {
 		InputStream is = this.getClass().getResourceAsStream("/magicBoard.txt");
 		BufferedReader fileInput = new BufferedReader(new InputStreamReader(is));
-		String numberOfTestCases = fileInput.readLine();
 		String rowAndColumn = fileInput.readLine();
 		StringTokenizer tokenizer = new StringTokenizer(rowAndColumn, " ");
 		// row

@@ -30,6 +30,7 @@ public class DoubleStrings {
 		dis.close();
 	}
 
+	@SuppressWarnings("deprecation")
 	private static String readLine(DataInputStream reader) throws IOException {
 		return reader.readLine();
 	}

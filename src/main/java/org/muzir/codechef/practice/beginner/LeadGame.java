@@ -10,7 +10,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.StringTokenizer;
 
-class Round implements Comparable {
+class Round implements Comparable<Object> {
 	private int playerOneScore;
 	private int playerTwoScore;
 	private int playerOneAccumulator;
