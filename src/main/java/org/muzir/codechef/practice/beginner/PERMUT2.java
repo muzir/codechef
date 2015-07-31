@@ -23,18 +23,37 @@ public class PERMUT2 {
 		String lineOfInput = readLine(dis);
 		for (;;) {
 			int lineOfInputCount = Integer.parseInt(lineOfInput);
+			if (lineOfInputCount == 1) {
+				System.out.println("ambiguous");
+				continue;
+			}
 			if (lineOfInputCount == 0) {
 				break;
 			}
 			int[] inversePermutationArray = createInversePermutationArray(lineOfInputCount);
 			String input = readLine(dis);
-			int inputArray = convertToInputArray(input);
+			int[] inputArray = convertToInputArray(input);
+			if (isArrayBiDirectional(inputArray, inversePermutationArray)) {
+				System.out.println("ambiguous");
+			} else {
+				System.out.println("not ambiguous");
+			}
 		}
 	}
 
-	private static int convertToInputArray(String input) {
+	private static boolean isArrayBiDirectional(int[] inputArray, int[] inversePermutationArray) {
+		
+		return false;
+	}
 
-		return 0;
+	private static int[] convertToInputArray(String input) {
+		String[] arr = input.split(" ");
+		int arrayLenght = arr.length;
+		int[] intArr = new int[arrayLenght];
+		for (int i = 0; i < arr.length; i++) {
+			intArr[i] = Integer.parseInt(arr[i]);
+		}
+		return intArr;
 	}
 
 	private static int[] createInversePermutationArray(int lineOfInputCount) {
