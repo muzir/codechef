@@ -6,11 +6,9 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
- * Started on 31/07/2015 9:30 PM
+ * Started on 31/07/2015 9:30 PM Finished on 3/08/2015 10:15 PM
  * 
  * @author erhun.baycelik
  *
@@ -33,9 +31,13 @@ public class PERMUT2 {
 			if (lineOfInputCount == 0) {
 				break;
 			}
-			String[] inversePermutationArray = createInversePermutationArray(lineOfInputCount);
 			String input = readLine(dis);
 			String[] inputArray = convertToInputArray(input);
+			// System.out.println("Input Array");
+			// printArrray(inputArray);
+			String[] inversePermutationArray = createInversePermutationArray(inputArray);
+			// System.out.println("Inverse Array");
+			// printArrray(inversePermutationArray);
 			if (isArrayBiDirectional(inputArray, inversePermutationArray)) {
 				System.out.println("ambiguous");
 			} else {
@@ -46,51 +48,28 @@ public class PERMUT2 {
 
 	private static boolean isArrayBiDirectional(String[] inputArray,
 			String[] inversePermutationArray) {
-		Map<String, String> map = new HashMap<String, String>();
 		for (int i = 0; i < inputArray.length; i++) {
-			String inputArrayParam = inputArray[i];
-			String inversePermutationArrayParam = inversePermutationArray[i];
-			// if (inputArrayParam.equals(inversePermutationArrayParam)) {
-			// return false;
-			// }
-			map.put(inputArrayParam, inversePermutationArrayParam);
-		}
-		// System.out.println("Map:" + map.toString());
-		for (int i = 0; i < inputArray.length; i++) {
-			String inputArrayParam = inputArray[i];
-			String inversePermutationArrayParam = inversePermutationArray[i];
-			String sMapValue = map.get(inversePermutationArrayParam);
-			// System.out.println("inputArrayParam:" + inputArrayParam);
-			// System.out.println("inversePermutationArrayParam :"
-			// + inversePermutationArrayParam);
-			// System.out.println("sMapValue:" + sMapValue);
-			if (!sMapValue.equals(inputArrayParam)) {
+			if (!inputArray[i].equals(inversePermutationArray[i])) {
 				return false;
 			}
 		}
+
 		return true;
 	}
 
 	private static String[] convertToInputArray(String input) {
 		String[] arr = input.split(" ");
-		// int arrayLenght = arr.length;
-		// int[] intArr = new int[arrayLenght];
-		// for (int i = 0; i < arr.length; i++) {
-		// intArr[i] = Integer.parseInt(arr[i]);
-		// }
-		// System.out.println("InputArray:");
-		// printArrray(arr);
 		return arr;
 	}
 
-	private static String[] createInversePermutationArray(int lineOfInputCount) {
+	private static String[] createInversePermutationArray(String[] inputArray) {
+		int lineOfInputCount = inputArray.length;
 		String[] inversePermutationArray = new String[lineOfInputCount];
-		inversePermutationArray[0] = String.valueOf(lineOfInputCount);
-		for (int i = 1; i < lineOfInputCount; i++) {
-			inversePermutationArray[i] = String.valueOf(i);
+		for (int i = 0; i < lineOfInputCount; i++) {
+			String val = inputArray[i];
+			int inverseIndex = Integer.valueOf(val);
+			inversePermutationArray[inverseIndex - 1] = String.valueOf(i + 1);
 		}
-		// System.out.println("inversePermutationArray:");
-		// printArrray(inversePermutationArray);
 		return inversePermutationArray;
 	}
 
@@ -110,11 +89,11 @@ public class PERMUT2 {
 		return reader.readLine();
 	}
 
-	// private static void printArrray(String[] arr) {
-	// StringBuilder sb = new StringBuilder();
-	// for (String s : arr) {
-	// sb.append(s + " ");
-	// }
-	// System.out.println(sb.toString());
-	// }
+	private static void printArrray(String[] arr) {
+		StringBuilder sb = new StringBuilder();
+		for (String s : arr) {
+			sb.append(s + " ");
+		}
+		System.out.println(sb.toString());
+	}
 }
