@@ -16,7 +16,7 @@ import java.util.Map;
  *
  */
 public class PERMUT2 {
-	private static boolean isCodechefModeOn = false;
+	private static boolean isCodechefModeOn = true;
 
 	public static void main(String[] args) throws IOException {
 		InputStream in = createInputStream();
@@ -50,9 +50,9 @@ public class PERMUT2 {
 		for (int i = 0; i < inputArray.length; i++) {
 			String inputArrayParam = inputArray[i];
 			String inversePermutationArrayParam = inversePermutationArray[i];
-			// if (inputArrayParam.equals(inversePermutationArrayParam)) {
-			// return false;
-			// }
+			if (inputArrayParam.equals(inversePermutationArrayParam)) {
+				return false;
+			}
 			map.put(inputArrayParam, inversePermutationArrayParam);
 		}
 		// System.out.println("Map:" + map.toString());
