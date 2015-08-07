@@ -7,6 +7,17 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 
+/**
+ * <p>
+ * Started on 07/08/2015 12:00 PM
+ * </p>
+ * <p>
+ * Finished on 07/08/2015 12:45 PM
+ * </p>
+ * 
+ * @author erhun.baycelik
+ *
+ */
 public class MUFFINS3 {
 	private static boolean isCodechefModeOn = false;
 
