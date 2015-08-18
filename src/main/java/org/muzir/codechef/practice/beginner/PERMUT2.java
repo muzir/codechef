@@ -95,12 +95,4 @@ public class PERMUT2 {
 	private static String readLine(DataInputStream reader) throws IOException {
 		return reader.readLine();
 	}
-
-	private static void printArrray(String[] arr) {
-		StringBuilder sb = new StringBuilder();
-		for (String s : arr) {
-			sb.append(s + " ");
-		}
-		System.out.println(sb.toString());
-	}
 }
