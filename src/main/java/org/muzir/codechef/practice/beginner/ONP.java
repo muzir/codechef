@@ -8,16 +8,18 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * @author erhun.baycelik
  *
- *         <p>
- *         Started on 18/08/2015 12:18 PM
- *         </p>
- *         <p>
- *         Finished on -
- *         </p>
+ * <p>
+ * Started on 18/08/2015 12:18 PM
+ * Finished on 22/08/2015 11:34 PM
+ * </p>
+ * <p>
+ * Finished on -
+ * </p>
  *
  */
 public class ONP {
@@ -41,19 +43,20 @@ public class ONP {
 	private static String parseExpressionAsRPN(String inputExpression) {
 		char[] expression = inputExpression.toCharArray();
 		StringBuilder sb = new StringBuilder();
+		Stack<Character> stack = new Stack<Character>();
 		for (char c : expression) {
 			if (isOperand(c)) {
 				sb.append(c);
 			}
 			if (isOperator(c)) {
-
+				stack.push(c);
 			}
 			if (isCloseParanthesis(c)) {
-
+				String operator = Character.toString(stack.pop());
+				sb.append(operator);
 			}
 		}
-
-		return null;
+		return sb.toString();
 	}
 
 	private static boolean isCloseParanthesis(char c) {
