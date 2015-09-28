@@ -30,14 +30,20 @@ public class TapeEquilibriumTest {
 		Assert.assertEquals(1, exactResult);
 	}
 
+	// @Test
+	// public void shouldSmallRandomPassed() {
+	// SecureRandom secureRandom = new SecureRandom();
+	// int[] a = new int[100];
+	// for (int i = 0; i < 100; i++) {
+	// int n = secureRandom.nextInt();
+	// a[i] = n;
+	// }
+	// int exactResult = tapeEquilibrium.solution(a);
+	// System.out.println(exactResult);
+	// }
 	@Test
-	public void shouldSmallRandomPassed() {
-		SecureRandom secureRandom = new SecureRandom();
-		int[] a = new int[100];
-		for (int i = 0; i < 100; i++) {
-			int n = secureRandom.nextInt();
-			a[i] = n;
-		}
+	public void shouldSmallNegativePassed() {
+		int[] a = { -10, -20, -30, -40, 100 };
 		int exactResult = tapeEquilibrium.solution(a);
 		System.out.println(exactResult);
 	}
