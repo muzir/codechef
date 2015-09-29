@@ -1,4 +1,4 @@
-package org.muzir.interview.codiity;
+package org.muzir.interview.codility;
 
 import java.security.SecureRandom;
 

@@ -1,4 +1,4 @@
-package org.muzir.interview;
+package org.muzir.interview.raiseOnline;
 
 import java.util.ArrayList;
 import java.util.List;
