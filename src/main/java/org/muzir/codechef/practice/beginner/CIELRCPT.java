@@ -20,11 +20,22 @@ public class CIELRCPT {
 		DataInputStream dis = new DataInputStream(reader);
 		int lineOfInputCount = Integer.parseInt(readLine(dis));
 		for (int i = 0; i < lineOfInputCount; i++) {
-			int input = Integer.parseInt(readLine(dis));
-			int output = (input / 2);
-			output = output + 1;
-			System.out.println(output);
+			Integer input = Integer.valueOf(readLine(dis));
+			int fraction = input / 2048;
+			input = input % 2048;
+			String binaryInput = Integer.toBinaryString(input);
+			System.out.println(oneCount(binaryInput) + fraction);
 		}
+	}
+
+	private static int oneCount(String s) {
+		int count = 0;
+		for (char c : s.toCharArray()) {
+			if (c == '1') {
+				count = count + 1;
+			}
+		}
+		return count;
 	}
 
 	private static InputStream createInputStream() throws FileNotFoundException {
@@ -32,8 +43,7 @@ public class CIELRCPT {
 			return System.in;
 		}
 		String path = System.getProperty("user.dir");
-		InputStream in;
-		in = new FileInputStream(path + "/CIELRCPT.txt");
+		InputStream in = new FileInputStream(path + "/CIELRCPT.txt");
 		return in;
 
 	}
