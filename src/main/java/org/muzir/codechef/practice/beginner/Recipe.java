@@ -39,9 +39,8 @@ public class Recipe {
 	}
 
 	private static int[] divideArrayElementUntilReachMinElement(int[] array) {
-		Arrays.sort(array);
-		int minElement = array[0];
-		for (int i = 1; i <= minElement; i++) {
+		int minimumElement = findArrayMinimumElement(array);
+		for (int i = 2; i <= minimumElement; i++) {
 			array = simplifyArray(array, i);
 		}
 		return array;
@@ -58,11 +57,17 @@ public class Recipe {
 			int division = array[j] / i;
 			array[j] = division;
 		}
-		return array;
+		return divideArrayElementUntilReachMinElement(array);
+	}
+
+	private static int findArrayMinimumElement(int[] array) {
+		int[] copyArray = Arrays.copyOfRange(array, 0, array.length);
+		Arrays.sort(copyArray);
+		int minimumElement = copyArray[0];
+		return minimumElement;
 	}
 
 	private static int[] parseExpressionAsNumberArray(String intputExpression) {
-		// System.out.println("Input:" + intputExpression);
 		StringTokenizer tokenizer = new StringTokenizer(intputExpression, " ");
 		String element = tokenizer.nextToken();
 		int[] numberArray = new int[Integer.parseInt(element)];
