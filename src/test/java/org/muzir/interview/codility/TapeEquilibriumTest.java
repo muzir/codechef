@@ -1,11 +1,8 @@
 package org.muzir.interview.codility;
 
-import java.security.SecureRandom;
-
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.muzir.interview.codility.TapeEquilibrium;
 
 public class TapeEquilibriumTest {
 
