@@ -54,7 +54,6 @@ public class SumTrian {
 				InputStream in = new FileInputStream(path + "/SumTrian.txt");
 				return in;
 			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
