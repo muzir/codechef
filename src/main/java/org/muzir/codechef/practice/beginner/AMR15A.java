@@ -15,6 +15,7 @@ public class AMR15A {
 		InputStream in = createInputStream();
 		BufferedInputStream reader = new BufferedInputStream(in);
 		DataInputStream dis = new DataInputStream(reader);
+		readLine(dis);
 		String lineOfInput = readLine(dis);
 		String[] array = lineOfInput.split(" ");
 		System.out.println(printBattle(array));
