@@ -29,11 +29,11 @@ public class BRACKETS {
 	}
 
 	static String generateBalancedSequence(int maxBalanced, String character) {
-		String s = "";
+		StringBuilder s = new StringBuilder();
 		for (int i = 0; i < maxBalanced; i++) {
-			s = s + character;
+			s.append(character);
 		}
-		return s;
+		return s.toString();
 	}
 
 	private static InputStream createInputStream() throws FileNotFoundException {
@@ -55,7 +55,9 @@ public class BRACKETS {
 		int balance = 0;
 		int max_balance = 0;
 		char[] chars = s.toCharArray();
-		for (Character c : chars) {
+		int lenght = chars.length;
+		for (int i = 0; i < lenght; i++) {
+			char c = chars[i];
 			if (c == '(') {
 				balance = balance + 1;
 			}
