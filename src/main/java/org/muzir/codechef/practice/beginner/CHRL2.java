@@ -45,6 +45,7 @@ public class CHRL2 {
 		char[] input = s.toCharArray();
 		int lenght = input.length;
 		StringBuilder temp = new StringBuilder();
+		iterateIndex = 0;
 		for (int i = 0; i < lenght; i++) {
 			char c = input[i];
 			char nextChar = getNextChar();

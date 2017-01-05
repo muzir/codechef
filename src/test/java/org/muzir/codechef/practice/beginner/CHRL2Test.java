@@ -22,4 +22,17 @@ public class CHRL2Test {
 		assertEquals(1, CHRL2.solution(s));
 	}
 
+	@Test
+	public void test2() {
+		String s = "CHHHEEECC";
+		assertEquals(0, CHRL2.solution(s));
+	}
+
+	@Test
+	public void test3() {
+		String s = "CHHEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEECEEEF";
+		// String s = "CHEF";
+		assertEquals(1, CHRL2.solution(s));
+	}
+
 }
