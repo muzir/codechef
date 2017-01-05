@@ -41,8 +41,12 @@ public class CHRL2 {
 	}
 
 	public static int solution(String s) {
-		int counter = 0;
 		char[] input = s.toCharArray();
+		return moveMaximum(input);
+	}
+
+	private static int moveMaximum(char[] input) {
+		int counter = 0;
 		int lenght = input.length;
 		StringBuilder temp = new StringBuilder();
 		iterateIndex = 0;
@@ -51,6 +55,7 @@ public class CHRL2 {
 			char nextChar = getNextChar();
 			if (c == nextChar) {
 				temp.append(String.valueOf(c));
+				input[i] = ' ';
 				iterateIndex++;
 			}
 			if (temp.toString().equals("CHEF")) {
@@ -59,7 +64,10 @@ public class CHRL2 {
 				iterateIndex = 0;
 			}
 		}
-		return counter;
+		if (counter == 0) {
+			return counter;
+		}
+		return moveMaximum(input) + counter;
 	}
 
 	private static char getNextChar() {
