@@ -2,8 +2,11 @@ package org.muzir.codechef.longContest;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
+import java.util.TreeMap;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.Test;
@@ -99,19 +102,48 @@ public class CAPIMOVETest {
 		System.out.println("Milisecond:" + millis);
 	}
 
+	@Test
+	public void test7() {
+		@SuppressWarnings({ "unchecked", "rawtypes" })
+		Map<Integer, Integer> desSortedMap = new TreeMap(new Comparator() {
+			@Override
+			public int compare(Object param1, Object param2) {
+				Integer o1 = (Integer) param1;
+				Integer o2 = (Integer) param2;
+				return o2.compareTo(o1);
+			}
+		});
+		for (int i = 100000; i > 0; i--) {
+			desSortedMap.put(i, i);
+		}
+
+		for (Map.Entry<Integer, Integer> entry : desSortedMap.entrySet()) {
+			System.out.println(entry.getValue());
+		}
+
+	}
+
 	private void runCase(int input) {
 		HashMap<Integer, HashSet<Integer>> connectionMap = new HashMap<>();
 		StringBuilder populationStr = new StringBuilder();
 		long start1 = System.currentTimeMillis();
-		for (int i = 1; i < input; i++) {
-			CAPIMOVE.addConnectionMap(i + " " + ++i, connectionMap);
+		StringBuilder sb = new StringBuilder();
+
+		for (int k = 0; k < input - 2; k++) {
+			sb.append(input).append(" ");
+		}
+		sb.append(input - 3).append(" ").append(input - 2);
+		for (int i = 1; i <= input; i++) {
+			int f = i + 1;
+			CAPIMOVE.addConnectionMap(i + " " + f, connectionMap);
 			populationStr.append(i).append(" ");
 		}
 		long end1 = System.currentTimeMillis();
 		System.out.println("addConnectionMap:" + (end1 - start1));
+		System.out.println(populationStr.toString());
 		int[] populationIntArray = CAPIMOVE.getArrayOfString(populationStr.toString());
 		long start = System.currentTimeMillis();
-		CAPIMOVE.printCapital(populationIntArray, connectionMap);
+		assertEquals(sb.toString(), CAPIMOVE.printCapital(populationIntArray, connectionMap));
 		long end = System.currentTimeMillis();
 		System.out.println("printCapital:" + (end - start));
 	}

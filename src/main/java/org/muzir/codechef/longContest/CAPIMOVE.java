@@ -10,6 +10,8 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 import java.util.TreeMap;
 
 public class CAPIMOVE {
@@ -48,13 +50,12 @@ public class CAPIMOVE {
 
 	static int returnCapitalByV(int v, HashSet<Integer> connectionSet, int[] populationIntArray) {
 		int lenght = populationIntArray.length;
-		// int maxCounter = 0;
-		// int capitalIndex = 0;
 		int connectionSetSize = connectionSet.size();
 		if (connectionSetSize == lenght - 1) {
 			return 0;
 		}
-		for (Map.Entry<Integer, Integer> entry : desSortedMap.entrySet()) {
+		Set<Entry<Integer, Integer>> entrySet = desSortedMap.entrySet();
+		for (Map.Entry<Integer, Integer> entry : entrySet) {
 			int i = entry.getKey();
 			if (i != v && !connectionSet.contains(i)) {
 				return i;
