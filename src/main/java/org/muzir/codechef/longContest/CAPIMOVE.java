@@ -56,7 +56,7 @@ public class CAPIMOVE {
 		}
 		Set<Entry<Integer, Integer>> entrySet = desSortedMap.entrySet();
 		for (Map.Entry<Integer, Integer> entry : entrySet) {
-			int i = entry.getKey();
+			int i = entry.getValue();
 			if (i != v && !connectionSet.contains(i)) {
 				return i;
 			}
@@ -77,7 +77,7 @@ public class CAPIMOVE {
 			}
 		});
 		for (int k = 1; k <= lenght; k++) {
-			desSortedMap.put(k, populationIntArray[k - 1]);
+			desSortedMap.put(populationIntArray[k - 1], k);
 		}
 		for (int v = 1; v <= lenght; v++) {
 			HashSet<Integer> connectionSet = connectionMap.get(v);

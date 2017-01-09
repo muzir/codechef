@@ -2,6 +2,7 @@ package org.muzir.codechef.longContest;
 
 import static org.junit.Assert.assertEquals;
 
+import java.security.SecureRandom;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -24,6 +25,60 @@ public class CAPIMOVETest {
 		String populationStr = "5 10 15 20 25 30";
 		int[] populationIntArray = CAPIMOVE.getArrayOfString(populationStr);
 		assertEquals("6 6 6 2 6 5", CAPIMOVE.printCapital(populationIntArray, connectionMap));
+	}
+
+	@Test
+	public void test100() {
+		HashMap<Integer, HashSet<Integer>> connectionMap = new HashMap<>();
+		SecureRandom secureRandom = new SecureRandom();
+		StringBuilder population = new StringBuilder();
+		for (int i = 1; i <= 100; i++) {
+			int source = i;
+			int target = secureRandom.nextInt(100 - 1) + 1;
+			StringBuilder pairs = new StringBuilder();
+			pairs.append(source).append(" ").append(target);
+			CAPIMOVE.addConnectionMap(pairs.toString(), connectionMap);
+			CAPIMOVE.addConnectionMap(source + " 100", connectionMap);
+			CAPIMOVE.addConnectionMap(source + " 88", connectionMap);
+			CAPIMOVE.addConnectionMap(source + " 99", connectionMap);
+			CAPIMOVE.addConnectionMap(source + " 98", connectionMap);
+			population.append(secureRandom.nextInt(100)).append(" ");
+		}
+		int[] populationIntArray = CAPIMOVE.getArrayOfString(population.toString());
+		System.out.println(CAPIMOVE.printCapital(populationIntArray, connectionMap));
+		// assertEquals("6 6 6 2 6 5", CAPIMOVE.printCapital(populationIntArray, connectionMap));
+	}
+
+	@Test
+	public void test10() {
+		HashMap<Integer, HashSet<Integer>> connectionMap = new HashMap<>();
+		SecureRandom secureRandom = new SecureRandom();
+		StringBuilder population = new StringBuilder();
+		for (int i = 1; i <= 10; i++) {
+			int source = i;
+			int target = secureRandom.nextInt(10 - 1) + 1;
+			StringBuilder pairs = new StringBuilder();
+			pairs.append(source).append(" ").append(target);
+			CAPIMOVE.addConnectionMap(pairs.toString(), connectionMap);
+			population.append(secureRandom.nextInt(100)).append(" ");
+		}
+		int[] populationIntArray = CAPIMOVE.getArrayOfString(population.toString());
+		System.out.println(CAPIMOVE.printCapital(populationIntArray, connectionMap));
+	}
+
+	@Test
+	public void test10Detail() {
+		HashMap<Integer, HashSet<Integer>> connectionMap = new HashMap<>();
+		CAPIMOVE.addConnectionMap("1 4", connectionMap);
+		CAPIMOVE.addConnectionMap("2 5", connectionMap);
+		CAPIMOVE.addConnectionMap("3 4", connectionMap);
+		CAPIMOVE.addConnectionMap("5 6", connectionMap);
+		CAPIMOVE.addConnectionMap("7 2", connectionMap);
+		CAPIMOVE.addConnectionMap("8 9", connectionMap);
+		CAPIMOVE.addConnectionMap("10 2", connectionMap);
+		String populationStr = "16 82 89 38 5 64 23 9 62 81";
+		int[] populationIntArray = CAPIMOVE.getArrayOfString(populationStr);
+		assertEquals("3 3 2 2 3 3 3 3 3 3", CAPIMOVE.printCapital(populationIntArray, connectionMap));
 	}
 
 	@Test
