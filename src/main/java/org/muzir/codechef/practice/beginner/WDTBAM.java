@@ -37,6 +37,9 @@ public class WDTBAM {
 			}
 		}
 		int max = 0;
+		if (counter == lenght) {
+			max = amountArray[lenght];
+		}
 		for (int i = 0; i <= counter; i++) {
 			if (amountArray[i] > max) {
 				max = amountArray[i];

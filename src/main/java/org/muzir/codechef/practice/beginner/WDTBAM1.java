@@ -8,52 +8,73 @@ public class WDTBAM1 {
 
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = getBufferedReader();
-		int n, count, max = 0;
-		;
+		int n;
 		int[] a;
 		String s1, s2;
-
 		int numTestCases = Integer.valueOf(br.readLine());
 		for (int t = 0; t < numTestCases; t++) {
 			n = Integer.valueOf(br.readLine());
 			s1 = br.readLine();
 			s2 = br.readLine();
-			count = 0;
-			max = 0;
-			a = convertToIntArray(br.readLine(), n + 1);
-			for (int i = 0; i < n; i++) {
-				if (s1.charAt(i) == s2.charAt(i)) {
-					count++;
-				}
-			}
-			if (count == n) {
-				max = a[n];
-			} else {
-				for (int i = 0; i <= count; i++) {
-					if (max < a[i]) {
-						max = a[i];
-					}
-				}
-			}
-			System.out.println(max);
-
+			a = getArrayOfString(br.readLine());
+			System.out.println(findMaxWinAmount(a, s1, s2));
 		}
 		br.close();
-
 	}
 
-	private static int[] convertToIntArray(String s, int size) {
-		int[] arr = new int[size];
-		int i, index1 = 0, index2 = 0;
-		for (i = 0; i < s.length(); i++) {
-			if (s.charAt(i) == ' ') {
-				arr[index1++] = Integer.valueOf(s.substring(index2, i));
-				index2 = i + 1;
+	static int findMaxWinAmount(int[] amountArray, String correctAnswer, String chefAnswer) {
+		int counter = 0;
+		int n = correctAnswer.length();
+		for (int i = 0; i < n; i++) {
+			char a = correctAnswer.charAt(i);
+			char cA = chefAnswer.charAt(i);
+			if (a == cA) {
+				counter++;
 			}
 		}
-		arr[index1++] = Integer.valueOf(s.substring(index2, i));
+		int max = 0;
+		if (counter == n) {
+			max = amountArray[n];
+		} else {
+			for (int i = 0; i <= counter; i++) {
+				if (amountArray[i] > max) {
+					max = amountArray[i];
+				}
+			}
+		}
+		return max;
+	}
 
-		return arr;
+	// static int findAmount(int n, int[] a, String s1, String s2) {
+	// int count;
+	// int max;
+	// count = 0;
+	// max = 0;
+	// for (int i = 0; i < n; i++) {
+	// if (s1.charAt(i) == s2.charAt(i)) {
+	// count++;
+	// }
+	// }
+	// if (count == n) {
+	// max = a[n];
+	// } else {
+	// for (int i = 0; i <= count; i++) {
+	// if (max < a[i]) {
+	// max = a[i];
+	// }
+	// }
+	// }
+	// return max;
+	// }
+
+	static int[] getArrayOfString(String input) {
+		String[] arrayStr = input.split(" ");
+		int lenght = arrayStr.length;
+		int[] returnArray = new int[lenght];
+		for (int i = 0; i < lenght; i++) {
+			returnArray[i] = Integer.parseInt(arrayStr[i]);
+		}
+		return returnArray;
 	}
 
 	private static BufferedReader getBufferedReader() {
