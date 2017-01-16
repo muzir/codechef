@@ -6,6 +6,10 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.AbstractMap;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
 
 public class RESERVOI1 {
 	private static boolean isCodechefModeOn = false;
@@ -23,39 +27,61 @@ public class RESERVOI1 {
 			String[] strNM = readLine(dis).split(" ");
 			int n = Integer.parseInt(strNM[0]);
 			int m = Integer.parseInt(strNM[1]);
-			char[] reservoi = createReservoi(n, m, dis);
+			Map<Entry<Integer, Integer>, Character> reservoi = createReservoi(n, m, dis);
 			System.out.println(isReservoiStable(reservoi, n, m));
 		}
+		dis.close();
 	}
 
-	static String isReservoiStable(char[] reservoi, int n, int m) {
-		int length = reservoi.length;
-		for (int i = 0; i < length; i++) {
-			char c = reservoi[i];
-			if (isLeftExist(i, m, length)) {
-				char left = reservoi[i - 1];
-				if (isLeftNotStable(c, left)) {
-					return "no";
+	static Map<Entry<Integer, Integer>, Character> createReservoi(int n, int m, DataInputStream dis)
+			throws IOException {
+		Map<Entry<Integer, Integer>, Character> reservoi = new HashMap<>();
+		for (int i = 0; i < n; i++) {
+			String row = readLine(dis);
+			for (int j = 0; j < m; j++) {
+				char c = row.charAt(j);
+				Map.Entry<Integer, Integer> entry = new AbstractMap.SimpleEntry<Integer, Integer>(i, j);
+				reservoi.put(entry, c);
+			}
+		}
+		return reservoi;
+	}
+
+	static String isReservoiStable(Map<Entry<Integer, Integer>, Character> reservoi, int n, int m) {
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < m; j++) {
+				Map.Entry<Integer, Integer> entry = new AbstractMap.SimpleEntry<Integer, Integer>(i, j);
+				char current = reservoi.get(entry);
+				Map.Entry<Integer, Integer> entryLeft = new AbstractMap.SimpleEntry<Integer, Integer>(i, j - 1);
+				Character left = reservoi.get(entryLeft);
+				if (left != null) {
+					if (isLeftNotStable(current, left)) {
+						return "no";
+					}
+				}
+				Map.Entry<Integer, Integer> entryRight = new AbstractMap.SimpleEntry<Integer, Integer>(i, j + 1);
+				Character right = reservoi.get(entryRight);
+				if (right != null) {
+					if (isRightNotStable(current, right)) {
+						return "no";
+					}
+				}
+				Map.Entry<Integer, Integer> entryAbove = new AbstractMap.SimpleEntry<Integer, Integer>(i - 1, j);
+				Character above = reservoi.get(entryAbove);
+				if (above != null) {
+					if (isAboveNotStable(current, above)) {
+						return "no";
+					}
+				}
+				Map.Entry<Integer, Integer> entryBelow = new AbstractMap.SimpleEntry<Integer, Integer>(i + 1, j);
+				Character below = reservoi.get(entryBelow);
+				if (below != null) {
+					if (isBelowNotStable(current, below)) {
+						return "no";
+					}
 				}
 			}
-			if (isRightExist(i, m, length)) {
-				char right = reservoi[i + 1];
-				if (isRightNotStable(c, right)) {
-					return "no";
-				}
-			}
-			if (isAboveExist(i, m, length)) {
-				char above = reservoi[i - m];
-				if (isAboveNotStable(c, above)) {
-					return "no";
-				}
-			}
-			if (isBelowExist(i, m, length)) {
-				char below = reservoi[i + m];
-				if (isBelowNotStable(c, below)) {
-					return "no";
-				}
-			}
+
 		}
 		return "yes";
 	}
@@ -102,50 +128,6 @@ public class RESERVOI1 {
 			return left == WATER ? true : false;
 		}
 		return false;
-	}
-
-	private static boolean isBelowExist(int i, int m, int length) {
-		return isExist(i + m, length);
-	}
-
-	private static boolean isAboveExist(int i, int m, int length) {
-		return isExist(i - m, length);
-	}
-
-	private static boolean isRightExist(int i, int m, int length) {
-		if ((i + 1) % m == 0) {
-			return false;
-		}
-		return isExist(i + 1, length);
-	}
-
-	private static boolean isLeftExist(int i, int m, int length) {
-		if (i % m == 0) {
-			return false;
-		}
-		return isExist(i - 1, length);
-	}
-
-	private static boolean isExist(int i, int length) {
-		if (0 <= i && i < length) {
-			return true;
-		}
-		return false;
-	}
-
-	static char[] createReservoi(int n, int m, DataInputStream dis) throws IOException {
-		int lenght = n * m;
-		char[] input = new char[lenght];
-		int counter = 0;
-		for (int i = 0; i < n; i++) {
-			String row = readLine(dis);
-			for (int j = 0; j < m; j++) {
-				char c = row.charAt(j);
-				input[counter] = c;
-				counter++;
-			}
-		}
-		return input;
 	}
 
 	private static InputStream createInputStream() throws FileNotFoundException {

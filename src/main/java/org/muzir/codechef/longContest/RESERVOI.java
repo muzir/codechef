@@ -89,7 +89,7 @@ public class RESERVOI {
 	}
 
 	static boolean isRightNotStable(char c, char right) {
-		return isLeftNotStable(c, right);
+		return isLeftNotStable(right, c);
 	}
 
 	private static boolean isLeftNotStable(char c, char left) {
