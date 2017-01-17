@@ -13,6 +13,7 @@ public class RESERVOI {
 	private static final char WATER = 'W';
 	private static final char BRICK = 'B';
 	private static final char AIR = 'A';
+	private static final char EMPTY = 0;
 
 	public static void main(String[] args) throws IOException {
 		InputStream in = createInputStream();
@@ -32,32 +33,60 @@ public class RESERVOI {
 		int length = reservoi.length;
 		for (int i = 0; i < length; i++) {
 			char c = reservoi[i];
-			if (isLeftExist(i, m, length)) {
-				char left = reservoi[i - 1];
-				if (isLeftNotStable(c, left)) {
-					return "no";
-				}
+			char left = getLeft(i, m, reservoi, length);
+			if (isLeftNotStable(c, left)) {
+				// System.out.println("Left No:" + i);
+				return "no";
 			}
-			if (isRightExist(i, m, length)) {
-				char right = reservoi[i + 1];
-				if (isRightNotStable(c, right)) {
-					return "no";
-				}
+			char right = getRight(i, m, reservoi, length);
+			if (isRightNotStable(c, right)) {
+				// System.out.println("Right No:" + i);
+				return "no";
 			}
-			if (isAboveExist(i, m, length)) {
-				char above = reservoi[i - m];
-				if (isAboveNotStable(c, above)) {
-					return "no";
-				}
+			char above = getAbove(i, m, reservoi, length);
+			if (isAboveNotStable(c, above)) {
+				// System.out.println("above No:" + i);
+				return "no";
 			}
-			if (isBelowExist(i, m, length)) {
-				char below = reservoi[i + m];
-				if (isBelowNotStable(c, below)) {
-					return "no";
-				}
+			char below = getBelow(i, m, reservoi, length);
+			if (isBelowNotStable(c, below)) {
+				// System.out.println("below No:" + i);
+				return "no";
 			}
 		}
 		return "yes";
+	}
+
+	private static char getBelow(int i, int m, char[] reservoi, int length) {
+		char below = EMPTY;
+		if (isBelowExist(i, m, length)) {
+			below = reservoi[i + m];
+		}
+		return below;
+	}
+
+	private static char getAbove(int i, int m, char[] reservoi, int length) {
+		char above = EMPTY;
+		if (isAboveExist(i, m, length)) {
+			above = reservoi[i - m];
+		}
+		return above;
+	}
+
+	private static char getRight(int i, int m, char[] reservoi, int length) {
+		char right = EMPTY;
+		if (isRightExist(i, m, length)) {
+			right = reservoi[i + 1];
+		}
+		return right;
+	}
+
+	private static char getLeft(int i, int m, char[] reservoi, int length) {
+		char left = EMPTY;
+		if (isLeftExist(i, m, length)) {
+			left = reservoi[i - 1];
+		}
+		return left;
 	}
 
 	private static boolean isBelowNotStable(char c, char below) {
@@ -65,7 +94,7 @@ public class RESERVOI {
 		case WATER:
 			return below != BRICK ? true : false;
 		case BRICK:
-			return below != BRICK ? true : false;
+			return below != EMPTY && below != BRICK ? true : false;
 		case AIR:
 			return false;
 		default:
@@ -77,11 +106,11 @@ public class RESERVOI {
 	private static boolean isAboveNotStable(char c, char above) {
 		switch (c) {
 		case WATER:
-			return above != AIR ? true : false;
+			return above != EMPTY && above != AIR ? true : false;
 		case BRICK:
 			return false;
 		case AIR:
-			return above != AIR ? true : false;
+			return above != EMPTY && above != AIR ? true : false;
 		default:
 			break;
 		}
@@ -97,7 +126,7 @@ public class RESERVOI {
 		case WATER:
 			return left != BRICK ? true : false;
 		case BRICK:
-			break;
+			return false;
 		case AIR:
 			return left == WATER ? true : false;
 		}
