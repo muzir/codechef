@@ -92,6 +92,9 @@ public class RESERVOI {
 	private static boolean isBelowNotStable(char c, char below) {
 		switch (c) {
 		case WATER:
+			if(below==WATER){
+				return false;
+			}
 			return below != BRICK ? true : false;
 		case BRICK:
 			return below != EMPTY && below != BRICK ? true : false;
@@ -106,7 +109,7 @@ public class RESERVOI {
 	private static boolean isAboveNotStable(char c, char above) {
 		switch (c) {
 		case WATER:
-			return above != EMPTY && above != AIR ? true : false;
+			return above != EMPTY && above != AIR && above != WATER ? true : false;
 		case BRICK:
 			return false;
 		case AIR:
@@ -118,13 +121,21 @@ public class RESERVOI {
 	}
 
 	static boolean isRightNotStable(char c, char right) {
-		return isLeftNotStable(right, c);
+		switch (c) {
+		case WATER:
+			return right != BRICK && right != WATER ? true : false;
+		case BRICK:
+			return false;
+		case AIR:
+			return right == WATER ? true : false;
+		}
+		return false;
 	}
 
 	private static boolean isLeftNotStable(char c, char left) {
 		switch (c) {
 		case WATER:
-			return left != BRICK ? true : false;
+			return left != BRICK && left != WATER ? true : false;
 		case BRICK:
 			return false;
 		case AIR:

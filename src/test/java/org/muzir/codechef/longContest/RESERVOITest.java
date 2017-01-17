@@ -89,4 +89,9 @@ public class RESERVOITest {
 		String input = "BWBBBB";
 		assertEquals("yes", RESERVOI.isReservoiStable(input.toCharArray(), 2, 3));
 	}
+	@Test
+	public void test12() {
+		String input = "BWWBBBBB";
+		assertEquals("yes", RESERVOI.isReservoiStable(input.toCharArray(), 2, 4));
+	}
 }
