@@ -39,13 +39,17 @@ public class LCOLLIS {
 					tempCounter++;
 				}
 			}
-			if (tempCounter == 2) {
-				collison++;
-			} else if (tempCounter > 2) {
-				collison = collison + tempCounter;
-			}
+			collison = collison + calculateColision(tempCounter);
 		}
 		return collison;
+	}
+
+	private static int calculateColision(int tempCounter) {
+		if (tempCounter < 2) {
+			return 0;
+		}
+		return (tempCounter * (tempCounter - 1)) / 2;
+
 	}
 
 	private static InputStream createInputStream() throws FileNotFoundException {
