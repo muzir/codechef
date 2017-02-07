@@ -21,6 +21,7 @@ public class ALTARAY {
 			int[] a = getArrayOfString(line);
 			System.out.println(solution(a));
 		}
+		dis.close();
 	}
 
 	static String solution(int[] a) {
