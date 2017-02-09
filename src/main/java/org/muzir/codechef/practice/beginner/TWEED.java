@@ -14,6 +14,9 @@ import java.io.InputStream;
 public class TWEED {
 	private static boolean isCodechefModeOn = false;
 
+	private static final String DEE = "Dee";
+	private static final String DUM = "Dum";
+
 	public static void main(String[] args) throws IOException {
 		InputStream in = createInputStream();
 		BufferedInputStream reader = new BufferedInputStream(in);
@@ -22,15 +25,16 @@ public class TWEED {
 		for (int i = 0; i < testCaseCount; i++) {
 			String[] nStartingPlayer = readLine(dis).split(" ");
 			int param = Integer.parseInt(readLine(dis).split(" ")[0]);
+			String startingPlayer = nStartingPlayer[1];
 			int n = Integer.parseInt(nStartingPlayer[0]);
 			if (n == 1) {
-				if (param % 2 == 0) {
-					System.out.println("Dee");
+				if (DEE.equals(startingPlayer) && param % 2 == 0) {
+					System.out.println(DEE);
 				} else {
-					System.out.println("Dum");
+					System.out.println(DUM);
 				}
 			} else {
-				System.out.println("Dum");
+				System.out.println(DUM);
 			}
 
 		}
