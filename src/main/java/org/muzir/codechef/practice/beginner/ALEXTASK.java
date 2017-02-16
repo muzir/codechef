@@ -7,8 +7,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.List;
 
 public class ALEXTASK {
 	private static boolean isCodechefModeOn = false;
@@ -28,53 +26,30 @@ public class ALEXTASK {
 	}
 
 	static String solution(int[] a) {
-		boolean flag = true;
 		int lenght = a.length;
-		int counter = 0;
-		int i = 2;
-		List<Integer> listDivider = new ArrayList<>();
-		while (counter != 2) {
-			if (!flag) {
-				i = i+1;
+		BigInteger ans = lcm(a[0], a[1]);
+		for (int i = 0; i < lenght; i++) {
+			for (int j = i + 1; j < lenght; j++) {
+				int param1 = a[i];
+				int param2 = a[j];
+				ans = ans.min(lcm(param1, param2));
 			}
-			flag = false;
-			for (int j = 0; j < lenght; j++) {
-				int n = a[j];
-				if(n==1){
-					counter++;
-					a[j] = -1;
-					continue;
-				}
-				if (n % i == 0) {
-					listDivider.add(i);
-					int division = n / i;
-					if (division == 1) {
-						counter = counter + 1;
-						if (counter == 2) {
-							break;
-						}
-						a[j] = -1;
-					} else {
-						a[j] = division;
-						flag = true;
-					}
-					
-				} // end of outer if
-			} // end of for
-		} // end of while
-		BigInteger listResult = calculateListResult(listDivider);
-		return listResult.toString();
+		}
+		return ans.toString();
 	}
 
-	private static BigInteger calculateListResult(List<Integer> listDivider) {
-		if (listDivider == null || listDivider.isEmpty()) {
-			return BigInteger.ONE;
+	private static BigInteger lcm(int i, int j) {
+		BigInteger x = BigInteger.valueOf(i);
+		BigInteger y = BigInteger.valueOf(j);
+		BigInteger z = x.multiply(y);
+		return z.divide(BigInteger.valueOf(gcd(i, j)));
+	}
+
+	private static int gcd(int a, int b) {
+		if (b == 0) {
+			return a;
 		}
-		BigInteger result = BigInteger.ONE;
-		for (Integer i : listDivider) {
-			result = result.multiply(BigInteger.valueOf(i));
-		}
-		return result;
+		return gcd(b, a % b);
 	}
 
 	static int[] getArrayOfString(String input) {
