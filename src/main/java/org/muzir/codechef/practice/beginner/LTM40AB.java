@@ -13,8 +13,8 @@ public class LTM40AB {
         int testCaseCount = Integer.parseInt(readLine(dis));
         for (int i = 0; i < testCaseCount; i++) {
             String line = readLine(dis);
-            int[] params= getArrayOfString(line);
-            System.out.println(solution(params[0],params[1],params[2],params[3]));
+            int[] params = getArrayOfString(line);
+            System.out.println(solution(params[0], params[1], params[2], params[3]));
         }
     }
 
@@ -29,17 +29,18 @@ public class LTM40AB {
     }
 
     public static long solution(int a, int b, int c, int d) {
-        long accumulator=0;
-        for(int y=c;y<=d;y++){
-            for(int x=a;x<=b;x++){
-                if(y>x){
-                    accumulator=(d-y)+1+accumulator;
+        long accumulator = 0;
+        for (int y = c; y <= d; y++) {
+            for (int x = a; x <= b; x++) {
+                if (y > x) {
+                    accumulator = (d - y) + 1 + accumulator;
                     a++;
                 }
             }
         }
         return accumulator;
     }
+
     private static InputStream createInputStream() throws FileNotFoundException {
         if (isCodechefModeOn) {
             return System.in;
@@ -49,7 +50,6 @@ public class LTM40AB {
         return in;
 
     }
-
     @SuppressWarnings("deprecation")
     private static String readLine(DataInputStream reader) throws IOException {
         return reader.readLine();
