@@ -29,7 +29,7 @@ public class SEBIHWY {
 	}
 
 	static void solution(int s,int sg,int fg,int d,int t) {
-		double otherCarSpeed=findOtherCarSpeed(s,d,t);		
+		double otherCarSpeed=findOtherCarSpeed(s,d,t);
 		double sebiDiff=Math.abs(otherCarSpeed-sg);
 		double fatherDiff=Math.abs(otherCarSpeed-fg);
 		if(sebiDiff==fatherDiff){
