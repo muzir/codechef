@@ -20,10 +20,10 @@ public class PERPALIN {
 	}
 
 	static String constructPeriodicPolindrom(int n, int p) {
-		if (n == 1 || p == 1) {
+		if (n < 2) {
 			return IMPOSSIBLE;
 		}
-		if (n == 2) {
+		if (p < 2) {
 			return IMPOSSIBLE;
 		}
 		if (n % p != 0) {
@@ -39,7 +39,7 @@ public class PERPALIN {
 
 	private static StringBuilder returnBase(int p) {
 		StringBuilder result = new StringBuilder("a");
-		for (int i = 1; i < p-1; i++) {
+		for (int i = 1; i < p - 1; i++) {
 			result.append("b");
 		}
 		result.append("a");
@@ -67,6 +67,5 @@ public class PERPALIN {
 		}
 		BufferedReader br = new BufferedReader(isr);
 		return br;
-
 	}
 }
