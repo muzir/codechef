@@ -28,55 +28,53 @@ public class GIT01 {
 	}
 
 	static int calculateMinCost(String[] matrix) {
+		return Math.min(calculateFirstPattern(matrix), calculateSecondPattern(matrix));
+	}
+
+	private static int calculateFirstPattern(String[] matrix) {
+		int length = matrix.length;
 		int accumulator = 0;
-		int lenght = matrix.length;
-		for (int i = 0; i < lenght; i++) {
-			accumulator = accumulator + calculateChar(matrix[i]);
+		for (int i = 0; i < length; i++) {
+			String line = matrix[i];
+			int lineLenght = line.length();
+			for (int j = 0; j < lineLenght; j++) {
+				char c = line.charAt(j);
+				if ((i + j) % 2 == 0) {
+					if (c == 'G') {
+						accumulator = accumulator + 3;
+					}
+				} else {
+					if (c == 'R') {
+						accumulator = accumulator + 5;
+					}
+				}
+
+			}
 		}
 		return accumulator;
 	}
 
-	private static int calculateChar(String line) {
-		int evenR = 0;
-		int evenG = 0;
-		int oddR = 0;
-		int oddG = 0;
+	private static int calculateSecondPattern(String[] matrix) {
+		int length = matrix.length;
+		int accumulator = 0;
+		for (int i = 0; i < length; i++) {
+			String line = matrix[i];
+			int lineLenght = line.length();
+			for (int j = 0; j < lineLenght; j++) {
+				char c = line.charAt(j);
+				if ((i + j) % 2 == 0) {
+					if (c == 'R') {
+						accumulator = accumulator + 5;
+					}
+				} else {
+					if (c == 'G') {
+						accumulator = accumulator + 3;
+					}
+				}
 
-		for (int i = 0; i < line.length(); i++) {
-			char c = line.charAt(i);
-			if (c == 'R') {
-				if (isEven(i)) {
-					evenR++;
-				} else {
-					oddR++;
-				}
-			} else if (c == 'G') {
-				if (isEven(i)) {
-					evenG++;
-				} else {
-					oddG++;
-				}
 			}
 		}
-		if (evenG == evenR) {
-			if (oddG == oddR) {
-				return 0;
-			} else if (oddG > oddR) {
-				return oddR * 5 + evenG * 3;
-			} else {
-				return oddG * 3 + evenR * 5;
-			}
-		}
-		if (evenG > evenR) {
-			return evenR * 5 + oddG * 3;
-		} else {
-			return oddR * 5 + evenG * 3;
-		}
-	}
-
-
-	static boolean isEven(int n) {
-		return n % 2 == 0;
+		return accumulator;
 	}
 
 	private static BufferedReader createInputStream() throws FileNotFoundException {

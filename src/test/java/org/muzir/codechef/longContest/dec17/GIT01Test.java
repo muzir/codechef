@@ -58,6 +58,6 @@ public class GIT01Test {
 		String[] arg = {"RGRRGRGRGRG",
 				        "GRGRGRGRGRG"
 		};
-		assertEquals(27, GIT01.calculateMinCost(arg));
+		assertEquals(32, GIT01.calculateMinCost(arg));
 	}
 }
