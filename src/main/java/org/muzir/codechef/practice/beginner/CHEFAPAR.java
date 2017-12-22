@@ -2,37 +2,37 @@ package org.muzir.codechef.practice.beginner;
 
 import java.io.*;
 
-public class CHEFROUT {
+public class CHEFAPAR {
 	private static boolean isCodechefModeOn = false;
-	static final String no = "no";
-	static final String yes = "yes";
 
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = createInputStream();
 		int testCaseCount = Integer.parseInt(br.readLine());
 		for (int i = 0; i < testCaseCount; i++) {
-			System.out.println(checkChefDailyRoutine(br.readLine()));
+			br.readLine();
+			System.out.println(calculateDues(br.readLine()));
 		}
 		br.close();
 	}
 
-	static String checkChefDailyRoutine(String dailyRoutine) {
-		char current = dailyRoutine.charAt(0);
-		int lastIndex = dailyRoutine.length() - 1;
-		for (int i = 0; i < lastIndex; i++) {
-			char next = dailyRoutine.charAt(i + 1);
-			if (current == 'E') {
-				if (next == 'C') {
-					return no;
-				}
-			} else if (current == 'S') {
-				if (next == 'C' || next == 'E') {
-					return no;
+	static int calculateDues(String s) {
+		String[] lineArray = s.split(" ");
+		int length = lineArray.length;
+		int acc = 0;
+		for (int i = 0; i < length; i++) {
+			int current = Integer.parseInt(lineArray[i]);
+			if (current == 0) {
+				acc = acc + 1100;
+			}
+			int leftIndex = i - 1;
+			if (current == 1 && leftIndex >= 0) {
+				int left = Integer.parseInt(lineArray[leftIndex]);
+				if (left == 0) {
+					acc = acc + 100;
 				}
 			}
-			current = next;
 		}
-		return yes;
+		return acc;
 	}
 
 	private static BufferedReader createInputStream() throws FileNotFoundException {
@@ -41,7 +41,7 @@ public class CHEFROUT {
 			isr = new InputStreamReader(System.in);
 		} else {
 			String path = System.getProperty("user.dir");
-			String filePath = path + "/CHEFROUT.txt";
+			String filePath = path + "/CHEFAPAR.txt";
 			FileInputStream fis = new FileInputStream(filePath);
 			isr = new InputStreamReader(fis);
 		}
