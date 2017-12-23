@@ -19,17 +19,16 @@ public class CHEFAPAR {
 		String[] lineArray = s.split(" ");
 		int length = lineArray.length;
 		int acc = 0;
+		boolean isLate = false;
 		for (int i = 0; i < length; i++) {
 			int current = Integer.parseInt(lineArray[i]);
 			if (current == 0) {
-				acc = acc + 1100;
+				acc = acc + 1000;
+				isLate = true;
+
 			}
-			int leftIndex = i - 1;
-			if (current == 1 && leftIndex >= 0) {
-				int left = Integer.parseInt(lineArray[leftIndex]);
-				if (left == 0) {
-					acc = acc + 100;
-				}
+			if (isLate) {
+				acc = acc + 100;
 			}
 		}
 		return acc;
