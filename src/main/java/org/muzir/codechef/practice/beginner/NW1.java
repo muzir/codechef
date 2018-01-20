@@ -19,20 +19,19 @@ public class NW1 {
 		days.put("sun", 6);
 	}
 
-	private static int[] dayCounts = {4, 4, 4, 4, 4, 4, 4};
 
 	public static void main(String[] args) throws IOException {
-
 		BufferedReader br = createInputStream();
 		int testCaseCount = Integer.parseInt(br.readLine());
 		for (int i = 0; i < testCaseCount; i++) {
+			int[] dayCounts = {4, 4, 4, 4, 4, 4, 4};
 			String[] ws = br.readLine().split(" ");
 			int w = Integer.parseInt(ws[0]);
 			String day = ws[1];
 			int dayIndex = days.get(day);
 			int remaining = w - 28;
 			for (int j = 0; j < remaining; j++) {
-				dayCounts[dayIndex] = 5;
+				dayCounts[dayIndex % 7] = 5;
 				dayIndex++;
 			}
 			int lenght = dayCounts.length;
