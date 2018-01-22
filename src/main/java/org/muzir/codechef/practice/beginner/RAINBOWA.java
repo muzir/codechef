@@ -19,20 +19,22 @@ public class RAINBOWA {
 
 	static String checkRainbowArray(String line, int lenght) {
 		String[] sArray = line.split(" ");
+		int pivotIndex = 0;
 		if (lenght % 2 == 0) {
-			return no;
+			pivotIndex = (lenght) / 2;
+		} else {
+			pivotIndex = (lenght - 1) / 2;
 		}
-		int pivotIndex = (lenght - 1) / 2;
 		if (Integer.parseInt(sArray[pivotIndex]) != 7) {
 			return no;
 		}
-		int lastIndex = lenght - 1;
 		int current = Integer.parseInt(sArray[0]);
 		if (current != 1) {
 			return no;
 		}
 		int i = 0;
-		while (current != 7) {
+		int lastIndex = lenght - 1;
+		while (i != pivotIndex) {
 			int diff = Integer.parseInt(sArray[i + 1]) - Integer.parseInt(sArray[i]);
 			if (diff != 0
 					&& diff != 1) {
@@ -42,11 +44,6 @@ public class RAINBOWA {
 				return no;
 			}
 			i++;
-			current = Integer.parseInt(sArray[i]);
-		}
-		int check = 2 * i + 1;
-		if (check != lenght) {
-			return no;
 		}
 		return yes;
 	}
