@@ -20,10 +20,10 @@ public class KFIB {
 		if (n - k == 1) {
 			return k;
 		}
-		if (k >= n) {
+		if (n <= k) {
 			return 1;
 		}
-		return (calculateKthFibonacci(n - 1, k) + n - k + 2) % MOD_CONS;
+		return (2 * calculateKthFibonacci(n - 1, k) - 1) % MOD_CONS;
 	}
 
 	private static BufferedReader createInputStream() throws FileNotFoundException {
