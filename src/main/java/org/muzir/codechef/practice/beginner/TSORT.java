@@ -1,21 +1,9 @@
 package org.muzir.codechef.practice.beginner;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedWriter;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStreamWriter;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+import java.io.*;
 import java.util.Arrays;
-import java.util.Date;
 
-/**
- * @author muzir
- *
- */
+
 public class TSORT {
 
 	private final static byte NL = 10;// new line
@@ -24,7 +12,6 @@ public class TSORT {
 	private final static int SIZE = 1;
 
 	public static void main(String[] args) throws IOException {
-		long beforeRead = System.currentTimeMillis();
 		String filePath = System.getProperty("user.dir");
 		InputStream fileInput = new FileInputStream(filePath + "/TSORT.txt");
 		BufferedInputStream reader = new BufferedInputStream(fileInput);
@@ -43,29 +30,10 @@ public class TSORT {
 		}
 		out.flush();
 		out.close();
-		long afterSort = System.currentTimeMillis();
-		printTimeDiff(afterSort - beforeRead);
 	}
-
-	private static void printTimeDiff(long timeDiff) {
-		Date date = new Date(timeDiff);
-		DateFormat formatter = new SimpleDateFormat("mm:ss:SSS");
-		String dateFormatted = formatter.format(date);
-		System.err.println(dateFormatted);
-	}
-
-	//
-	// private static void writeSortedArray(String filePath, int[] numbers)
-	// throws FileNotFoundException, UnsupportedEncodingException {
-	// PrintWriter writer = new PrintWriter(filePath + "/TSORTED.txt", "UTF-8");
-	// for (int i : numbers) {
-	// writer.println(i + 0);
-	// }
-	// writer.close();
-	// }
 
 	private static String readByte(BufferedInputStream reader,
-			String accumulator) throws IOException {
+								   String accumulator) throws IOException {
 		byte[] container = new byte[SIZE];
 		reader.read(container);
 		byte byteRead = container[0];
