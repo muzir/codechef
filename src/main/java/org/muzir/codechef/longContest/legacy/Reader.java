@@ -1,4 +1,4 @@
-package org.muzir.codechef.longContest;
+package org.muzir.codechef.longContest.legacy;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
