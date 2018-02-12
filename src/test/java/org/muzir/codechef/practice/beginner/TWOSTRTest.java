@@ -8,17 +8,6 @@ public class TWOSTRTest {
 	private static String NO = "No";
 
 	@Test
-	public void testIsAllowedCharacter() {
-		Assert.assertEquals(Boolean.TRUE, TWOSTR.isAllowedCharacter('a'));
-		Assert.assertEquals(Boolean.TRUE, TWOSTR.isAllowedCharacter('b'));
-		Assert.assertEquals(Boolean.TRUE, TWOSTR.isAllowedCharacter('z'));
-		Assert.assertEquals(Boolean.TRUE, TWOSTR.isAllowedCharacter('?'));
-		Assert.assertEquals(Boolean.FALSE, TWOSTR.isAllowedCharacter('/'));
-		Assert.assertEquals(Boolean.FALSE, TWOSTR.isAllowedCharacter('1'));
-		Assert.assertEquals(Boolean.FALSE, TWOSTR.isAllowedCharacter('2'));
-	}
-
-	@Test
 	public void testIsMatch() {
 		Assert.assertEquals(YES, TWOSTR.isMatch("s?or?", "sco??"));
 		Assert.assertEquals(YES, TWOSTR.isMatch("s????????", "sormane??"));
@@ -29,11 +18,11 @@ public class TWOSTRTest {
 		Assert.assertEquals(NO, TWOSTR.isMatch("stor?", "sco???"));
 		Assert.assertEquals(NO, TWOSTR.isMatch("asd", "dasdas"));
 		Assert.assertEquals(NO, TWOSTR.isMatch("S?or?", "sco??"));
-		Assert.assertEquals(NO, TWOSTR.isMatch("S?or?", "Sco??"));
+		Assert.assertEquals(YES, TWOSTR.isMatch("s?or?", "sco??"));
 		Assert.assertEquals(NO, TWOSTR.isMatch("s?or?", "Sco??"));
-		Assert.assertEquals(NO, TWOSTR.isMatch("s", "s"));
-		Assert.assertEquals(NO, TWOSTR.isMatch("sssssssssssss", "sssssssssssss"));
-		Assert.assertEquals(NO, TWOSTR.isMatch("sssssssssss??", "sssssssssss??"));
+		Assert.assertEquals(YES, TWOSTR.isMatch("s", "s"));
+		Assert.assertEquals(YES, TWOSTR.isMatch("ssssssssss", "ssssssssss"));
+		Assert.assertEquals(YES, TWOSTR.isMatch("ssssssss??", "ssssssss??"));
 	}
 
 	@Test
@@ -44,6 +33,4 @@ public class TWOSTRTest {
 		Assert.assertTrue(TWOSTR.isEqualOrWildChar('?', '?'));
 		Assert.assertFalse(TWOSTR.isEqualOrWildChar('a', 't'));
 	}
-
-	
 }
