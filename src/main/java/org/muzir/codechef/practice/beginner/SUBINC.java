@@ -1,71 +1,60 @@
 package org.muzir.codechef.practice.beginner;
 
-import java.io.BufferedInputStream;
-import java.io.DataInputStream;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.math.BigDecimal;
+import java.io.*;
+import java.util.Arrays;
 
 public class SUBINC {
 	private static boolean isCodechefModeOn = false;
 
 	public static void main(String[] args) throws IOException {
-		InputStream in = createInputStream();
-		BufferedInputStream reader = new BufferedInputStream(in);
-		DataInputStream dis = new DataInputStream(reader);
-		int testCaseCount = Integer.parseInt(readLine(dis));
+		BufferedReader br = createInputStream();
+		int testCaseCount = Integer.parseInt(br.readLine());
 		for (int i = 0; i < testCaseCount; i++) {
-			int n = Integer.parseInt(readLine(dis));
-			String parameters = readLine(dis);
-			int[] array = getArrayOfString(parameters);
-			System.out.println(calculateSubArrays(array));
+			br.readLine();
+			String parameters = br.readLine();
+			System.out.println(calculateSubArrays(parameters));
 		}
+		br.close();
 	}
 
-	static int[] getArrayOfString(String input) {
-		String[] arrayStr = input.split(" ");
-		int lenght = arrayStr.length;
-		int[] returnArray = new int[lenght];
-		for (int i = 0; i < lenght; i++) {
-			returnArray[i] = Integer.parseInt(arrayStr[i]);
-		}
-		return returnArray;
-	}
 
-	static int calculateSubArrays(int[] n) {
+	static int calculateSubArrays(String parameters) {
+		int[] n = Arrays.stream(parameters.split(" "))
+				.mapToInt(Integer::parseInt)
+				.toArray();
 		int lenght = n.length;
 		int counter = 0;
 		boolean isSubArrayStart = true;
-		for (int i = 1; i <= lenght - 1; i++) {
-			int current = n[i - 1];
-			int next = n[i];
-			if (next >= current) {
+		for (int i = 1; i < lenght; i++) {
+			counter++;
+			int current = n[i];
+			int prev = n[i - 1];
+			if (current >= prev) {
 				if (isSubArrayStart) {
-					counter = counter + 1;
+					counter++;
 					isSubArrayStart = false;
 				}
 			} else {
 				isSubArrayStart = true;
 			}
 		}
-		return counter + lenght;
+		counter++;
+		return counter;
 	}
 
-	private static InputStream createInputStream() throws FileNotFoundException {
+	private static BufferedReader createInputStream() throws FileNotFoundException {
+		InputStreamReader isr = null;
 		if (isCodechefModeOn) {
-			return System.in;
+			isr = new InputStreamReader(System.in);
+		} else {
+			String path = System.getProperty("user.dir");
+			String filePath = path + "/SUBINC.txt";
+			FileInputStream fis = new FileInputStream(filePath);
+			isr = new InputStreamReader(fis);
 		}
-		String path = System.getProperty("user.dir");
-		InputStream in = new FileInputStream(path + "/SUBINC.txt");
-		return in;
-
+		BufferedReader br = new BufferedReader(isr);
+		return br;
 	}
 
-	@SuppressWarnings("deprecation")
-	private static String readLine(DataInputStream reader) throws IOException {
-		return reader.readLine();
-	}
 
 }
