@@ -1,12 +1,6 @@
 package org.muzir.codechef.practice.beginner;
 
-import java.io.BufferedInputStream;
-import java.io.DataInputStream;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.text.DecimalFormat;
+import java.io.*;
 import java.util.Arrays;
 
 public class SIMPSTAT {
@@ -14,62 +8,54 @@ public class SIMPSTAT {
 	private static boolean isCodechefModeOn = false;
 
 	public static void main(String[] args) throws IOException {
-		InputStream in = createInputStream();
-		BufferedInputStream reader = new BufferedInputStream(in);
-		DataInputStream dis = new DataInputStream(reader);
-		int testCaseCount = Integer.parseInt(readLine(dis));
+		BufferedReader br = createInputStream();
+		int testCaseCount = Integer.parseInt(br.readLine());
 		for (int i = 0; i < testCaseCount; i++) {
-			String[] nK = readLine(dis).split(" ");
+			String[] nK = br.readLine().split(" ");
 			int k = Integer.parseInt(nK[1]);
-			String line = readLine(dis);
-			int[] a = getArrayOfString(line);
-			System.out.println(solution(a, k));
+			String line = br.readLine();
+			System.out.println(solution(line, k));
 		}
-		dis.close();
+		br.close();
 	}
 
-	static String solution(int[] a, int k) {
+	static String solution(String line, int k) {
+		int[] a = Arrays.stream(line.split(" "))
+				.mapToInt(Integer::parseInt)
+				.toArray();
 		int lenght = a.length;
 		double x = lenght;
 		if (k != 0) {
 			Arrays.sort(a);
-			int lowIndex = k - 1;
 			int highIndex = lenght - k;
-			a[lowIndex] = 0;
-			a[highIndex] = 0;
-			x = lenght - 2;
+			for (int i = 0; i < k; i++) {
+				a[i] = 0;
+			}
+			for (int i = highIndex; i < lenght; i++) {
+				a[i] = 0;
+			}
+			x = lenght - (2 * k);
 		}
 		double sum = 0;
 		for (int i = 0; i < lenght; i++) {
 			sum = sum + a[i];
 		}
-		DecimalFormat df = new DecimalFormat("#0.000000");
-		double result = (double) sum / (double) x;
-		return df.format(result);
+
+		double result = sum / x;
+		return String.format("%.8f", result);
 	}
 
-	static int[] getArrayOfString(String input) {
-		String[] arrayStr = input.split(" ");
-		int lenght = arrayStr.length;
-		int[] returnArray = new int[lenght];
-		for (int i = 0; i < lenght; i++) {
-			returnArray[i] = Integer.parseInt(arrayStr[i]);
-		}
-		return returnArray;
-	}
-
-	private static InputStream createInputStream() throws FileNotFoundException {
+	private static BufferedReader createInputStream() throws FileNotFoundException {
+		InputStreamReader isr = null;
 		if (isCodechefModeOn) {
-			return System.in;
+			isr = new InputStreamReader(System.in);
+		} else {
+			String path = System.getProperty("user.dir");
+			String filePath = path + "/SIMPSTAT.txt";
+			FileInputStream fis = new FileInputStream(filePath);
+			isr = new InputStreamReader(fis);
 		}
-		String path = System.getProperty("user.dir");
-		InputStream in = new FileInputStream(path + "/SIMPSTAT.txt");
-		return in;
-
-	}
-
-	@SuppressWarnings("deprecation")
-	private static String readLine(DataInputStream reader) throws IOException {
-		return reader.readLine();
+		BufferedReader br = new BufferedReader(isr);
+		return br;
 	}
 }
