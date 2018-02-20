@@ -1,62 +1,46 @@
 package org.muzir.codechef.practice.beginner;
 
-import java.io.BufferedInputStream;
-import java.io.DataInputStream;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.Arrays;
 
 public class DEVARRAY {
+
 	private static boolean isCodechefModeOn = false;
 
 	public static void main(String[] args) throws IOException {
-		InputStream in = createInputStream();
-		BufferedInputStream reader = new BufferedInputStream(in);
-		DataInputStream dis = new DataInputStream(reader);
-		String[] nq = readLine(dis).split(" ");
+		BufferedReader br = createInputStream();
+		String[] nq = br.readLine().split(" ");
 		int n = Integer.parseInt(nq[0]);
 		int q = Integer.parseInt(nq[1]);
-		String strArray = readLine(dis);
-		int[] a = getArrayOfString(strArray);
-		Arrays.sort(a);
+		String strArray = br.readLine();
+		int[] a = Arrays.stream(strArray.split(" "))
+				.mapToInt(Integer::parseInt)
+				.sorted()
+				.toArray();
 		int first = a[0];
 		int last = a[n - 1];
 		for (int i = 0; i < q; i++) {
-			int v = Integer.parseInt(readLine(dis));
+			int v = Integer.parseInt(br.readLine());
 			if (v <= last && v >= first) {
 				System.out.println("Yes");
 			} else {
 				System.out.println("No");
 			}
 		}
-		dis.close();
-		reader.close();
+		br.close();
 	}
 
-	static int[] getArrayOfString(String input) {
-		String[] arrayStr = input.split(" ");
-		int lenght = arrayStr.length;
-		int[] returnArray = new int[lenght];
-		for (int i = 0; i < lenght; i++) {
-			returnArray[i] = Integer.parseInt(arrayStr[i]);
-		}
-		return returnArray;
-	}
-
-	private static InputStream createInputStream() throws FileNotFoundException {
+	private static BufferedReader createInputStream() throws FileNotFoundException {
+		InputStreamReader isr = null;
 		if (isCodechefModeOn) {
-			return System.in;
+			isr = new InputStreamReader(System.in);
+		} else {
+			String path = System.getProperty("user.dir");
+			String filePath = path + "/DEVARRAY.txt";
+			FileInputStream fis = new FileInputStream(filePath);
+			isr = new InputStreamReader(fis);
 		}
-		String path = System.getProperty("user.dir");
-		InputStream in = new FileInputStream(path + "/DEVARRAY.txt");
-		return in;
-
-	}
-
-	@SuppressWarnings("deprecation")
-	private static String readLine(DataInputStream reader) throws IOException {
-		return reader.readLine();
+		BufferedReader br = new BufferedReader(isr);
+		return br;
 	}
 }
