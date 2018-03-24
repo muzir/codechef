@@ -1,72 +1,55 @@
 package org.muzir.codechef.practice.beginner;
 
-import java.io.BufferedInputStream;
-import java.io.DataInputStream;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
+import java.util.Arrays;
 
 public class CHRL4 {
+
 	private static boolean isCodechefModeOn = false;
-	private static final int M=1_000_000_007;
+	private static final int M = 1_000_000_007;
+
 	public static void main(String[] args) throws IOException {
-		InputStream in = createInputStream();
-		BufferedInputStream reader = new BufferedInputStream(in);
-		DataInputStream dis = new DataInputStream(reader);
-		String[] nk = readLine(dis).split(" ");
-		int k=Integer.parseInt(nk[1]);
-		String line = readLine(dis);
-		int[] a = getArrayOfString(line);
-		System.out.println(solution(a,k));
-		dis.close();
+		BufferedReader br = createInputStream();
+		String[] nk = br.readLine().split(" ");
+		int n = Integer.parseInt(nk[0]);
+		int k = Integer.parseInt(nk[1]);
+		int[] a = Arrays.stream(br.readLine().split(" "))
+				.mapToInt(Integer::parseInt)
+				.toArray();
+		System.out.println(solution(a, k));
+		br.close();
 	}
 
-	static int solution(int[] a,int k) {
+
+	static int solution(int[] a, int k) {
 		int lenght = a.length;
-		int i=lenght-1;
-		int minimalProduct=a[i];
-		while(0<i){
-			i=findMinIndex(i,i-1,a,k);
-			minimalProduct=(minimalProduct*a[i])%M;
-			System.out.println("i:"+i+",minimalProduct: "+minimalProduct);
+		if (lenght == 1) {
+			return a[0];
 		}
-		return minimalProduct;	
-	}
-
-	static int findMinIndex(int sourceIndex,int destIndex,int[] a,int k){
-		if(destIndex==-1){return 0;}
-		int source=a[sourceIndex];
-		int dest=a[destIndex];
-		int diff=source-dest;
-		if(1<=diff&&diff<=k){
-			return findMinIndex(sourceIndex,destIndex-1,a,k);		
-		}	
-		return destIndex+1;
-	}
-
-	static int[] getArrayOfString(String input) {
-		String[] arrayStr = input.split(" ");
-		int lenght = arrayStr.length;
-		int[] returnArray = new int[lenght];
-		for (int i = 0; i < lenght; i++) {
-			returnArray[i] = Integer.parseInt(arrayStr[i]);
+		int minimalProduct = a[0];
+		for (int i = 0; i < lenght; i = i + k) {
+			int tempProduct = (minimalProduct * a[i + 1]) % M;
+			for (int j = 1; j <= k; j++) {
+				int dest = a[i + j];
+				int product = (a[i] * dest) % M;
+				minimalProduct = Math.min(tempProduct, product);
+			}
 		}
-		return returnArray;
+		return minimalProduct;
 	}
 
-	private static InputStream createInputStream() throws FileNotFoundException {
+
+	private static BufferedReader createInputStream() throws FileNotFoundException {
+		InputStreamReader isr = null;
 		if (isCodechefModeOn) {
-			return System.in;
+			isr = new InputStreamReader(System.in);
+		} else {
+			String path = System.getProperty("user.dir");
+			String filePath = path + "/CHRL4.txt";
+			FileInputStream fis = new FileInputStream(filePath);
+			isr = new InputStreamReader(fis);
 		}
-		String path = System.getProperty("user.dir");
-		InputStream in = new FileInputStream(path + "/CHRL4.txt");
-		return in;
-
-	}
-
-	@SuppressWarnings("deprecation")
-	private static String readLine(DataInputStream reader) throws IOException {
-		return reader.readLine();
+		BufferedReader br = new BufferedReader(isr);
+		return br;
 	}
 }
