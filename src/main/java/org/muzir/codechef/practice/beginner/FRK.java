@@ -2,29 +2,24 @@ package org.muzir.codechef.practice.beginner;
 
 import java.io.*;
 
-public class BIGSALE {
+public class FRK {
 	private static boolean isCodechefModeOn = false;
+	private static final String CH = "ch";
+	private static final String HE = "he";
+	private static final String EF = "ef";
 
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = createInputStream();
 		int testCaseCount = Integer.parseInt(br.readLine());
+		int friendCounter = 0;
 		for (int i = 0; i < testCaseCount; i++) {
-			int n = Integer.parseInt(br.readLine());
-			double acc = 0.00;
-			for (int j = 0; j < n; j++) {
-				String[] arr = br.readLine().split(" ");
-				double price = Double.parseDouble(arr[0]);
-				double quantity = Double.parseDouble(arr[1]);
-				double discount = Double.parseDouble(arr[2]);
-				acc = acc + calculate(price, quantity, discount);
+			String name = br.readLine();
+			if (name.contains(CH) || name.contains(HE) || name.contains(EF)) {
+				friendCounter++;
 			}
-			System.out.println(String.format("%.6f", acc));
 		}
+		System.out.println(friendCounter);
 		br.close();
-	}
-
-	static double calculate(double price, double quantity, double discount) {
-		return quantity * (price - (((100 - discount) / 100) * (price + (price * discount / 100))));
 	}
 
 	private static BufferedReader createInputStream() throws FileNotFoundException {
@@ -33,7 +28,7 @@ public class BIGSALE {
 			isr = new InputStreamReader(System.in);
 		} else {
 			String path = System.getProperty("user.dir");
-			String filePath = path + "/BIGSALE.txt";
+			String filePath = path + "/FRK.txt";
 			FileInputStream fis = new FileInputStream(filePath);
 			isr = new InputStreamReader(fis);
 		}
