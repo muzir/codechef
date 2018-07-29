@@ -86,7 +86,7 @@ public class ALTARAY1 {
 			return System.in;
 		}
 		String path = System.getProperty("user.dir");
-		InputStream in = new FileInputStream(path + "/ALTARAY.txt");
+		InputStream in = new FileInputStream(path + "/src/main/inputs/ALTARAY.txt");
 		return in;
 
 	}

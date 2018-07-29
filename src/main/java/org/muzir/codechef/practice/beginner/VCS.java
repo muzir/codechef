@@ -84,7 +84,7 @@ public class VCS {
 			return System.in;
 		}
 		String path = System.getProperty("user.dir");
-		InputStream in = new FileInputStream(path + "/VCS.txt");
+		InputStream in = new FileInputStream(path + "/src/main/inputs/VCS.txt");
 		return in;
 
 	}

@@ -65,7 +65,7 @@ public class EGRANDR {
 			return System.in;
 		}
 		String path = System.getProperty("user.dir");
-		InputStream in = new FileInputStream(path + "/EGRANDR.txt");
+		InputStream in = new FileInputStream(path + "/src/main/inputs/EGRANDR.txt");
 		return in;
 
 	}

@@ -83,7 +83,7 @@ public class Recipe {
 		}
 		String path = System.getProperty("user.dir");
 		InputStream in;
-		in = new FileInputStream(path + "/RECIPE.txt");
+		in = new FileInputStream(path + "/src/main/inputs/RECIPE.txt");
 		return in;
 
 	}

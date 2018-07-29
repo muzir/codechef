@@ -91,7 +91,7 @@ public class DWNLD {
             return System.in;
         }
         String path = System.getProperty("user.dir");
-        InputStream in = new FileInputStream(path + "/DWNLD.txt");
+        InputStream in = new FileInputStream(path + "/src/main/inputs/DWNLD.txt");
         return in;
 
     }

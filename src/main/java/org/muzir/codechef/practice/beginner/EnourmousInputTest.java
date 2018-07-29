@@ -31,7 +31,7 @@ import java.util.StringTokenizer;
 public class EnourmousInputTest {
 	public static void main(String[] args) throws IOException {
 		InputStream is = new FileInputStream(System.getProperty("user.dir")
-				+ "/input.txt");
+				+ "/src/main/inputs/input.txt");
 		BufferedReader reader = new BufferedReader(new InputStreamReader(is));
 		StringTokenizer tokenizer = new StringTokenizer(reader.readLine());
 		String linesOfInput = tokenizer.nextToken(" ");

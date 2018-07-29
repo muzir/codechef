@@ -58,7 +58,7 @@ public class KTTABLE {
 			return System.in;
 		}
 		String path = System.getProperty("user.dir");
-		InputStream in = new FileInputStream(path + "/KTTABLE.txt");
+		InputStream in = new FileInputStream(path + "/src/main/inputs/KTTABLE.txt");
 		return in;
 
 	}

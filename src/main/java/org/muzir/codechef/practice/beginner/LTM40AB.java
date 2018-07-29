@@ -46,7 +46,7 @@ public class LTM40AB {
             return System.in;
         }
         String path = System.getProperty("user.dir");
-        InputStream in = new FileInputStream(path + "/LTM40AB.txt");
+        InputStream in = new FileInputStream(path + "/src/main/inputs/LTM40AB.txt");
         return in;
 
     }

@@ -31,7 +31,7 @@ public class CHN09 {
 			return System.in;
 		}
 		String path = System.getProperty("user.dir");
-		InputStream in = new FileInputStream(path + "/CHN09.txt");
+		InputStream in = new FileInputStream(path + "/src/main/inputs/CHN09.txt");
 		return in;
 
 	}

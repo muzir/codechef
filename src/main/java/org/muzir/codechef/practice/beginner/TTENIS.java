@@ -73,7 +73,7 @@ public class TTENIS {
 			return System.in;
 		}
 		String path = System.getProperty("user.dir");
-		InputStream in = new FileInputStream(path + "/TTENIS.txt");
+		InputStream in = new FileInputStream(path + "/src/main/inputs/TTENIS.txt");
 		return in;
 
 	}

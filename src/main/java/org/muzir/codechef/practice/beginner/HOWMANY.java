@@ -36,7 +36,7 @@ public class HOWMANY {
             isr = new InputStreamReader(System.in);
         } else {
             String path = System.getProperty("user.dir");
-            String filePath = path + "/HOWMANY.txt";
+            String filePath = path + "/src/main/inputs/HOWMANY.txt";
             FileInputStream fis = new FileInputStream(filePath);
             isr = new InputStreamReader(fis);
         }

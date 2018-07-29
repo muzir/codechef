@@ -12,7 +12,7 @@ import java.math.BigInteger;
 public class FLOW016 {
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
-		// FileInputStream fs = new FileInputStream(System.getProperty("user.dir") + "/FLOW016.txt");
+		// FileInputStream fs = new FileInputStream(System.getProperty("user.dir") + "/src/main/inputs/FLOW016.txt");
 		// InputStreamReader isr = new InputStreamReader(fs);
 		InputStreamReader isr = new InputStreamReader(System.in);
 		BufferedReader br = new BufferedReader(isr);

@@ -70,7 +70,7 @@ public class COMM3 {
 			return System.in;
 		}
 		String path = System.getProperty("user.dir");
-		InputStream in = new FileInputStream(path + "/COMM3.txt");
+		InputStream in = new FileInputStream(path + "/src/main/inputs/COMM3.txt");
 		return in;
 
 	}

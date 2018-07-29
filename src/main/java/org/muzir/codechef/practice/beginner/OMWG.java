@@ -46,7 +46,7 @@ public class OMWG {
 			return System.in;
 		}
 		String path = System.getProperty("user.dir");
-		InputStream in = new FileInputStream(path + "/OMWG.txt");
+		InputStream in = new FileInputStream(path + "/src/main/inputs/OMWG.txt");
 		return in;
 
 	}

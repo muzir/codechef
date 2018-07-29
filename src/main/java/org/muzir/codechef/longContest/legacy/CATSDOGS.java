@@ -51,7 +51,7 @@ public class CATSDOGS {
 			return System.in;
 		}
 		String path = System.getProperty("user.dir");
-		InputStream in = new FileInputStream(path + "/CATSDOGS.txt");
+		InputStream in = new FileInputStream(path + "/src/main/inputs/CATSDOGS.txt");
 		return in;
 
 	}

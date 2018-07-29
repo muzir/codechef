@@ -43,7 +43,7 @@ public class CHEFSTUD {
 			return System.in;
 		}
 		String path = System.getProperty("user.dir");
-		InputStream in = new FileInputStream(path + "/CHEFSTUD.txt");
+		InputStream in = new FileInputStream(path + "/src/main/inputs/CHEFSTUD.txt");
 		return in;
 
 	}

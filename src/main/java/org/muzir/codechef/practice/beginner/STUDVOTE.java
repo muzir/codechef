@@ -62,7 +62,7 @@ public class STUDVOTE {
 			return System.in;
 		}
 		String path = System.getProperty("user.dir");
-		InputStream in = new FileInputStream(path + "/STUDVOTE.txt");
+		InputStream in = new FileInputStream(path + "/src/main/inputs/STUDVOTE.txt");
 		return in;
 
 	}

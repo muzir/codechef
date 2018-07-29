@@ -54,7 +54,7 @@ public class CHEFARRP {
 			return System.in;
 		}
 		String path = System.getProperty("user.dir");
-		InputStream in = new FileInputStream(path + "/CHEFARRP.txt");
+		InputStream in = new FileInputStream(path + "/src/main/inputs/CHEFARRP.txt");
 		return in;
 
 	}

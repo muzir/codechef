@@ -48,7 +48,7 @@ public class DoubleStrings {
 			String path = System.getProperty("user.dir");
 			try {
 				InputStream in = new FileInputStream(path
-						+ "/DoubleStrings.txt");
+						+ "/src/main/inputs/DoubleStrings.txt");
 				return in;
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();

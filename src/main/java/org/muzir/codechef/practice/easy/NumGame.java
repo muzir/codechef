@@ -41,7 +41,7 @@ public class NumGame {
 		if (isCodechefModeOff) {
 			String path = System.getProperty("user.dir");
 			try {
-				InputStream in = new FileInputStream(path + "/NumGame.txt");
+				InputStream in = new FileInputStream(path + "/src/main/inputs/NumGame.txt");
 				return in;
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();

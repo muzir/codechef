@@ -57,7 +57,7 @@ public class LCOLLIS {
 			return System.in;
 		}
 		String path = System.getProperty("user.dir");
-		InputStream in = new FileInputStream(path + "/LCOLLIS.txt");
+		InputStream in = new FileInputStream(path + "/src/main/inputs/LCOLLIS.txt");
 		return in;
 
 	}

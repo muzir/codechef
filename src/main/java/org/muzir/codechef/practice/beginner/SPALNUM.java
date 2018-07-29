@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 public class SPALNUM {
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
-		// FileInputStream fs = new FileInputStream(System.getProperty("user.dir") + "/SPALNUM.txt");
+		// FileInputStream fs = new FileInputStream(System.getProperty("user.dir") + "/src/main/inputs/SPALNUM.txt");
 		// InputStreamReader isr = new InputStreamReader(fs);
 		InputStreamReader isr = new InputStreamReader(System.in);
 		BufferedReader br = new BufferedReader(isr);

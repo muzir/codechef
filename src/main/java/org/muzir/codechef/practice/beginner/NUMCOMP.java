@@ -79,7 +79,7 @@ public class NUMCOMP {
             isr = new InputStreamReader(System.in);
         } else {
             String path = System.getProperty("user.dir");
-            String filePath = path + "/NUMCOMP.txt";
+            String filePath = path + "/src/main/inputs/NUMCOMP.txt";
             FileInputStream fis = new FileInputStream(filePath);
             isr = new InputStreamReader(fis);
         }

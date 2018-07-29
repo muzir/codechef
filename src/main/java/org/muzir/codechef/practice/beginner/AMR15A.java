@@ -51,7 +51,7 @@ public class AMR15A {
 		}
 		String path = System.getProperty("user.dir");
 		InputStream in;
-		in = new FileInputStream(path + "/AMR15A.txt");
+		in = new FileInputStream(path + "/src/main/inputs/AMR15A.txt");
 		return in;
 
 	}

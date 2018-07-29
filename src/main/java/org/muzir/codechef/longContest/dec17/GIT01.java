@@ -83,7 +83,7 @@ public class GIT01 {
 			isr = new InputStreamReader(System.in);
 		} else {
 			String path = System.getProperty("user.dir");
-			String filePath = path + "/GIT01.txt";
+			String filePath = path + "/src/main/inputs/GIT01.txt";
 			FileInputStream fis = new FileInputStream(filePath);
 			isr = new InputStreamReader(fis);
 		}

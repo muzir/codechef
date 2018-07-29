@@ -36,7 +36,7 @@ public class DEVARRAY {
 			isr = new InputStreamReader(System.in);
 		} else {
 			String path = System.getProperty("user.dir");
-			String filePath = path + "/DEVARRAY.txt";
+			String filePath = path + "/src/main/inputs/DEVARRAY.txt";
 			FileInputStream fis = new FileInputStream(filePath);
 			isr = new InputStreamReader(fis);
 		}

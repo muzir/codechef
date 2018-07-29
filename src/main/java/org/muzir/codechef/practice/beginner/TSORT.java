@@ -13,7 +13,7 @@ public class TSORT {
 
 	public static void main(String[] args) throws IOException {
 		String filePath = System.getProperty("user.dir");
-		InputStream fileInput = new FileInputStream(filePath + "/TSORT.txt");
+		InputStream fileInput = new FileInputStream(filePath + "/src/main/inputs/TSORT.txt");
 		BufferedInputStream reader = new BufferedInputStream(fileInput);
 		int linesOfParamaters = Integer.parseInt(readByte(reader, ""));
 		int[] numbers = new int[linesOfParamaters];

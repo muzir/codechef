@@ -32,7 +32,7 @@ public class FLOW015 {
 			return System.in;
 		}
 		String path = System.getProperty("user.dir");
-		InputStream in = new FileInputStream(path + "/FLOW015.txt");
+		InputStream in = new FileInputStream(path + "/src/main/inputs/FLOW015.txt");
 		return in;
 
 	}

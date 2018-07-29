@@ -72,7 +72,7 @@ public class CHEFDETE {
 			return System.in;
 		}
 		String path = System.getProperty("user.dir");
-		InputStream in = new FileInputStream(path + "/CHEFDETE.txt");
+		InputStream in = new FileInputStream(path + "/src/main/inputs/CHEFDETE.txt");
 		return in;
 
 	}

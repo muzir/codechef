@@ -64,7 +64,7 @@ public class C00K0FF {
 			isr = new InputStreamReader(System.in);
 		} else {
 			String path = System.getProperty("user.dir");
-			String filePath = path + "/C00K0FF.txt";
+			String filePath = path + "/src/main/inputs/C00K0FF.txt";
 			FileInputStream fis = new FileInputStream(filePath);
 			isr = new InputStreamReader(fis);
 		}

@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 public class FLOW013 {
 
 	public static void main(String[] args) throws IOException {
-		//FileInputStream fs = new FileInputStream(System.getProperty("user.dir") + "/FLOW013.txt");
+		//FileInputStream fs = new FileInputStream(System.getProperty("user.dir") + "/src/main/inputs/FLOW013.txt");
 		InputStreamReader reader = new InputStreamReader(System.in);
 		//InputStreamReader reader = new InputStreamReader(fs);
 		BufferedReader br = new BufferedReader(reader);

@@ -46,7 +46,7 @@ public class ICPC16A {
 			isr = new InputStreamReader(System.in);
 		} else {
 			String path = System.getProperty("user.dir");
-			String filePath = path + "/ICPC16A.txt";
+			String filePath = path + "/src/main/inputs/ICPC16A.txt";
 			FileInputStream fis = new FileInputStream(filePath);
 			isr = new InputStreamReader(fis);
 		}

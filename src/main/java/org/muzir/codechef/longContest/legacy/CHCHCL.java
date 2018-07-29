@@ -41,7 +41,7 @@ public class CHCHCL {
 		if (isCodechefModeOff) {
 			String path = System.getProperty("user.dir");
 			try {
-				InputStream in = new FileInputStream(path + "/CHCHCL.txt");
+				InputStream in = new FileInputStream(path + "/src/main/inputs/CHCHCL.txt");
 				return in;
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();

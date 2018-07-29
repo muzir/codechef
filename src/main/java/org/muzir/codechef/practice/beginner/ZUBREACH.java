@@ -63,7 +63,7 @@ public class ZUBREACH {
 			isr = new InputStreamReader(System.in);
 		} else {
 			String path = System.getProperty("user.dir");
-			String filePath = path + "/ZUBREACH.txt";
+			String filePath = path + "/src/main/inputs/ZUBREACH.txt";
 			FileInputStream fis = new FileInputStream(filePath);
 			isr = new InputStreamReader(fis);
 		}

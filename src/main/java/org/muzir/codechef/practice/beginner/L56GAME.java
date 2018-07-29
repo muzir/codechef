@@ -43,7 +43,7 @@ public class L56GAME {
 			isr = new InputStreamReader(System.in);
 		} else {
 			String path = System.getProperty("user.dir");
-			String filePath = path + "/L56GAME.txt";
+			String filePath = path + "/src/main/inputs/L56GAME.txt";
 			FileInputStream fis = new FileInputStream(filePath);
 			isr = new InputStreamReader(fis);
 		}

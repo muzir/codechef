@@ -94,7 +94,7 @@ public class AVGPR {
 			isr = new InputStreamReader(System.in);
 		} else {
 			String path = System.getProperty("user.dir");
-			String filePath = path + "/AVGPR.txt";
+			String filePath = path + "/src/main/inputs/AVGPR.txt";
 			FileInputStream fis = new FileInputStream(filePath);
 			isr = new InputStreamReader(fis);
 		}

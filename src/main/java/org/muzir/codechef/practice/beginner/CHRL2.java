@@ -30,7 +30,7 @@ public class CHRL2 {
 			return System.in;
 		}
 		String path = System.getProperty("user.dir");
-		InputStream in = new FileInputStream(path + "/CHRL2.txt");
+		InputStream in = new FileInputStream(path + "/src/main/inputs/CHRL2.txt");
 		return in;
 
 	}

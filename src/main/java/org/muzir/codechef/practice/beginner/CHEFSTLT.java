@@ -60,7 +60,7 @@ public class CHEFSTLT {
 			isr = new InputStreamReader(System.in);
 		} else {
 			String path = System.getProperty("user.dir");
-			String filePath = path + "/CHEFSTLT.txt";
+			String filePath = path + "/src/main/inputs/CHEFSTLT.txt";
 			FileInputStream fis = new FileInputStream(filePath);
 			isr = new InputStreamReader(fis);
 		}

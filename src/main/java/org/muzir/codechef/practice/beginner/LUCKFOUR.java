@@ -33,7 +33,7 @@ public class LUCKFOUR {
 		}
 		String path = System.getProperty("user.dir");
 		InputStream in;
-		in = new FileInputStream(path + "/LUCKFOUR.txt");
+		in = new FileInputStream(path + "/src/main/inputs/LUCKFOUR.txt");
 		return in;
 
 	}

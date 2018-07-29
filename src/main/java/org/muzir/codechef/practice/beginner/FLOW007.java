@@ -45,7 +45,7 @@ public class FLOW007 {
 		if (isCodechefModeOff) {
 			String path = System.getProperty("user.dir");
 			try {
-				InputStream in = new FileInputStream(path + "/FLOW007.txt");
+				InputStream in = new FileInputStream(path + "/src/main/inputs/FLOW007.txt");
 				return in;
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();

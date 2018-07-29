@@ -41,7 +41,7 @@ public class DEVUGRAP {
 			return System.in;
 		}
 		String path = System.getProperty("user.dir");
-		InputStream in = new FileInputStream(path + "/DEVUGRAP.txt");
+		InputStream in = new FileInputStream(path + "/src/main/inputs/DEVUGRAP.txt");
 		return in;
 
 	}

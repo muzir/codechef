@@ -83,7 +83,7 @@ public class ONP {
 		}
 		String path = System.getProperty("user.dir");
 		InputStream in;
-		in = new FileInputStream(path + "/ONP.txt");
+		in = new FileInputStream(path + "/src/main/inputs/ONP.txt");
 		return in;
 
 	}

@@ -59,7 +59,7 @@ public class SNELECT {
 			isr = new InputStreamReader(System.in);
 		} else {
 			String path = System.getProperty("user.dir");
-			String filePath = path + "/SNELECT.txt";
+			String filePath = path + "/src/main/inputs/SNELECT.txt";
 			FileInputStream fis = new FileInputStream(filePath);
 			isr = new InputStreamReader(fis);
 		}

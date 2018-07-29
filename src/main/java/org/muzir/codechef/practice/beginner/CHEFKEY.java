@@ -62,7 +62,7 @@ public class CHEFKEY {
 			return System.in;
 		}
 		String path = System.getProperty("user.dir");
-		InputStream in = new FileInputStream(path + "/CHEFKEY.txt");
+		InputStream in = new FileInputStream(path + "/src/main/inputs/CHEFKEY.txt");
 		return in;
 
 	}

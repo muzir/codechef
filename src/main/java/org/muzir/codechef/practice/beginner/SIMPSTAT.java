@@ -51,7 +51,7 @@ public class SIMPSTAT {
 			isr = new InputStreamReader(System.in);
 		} else {
 			String path = System.getProperty("user.dir");
-			String filePath = path + "/SIMPSTAT.txt";
+			String filePath = path + "/src/main/inputs/SIMPSTAT.txt";
 			FileInputStream fis = new FileInputStream(filePath);
 			isr = new InputStreamReader(fis);
 		}

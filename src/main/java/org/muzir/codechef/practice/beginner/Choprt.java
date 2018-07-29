@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 class Choprt {
 	public static void main(String[] args) throws NumberFormatException, IOException {
-		// FileInputStream fs = new FileInputStream(System.getProperty("user.dir") + "/CHOPRT.txt");
+		// FileInputStream fs = new FileInputStream(System.getProperty("user.dir") + "/src/main/inputs/CHOPRT.txt");
 		// InputStreamReader isr = new InputStreamReader(fs);
 		Scanner scanner = new Scanner(System.in);
 		// InputStreamReader isr = new InputStreamReader(System.in);

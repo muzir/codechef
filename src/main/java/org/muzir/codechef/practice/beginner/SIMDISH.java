@@ -49,7 +49,7 @@ public class SIMDISH {
 			isr = new InputStreamReader(System.in);
 		} else {
 			String path = System.getProperty("user.dir");
-			String filePath = path + "/SIMDISH.txt";
+			String filePath = path + "/src/main/inputs/SIMDISH.txt";
 			FileInputStream fis = new FileInputStream(filePath);
 			isr = new InputStreamReader(fis);
 		}

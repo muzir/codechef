@@ -53,7 +53,7 @@ public class STRPALIN {
 			return System.in;
 		}
 		String path = System.getProperty("user.dir");
-		InputStream in = new FileInputStream(path + "/STRPALIN.txt");
+		InputStream in = new FileInputStream(path + "/src/main/inputs/STRPALIN.txt");
 		return in;
 
 	}

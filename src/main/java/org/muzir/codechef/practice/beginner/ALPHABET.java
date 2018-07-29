@@ -43,7 +43,7 @@ public class ALPHABET {
 			return System.in;
 		}
 		String path = System.getProperty("user.dir");
-		InputStream in = new FileInputStream(path + "/ALPHABET.txt");
+		InputStream in = new FileInputStream(path + "/src/main/inputs/ALPHABET.txt");
 		return in;
 
 	}

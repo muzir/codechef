@@ -51,7 +51,7 @@ public class RECTSQ {
 			return System.in;
 		}
 		String path = System.getProperty("user.dir");
-		InputStream in = new FileInputStream(path + "/RECTSQ.txt");
+		InputStream in = new FileInputStream(path + "/src/main/inputs/RECTSQ.txt");
 		return in;
 
 	}

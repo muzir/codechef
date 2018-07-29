@@ -61,7 +61,7 @@ public class TALAZY {
 			return System.in;
 		}
 		String path = System.getProperty("user.dir");
-		InputStream in = new FileInputStream(path + "/TALAZY.txt");
+		InputStream in = new FileInputStream(path + "/src/main/inputs/TALAZY.txt");
 		return in;
 
 	}

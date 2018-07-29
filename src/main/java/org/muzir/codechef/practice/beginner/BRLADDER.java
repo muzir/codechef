@@ -93,7 +93,7 @@ public class BRLADDER {
 			return System.in;
 		}
 		String path = System.getProperty("user.dir");
-		InputStream in = new FileInputStream(path + "/BRLADDER.txt");
+		InputStream in = new FileInputStream(path + "/src/main/inputs/BRLADDER.txt");
 		return in;
 
 	}

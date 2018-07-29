@@ -44,7 +44,7 @@ public class ANKTRAIN {
 			return System.in;
 		}
 		String path = System.getProperty("user.dir");
-		InputStream in = new FileInputStream(path + "/ANKTRAIN.txt");
+		InputStream in = new FileInputStream(path + "/src/main/inputs/ANKTRAIN.txt");
 		return in;
 
 	}

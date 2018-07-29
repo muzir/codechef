@@ -9,7 +9,7 @@ import java.text.DecimalFormat;
 public class FLOW009 {
 
 	public static void main(String[] args) throws IOException {
-		//FileInputStream fs = new FileInputStream(System.getProperty("user.dir") + "/FLOW009.txt");
+		//FileInputStream fs = new FileInputStream(System.getProperty("user.dir") + "/src/main/inputs/FLOW009.txt");
 		//InputStreamReader isr = new InputStreamReader(fs);
 		InputStreamReader isr = new InputStreamReader(System.in);
 		BufferedReader reader = new BufferedReader(isr);

@@ -61,7 +61,7 @@ public class PERPALIN {
 			isr = new InputStreamReader(System.in);
 		} else {
 			String path = System.getProperty("user.dir");
-			String filePath = path + "/PERPALIN.txt";
+			String filePath = path + "/src/main/inputs/PERPALIN.txt";
 			FileInputStream fis = new FileInputStream(filePath);
 			isr = new InputStreamReader(fis);
 		}

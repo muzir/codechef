@@ -199,7 +199,7 @@ public class LeadGame {
 	public static void main(String[] args) throws NumberFormatException,
 			IOException {
 		String filePath = System.getProperty("user.dir");
-		InputStream in = new FileInputStream(filePath + "/TLG.txt");
+		InputStream in = new FileInputStream(filePath + "/src/main/inputs/TLG.txt");
 		LeadingGame leadingGame = new LeadingGame();
 		leadingGame.setInput(in);
 		leadingGame.readRoundData();

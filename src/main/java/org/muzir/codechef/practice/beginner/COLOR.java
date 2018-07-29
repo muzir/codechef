@@ -50,7 +50,7 @@ public class COLOR {
 			return System.in;
 		}
 		String path = System.getProperty("user.dir");
-		InputStream in = new FileInputStream(path + "/COLOR.txt");
+		InputStream in = new FileInputStream(path + "/src/main/inputs/COLOR.txt");
 		return in;
 
 	}

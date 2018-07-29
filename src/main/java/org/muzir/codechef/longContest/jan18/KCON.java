@@ -93,7 +93,7 @@ public class KCON {
 			isr = new InputStreamReader(System.in);
 		} else {
 			String path = System.getProperty("user.dir");
-			String filePath = path + "/KCON.txt";
+			String filePath = path + "/src/main/inputs/KCON.txt";
 			FileInputStream fis = new FileInputStream(filePath);
 			isr = new InputStreamReader(fis);
 		}

@@ -67,7 +67,7 @@ public class COOKMACH {
 			return System.in;
 		}
 		String path = System.getProperty("user.dir");
-		InputStream in = new FileInputStream(path + "/COOKMACH.txt");
+		InputStream in = new FileInputStream(path + "/src/main/inputs/COOKMACH.txt");
 		return in;
 
 	}

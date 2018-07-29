@@ -43,7 +43,7 @@ public class CIELRCPT {
 			return System.in;
 		}
 		String path = System.getProperty("user.dir");
-		InputStream in = new FileInputStream(path + "/CIELRCPT.txt");
+		InputStream in = new FileInputStream(path + "/src/main/inputs/CIELRCPT.txt");
 		return in;
 
 	}

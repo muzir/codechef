@@ -34,7 +34,7 @@ public class MNMX {
 			isr = new InputStreamReader(System.in);
 		} else {
 			String path = System.getProperty("user.dir");
-			String filePath = path + "/MNMX.txt";
+			String filePath = path + "/src/main/inputs/MNMX.txt";
 			FileInputStream fis = new FileInputStream(filePath);
 			isr = new InputStreamReader(fis);
 		}

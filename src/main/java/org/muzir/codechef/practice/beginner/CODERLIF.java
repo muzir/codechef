@@ -45,7 +45,7 @@ public class CODERLIF {
 			isr = new InputStreamReader(System.in);
 		} else {
 			String path = System.getProperty("user.dir");
-			String filePath = path + "/CODERLIF.txt";
+			String filePath = path + "/src/main/inputs/CODERLIF.txt";
 			FileInputStream fis = new FileInputStream(filePath);
 			isr = new InputStreamReader(fis);
 		}

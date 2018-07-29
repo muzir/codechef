@@ -63,7 +63,7 @@ public class NOTINCOM {
 			return System.in;
 		}
 		String path = System.getProperty("user.dir");
-		InputStream in = new FileInputStream(path + "/NOTINCOM.txt");
+		InputStream in = new FileInputStream(path + "/src/main/inputs/NOTINCOM.txt");
 		return in;
 
 	}

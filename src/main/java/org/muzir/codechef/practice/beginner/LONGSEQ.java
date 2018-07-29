@@ -57,7 +57,7 @@ public class LONGSEQ {
 			return System.in;
 		}
 		String path = System.getProperty("user.dir");
-		InputStream in = new FileInputStream(path + "/LONGSEQ.txt");
+		InputStream in = new FileInputStream(path + "/src/main/inputs/LONGSEQ.txt");
 		return in;
 
 	}

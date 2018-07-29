@@ -45,7 +45,7 @@ public class MGCSET {
             isr = new InputStreamReader(System.in);
         } else {
             String path = System.getProperty("user.dir");
-            String filePath = path + "/MGCSET.txt";
+            String filePath = path + "/src/main/inputs/MGCSET.txt";
             FileInputStream fis = new FileInputStream(filePath);
             isr = new InputStreamReader(fis);
         }

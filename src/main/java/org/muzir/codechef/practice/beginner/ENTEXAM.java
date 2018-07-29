@@ -88,7 +88,7 @@ public class ENTEXAM {
 			return System.in;
 		}
 		String path = System.getProperty("user.dir");
-		InputStream in = new FileInputStream(path + "/ENTEXAM.txt");
+		InputStream in = new FileInputStream(path + "/src/main/inputs/ENTEXAM.txt");
 		return in;
 
 	}

@@ -86,7 +86,7 @@ public class BOOKCHEF {
 			return System.in;
 		}
 		String path = System.getProperty("user.dir");
-		InputStream in = new FileInputStream(path + "/BOOKCHEF.txt");
+		InputStream in = new FileInputStream(path + "/src/main/inputs/BOOKCHEF.txt");
 		return in;
 
 	}

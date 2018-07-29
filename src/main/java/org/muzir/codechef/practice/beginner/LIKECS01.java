@@ -41,7 +41,7 @@ public class LIKECS01 {
 			isr = new InputStreamReader(System.in);
 		} else {
 			String path = System.getProperty("user.dir");
-			String filePath = path + "/LIKECS01.txt";
+			String filePath = path + "/src/main/inputs/LIKECS01.txt";
 			FileInputStream fis = new FileInputStream(filePath);
 			isr = new InputStreamReader(fis);
 		}

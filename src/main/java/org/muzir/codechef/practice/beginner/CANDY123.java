@@ -89,7 +89,7 @@ public class CANDY123 {
 			return System.in;
 		}
 		String path = System.getProperty("user.dir");
-		InputStream in = new FileInputStream(path + "/CANDY123.txt");
+		InputStream in = new FileInputStream(path + "/src/main/inputs/CANDY123.txt");
 		return in;
 
 	}

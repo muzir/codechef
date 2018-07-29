@@ -42,7 +42,7 @@ public class GOODSET {
 			isr = new InputStreamReader(System.in);
 		} else {
 			String path = System.getProperty("user.dir");
-			String filePath = path + "/GOODSET.txt";
+			String filePath = path + "/src/main/inputs/GOODSET.txt";
 			FileInputStream fis = new FileInputStream(filePath);
 			isr = new InputStreamReader(fis);
 		}

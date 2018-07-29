@@ -68,7 +68,7 @@ private static boolean isArrayIncreasedByOne(int[]a){
 			return System.in;
 		}
 		String path = System.getProperty("user.dir");
-		InputStream in = new FileInputStream(path + "/KOL16J.txt");
+		InputStream in = new FileInputStream(path + "/src/main/inputs/KOL16J.txt");
 		return in;
 
 	}

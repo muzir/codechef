@@ -11,7 +11,7 @@ public class SMPAIR {
 
 	public static void main(String[] args) throws FileNotFoundException {
 		Scanner scanner = new Scanner(System.in);
-		// FileInputStream fs = new FileInputStream(System.getProperty("user.dir") + "/SMPAIR.txt");
+		// FileInputStream fs = new FileInputStream(System.getProperty("user.dir") + "/src/main/inputs/SMPAIR.txt");
 		// Scanner scanner = new Scanner(fs);
 		int lineCount = scanner.nextInt();
 		for (int i = 0; i < lineCount; i++) {

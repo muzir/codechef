@@ -9,7 +9,7 @@ public class MISSP {
 
 	public static void main(String[] args) {
 		// String path = System.getProperty("user.dir");
-		// InputStream is = new FileInputStream(path + "/MISSP.txt");
+		// InputStream is = new FileInputStream(path + "/src/main/inputs/MISSP.txt");
 		InputStream is = System.in;
 		Scanner scanner = new Scanner(is);
 		int testCaseCount = scanner.nextInt();

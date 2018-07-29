@@ -8,7 +8,7 @@ import java.io.InputStreamReader;
 public class PALL01 {
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
-		FileInputStream fs = new FileInputStream(System.getProperty("user.dir") + "/PALL01.txt");
+		FileInputStream fs = new FileInputStream(System.getProperty("user.dir") + "/src/main/inputs/PALL01.txt");
 		InputStreamReader isr = new InputStreamReader(fs);
 		// InputStreamReader isr=new InputStreamReader(System.in);
 		BufferedReader br = new BufferedReader(isr);

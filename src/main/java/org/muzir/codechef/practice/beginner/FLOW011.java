@@ -23,7 +23,7 @@ public class FLOW011 {
 			isr = new InputStreamReader(System.in);
 		} else {
 			String path = System.getProperty("user.dir");
-			String filePath = path + "/FLOW011.txt";
+			String filePath = path + "/src/main/inputs/FLOW011.txt";
 			FileInputStream fis = new FileInputStream(filePath);
 			isr = new InputStreamReader(fis);
 		}

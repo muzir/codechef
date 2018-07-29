@@ -40,7 +40,7 @@ public class RRJOKE {
 			return System.in;
 		}
 		String path = System.getProperty("user.dir");
-		InputStream in = new FileInputStream(path + "/RRJOKE.txt");
+		InputStream in = new FileInputStream(path + "/src/main/inputs/RRJOKE.txt");
 		return in;
 
 	}

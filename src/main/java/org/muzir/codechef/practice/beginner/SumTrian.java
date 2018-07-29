@@ -51,7 +51,7 @@ public class SumTrian {
 		if (isCodechefModeOff) {
 			String path = System.getProperty("user.dir");
 			try {
-				InputStream in = new FileInputStream(path + "/SumTrian.txt");
+				InputStream in = new FileInputStream(path + "/src/main/inputs/SumTrian.txt");
 				return in;
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();

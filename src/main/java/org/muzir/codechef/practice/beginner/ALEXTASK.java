@@ -67,7 +67,7 @@ public class ALEXTASK {
 			return System.in;
 		}
 		String path = System.getProperty("user.dir");
-		InputStream in = new FileInputStream(path + "/ALEXTASK.txt");
+		InputStream in = new FileInputStream(path + "/src/main/inputs/ALEXTASK.txt");
 		return in;
 
 	}

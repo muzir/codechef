@@ -8,7 +8,7 @@ public class HEADBOB {
 
 	public static void main(String[] args) throws IOException {
 		//String path = System.getProperty("user.dir");
-		//InputStream in = new FileInputStream(path + "/HEADBOB.txt");
+		//InputStream in = new FileInputStream(path + "/src/main/inputs/HEADBOB.txt");
 		InputStreamReader sr = new InputStreamReader(System.in);
 		BufferedReader reader = new BufferedReader(sr);
 		int lineCount = Integer.parseInt(reader.readLine());

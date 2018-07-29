@@ -40,7 +40,7 @@ public class MUFFINS3 {
 		}
 		String path = System.getProperty("user.dir");
 		InputStream in;
-		in = new FileInputStream(path + "/MUFFINS3.txt");
+		in = new FileInputStream(path + "/src/main/inputs/MUFFINS3.txt");
 		return in;
 
 	}

@@ -52,7 +52,7 @@ public class TWOSTR {
 			isr = new InputStreamReader(System.in);
 		} else {
 			String path = System.getProperty("user.dir");
-			String filePath = path + "/TWOSTR.txt";
+			String filePath = path + "/src/main/inputs/TWOSTR.txt";
 			FileInputStream fis = new FileInputStream(filePath);
 			isr = new InputStreamReader(fis);
 		}

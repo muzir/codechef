@@ -36,7 +36,7 @@ public class SURVIVE {
 			isr = new InputStreamReader(System.in);
 		} else {
 			String path = System.getProperty("user.dir");
-			String filePath = path + "/SURVIVE.txt";
+			String filePath = path + "/src/main/inputs/SURVIVE.txt";
 			FileInputStream fis = new FileInputStream(filePath);
 			isr = new InputStreamReader(fis);
 		}

@@ -116,7 +116,7 @@ public class ORDTEAMS {
 			isr = new InputStreamReader(System.in);
 		} else {
 			String path = System.getProperty("user.dir");
-			String filePath = path + "/ORDTEAMS.txt";
+			String filePath = path + "/src/main/inputs/ORDTEAMS.txt";
 			FileInputStream fis = new FileInputStream(filePath);
 			isr = new InputStreamReader(fis);
 		}

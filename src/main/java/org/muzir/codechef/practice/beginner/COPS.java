@@ -93,7 +93,7 @@ public class COPS {
 			return System.in;
 		}
 		String path = System.getProperty("user.dir");
-		InputStream in = new FileInputStream(path + "/COPS.txt");
+		InputStream in = new FileInputStream(path + "/src/main/inputs/COPS.txt");
 		return in;
 
 	}

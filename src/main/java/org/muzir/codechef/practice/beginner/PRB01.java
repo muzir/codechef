@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 public class PRB01 {
 
 	public static void main(String[] args) throws IOException {
-		// FileInputStream is = new FileInputStream(System.getProperty("user.dir") + "/PRB01.txt");
+		// FileInputStream is = new FileInputStream(System.getProperty("user.dir") + "/src/main/inputs/PRB01.txt");
 		// InputStreamReader isr = new InputStreamReader(is);
 		InputStreamReader isr = new InputStreamReader(System.in);
 		BufferedReader br = new BufferedReader(isr);

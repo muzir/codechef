@@ -28,7 +28,7 @@ public class FLOW001 {
 		if (isCodechefModeOff) {
 			String path = System.getProperty("user.dir");
 			try {
-				InputStream in = new FileInputStream(path + "/FLOW001.txt");
+				InputStream in = new FileInputStream(path + "/src/main/inputs/FLOW001.txt");
 				return in;
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();

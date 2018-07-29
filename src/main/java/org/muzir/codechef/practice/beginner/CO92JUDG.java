@@ -43,7 +43,7 @@ public class CO92JUDG {
 			isr = new InputStreamReader(System.in);
 		} else {
 			String path = System.getProperty("user.dir");
-			String filePath = path + "/CO92JUDG.txt";
+			String filePath = path + "/src/main/inputs/CO92JUDG.txt";
 			FileInputStream fis = new FileInputStream(filePath);
 			isr = new InputStreamReader(fis);
 		}

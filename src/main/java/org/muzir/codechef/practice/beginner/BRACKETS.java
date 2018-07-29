@@ -41,7 +41,7 @@ public class BRACKETS {
 			return System.in;
 		}
 		String path = System.getProperty("user.dir");
-		InputStream in = new FileInputStream(path + "/BRACKETS.txt");
+		InputStream in = new FileInputStream(path + "/src/main/inputs/BRACKETS.txt");
 		return in;
 
 	}

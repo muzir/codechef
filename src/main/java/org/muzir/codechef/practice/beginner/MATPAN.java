@@ -38,7 +38,7 @@ public class MATPAN {
 			isr = new InputStreamReader(System.in);
 		} else {
 			String path = System.getProperty("user.dir");
-			String filePath = path + "/MATPAN.txt";
+			String filePath = path + "/src/main/inputs/MATPAN.txt";
 			FileInputStream fis = new FileInputStream(filePath);
 			isr = new InputStreamReader(fis);
 		}

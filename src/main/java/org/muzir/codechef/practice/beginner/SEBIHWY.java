@@ -63,7 +63,7 @@ public class SEBIHWY {
 			return System.in;
 		}
 		String path = System.getProperty("user.dir");
-		InputStream in = new FileInputStream(path + "/SEBIHWY.txt");
+		InputStream in = new FileInputStream(path + "/src/main/inputs/SEBIHWY.txt");
 		return in;
 
 	}

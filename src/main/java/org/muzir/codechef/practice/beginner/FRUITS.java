@@ -43,7 +43,7 @@ public class FRUITS {
 		}
 		String path = System.getProperty("user.dir");
 		InputStream in;
-		in = new FileInputStream(path + "/FRUITS.txt");
+		in = new FileInputStream(path + "/src/main/inputs/FRUITS.txt");
 		return in;
 
 	}

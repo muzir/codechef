@@ -67,7 +67,7 @@ public class UTMOPR {
 			return System.in;
 		}
 		String path = System.getProperty("user.dir");
-		InputStream in = new FileInputStream(path + "/UTMOPR.txt");
+		InputStream in = new FileInputStream(path + "/src/main/inputs/UTMOPR.txt");
 		return in;
 
 	}

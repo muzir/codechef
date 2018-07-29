@@ -58,7 +58,7 @@ public class CLRL {
 			isr = new InputStreamReader(System.in);
 		} else {
 			String path = System.getProperty("user.dir");
-			String filePath = path + "/CLRL.txt";
+			String filePath = path + "/src/main/inputs/CLRL.txt";
 			FileInputStream fis = new FileInputStream(filePath);
 			isr = new InputStreamReader(fis);
 		}

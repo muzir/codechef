@@ -34,7 +34,7 @@ public class CHNGOR {
 			isr = new InputStreamReader(System.in);
 		} else {
 			String path = System.getProperty("user.dir");
-			String filePath = path + "/CHNGOR.txt";
+			String filePath = path + "/src/main/inputs/CHNGOR.txt";
 			FileInputStream fis = new FileInputStream(filePath);
 			isr = new InputStreamReader(fis);
 		}

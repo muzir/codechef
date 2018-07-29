@@ -41,7 +41,7 @@ public class CHEFROUT {
 			isr = new InputStreamReader(System.in);
 		} else {
 			String path = System.getProperty("user.dir");
-			String filePath = path + "/CHEFROUT.txt";
+			String filePath = path + "/src/main/inputs/CHEFROUT.txt";
 			FileInputStream fis = new FileInputStream(filePath);
 			isr = new InputStreamReader(fis);
 		}

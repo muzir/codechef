@@ -49,7 +49,7 @@ public class TRICOIN {
 			return System.in;
 		}
 		String path = System.getProperty("user.dir");
-		InputStream in = new FileInputStream(path + "/TRICOIN.txt");
+		InputStream in = new FileInputStream(path + "/src/main/inputs/TRICOIN.txt");
 		return in;
 
 	}

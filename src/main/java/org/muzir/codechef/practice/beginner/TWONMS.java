@@ -39,7 +39,7 @@ public class TWONMS {
 			isr = new InputStreamReader(System.in);
 		} else {
 			String path = System.getProperty("user.dir");
-			String filePath = path + "/TWONMS.txt";
+			String filePath = path + "/src/main/inputs/TWONMS.txt";
 			FileInputStream fis = new FileInputStream(filePath);
 			isr = new InputStreamReader(fis);
 		}

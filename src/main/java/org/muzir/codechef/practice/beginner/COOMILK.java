@@ -39,7 +39,7 @@ public class COOMILK {
 			isr = new InputStreamReader(System.in);
 		} else {
 			String path = System.getProperty("user.dir");
-			String filePath = path + "/COOMILK.txt";
+			String filePath = path + "/src/main/inputs/COOMILK.txt";
 			FileInputStream fis = new FileInputStream(filePath);
 			isr = new InputStreamReader(fis);
 		}

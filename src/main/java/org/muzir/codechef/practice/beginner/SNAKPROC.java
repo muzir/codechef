@@ -52,7 +52,7 @@ public class SNAKPROC {
 			isr = new InputStreamReader(System.in);
 		} else {
 			String path = System.getProperty("user.dir");
-			String filePath = path + "/SNAKPROC.txt";
+			String filePath = path + "/src/main/inputs/SNAKPROC.txt";
 			FileInputStream fis = new FileInputStream(filePath);
 			isr = new InputStreamReader(fis);
 		}

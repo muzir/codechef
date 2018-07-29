@@ -135,7 +135,7 @@ public class RESERVOI1 {
 			return System.in;
 		}
 		String path = System.getProperty("user.dir");
-		InputStream in = new FileInputStream(path + "/RESERVOI.txt");
+		InputStream in = new FileInputStream(path + "/src/main/inputs/RESERVOI.txt");
 		return in;
 
 	}

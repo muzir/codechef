@@ -41,7 +41,7 @@ public class XENTASK {
             return System.in;
         }
         String path = System.getProperty("user.dir");
-        InputStream in = new FileInputStream(path + "/XENTASK.txt");
+        InputStream in = new FileInputStream(path + "/src/main/inputs/XENTASK.txt");
         return in;
 
     }

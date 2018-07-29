@@ -91,7 +91,7 @@ public class VILTRIBE {
 			return System.in;
 		}
 		String path = System.getProperty("user.dir");
-		InputStream in = new FileInputStream(path + "/VILTRIBE.txt");
+		InputStream in = new FileInputStream(path + "/src/main/inputs/VILTRIBE.txt");
 		return in;
 
 	}

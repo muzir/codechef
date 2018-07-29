@@ -52,7 +52,7 @@ public class ACBALL {
 			return System.in;
 		}
 		String path = System.getProperty("user.dir");
-		InputStream in = new FileInputStream(path + "/ACBALL.txt");
+		InputStream in = new FileInputStream(path + "/src/main/inputs/ACBALL.txt");
 		return in;
 
 	}

@@ -32,7 +32,7 @@ public class KFIB {
 			isr = new InputStreamReader(System.in);
 		} else {
 			String path = System.getProperty("user.dir");
-			String filePath = path + "/KFIB.txt";
+			String filePath = path + "/src/main/inputs/KFIB.txt";
 			FileInputStream fis = new FileInputStream(filePath);
 			isr = new InputStreamReader(fis);
 		}

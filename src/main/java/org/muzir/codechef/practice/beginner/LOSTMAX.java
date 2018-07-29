@@ -38,7 +38,7 @@ public class LOSTMAX {
 			isr = new InputStreamReader(System.in);
 		} else {
 			String path = System.getProperty("user.dir");
-			String filePath = path + "/LOSTMAX.txt";
+			String filePath = path + "/src/main/inputs/LOSTMAX.txt";
 			FileInputStream fis = new FileInputStream(filePath);
 			isr = new InputStreamReader(fis);
 		}

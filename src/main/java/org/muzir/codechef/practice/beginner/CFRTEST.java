@@ -53,7 +53,7 @@ public class CFRTEST {
 			return System.in;
 		}
 		String path = System.getProperty("user.dir");
-		InputStream in = new FileInputStream(path + "/CFRTEST.txt");
+		InputStream in = new FileInputStream(path + "/src/main/inputs/CFRTEST.txt");
 		return in;
 
 	}

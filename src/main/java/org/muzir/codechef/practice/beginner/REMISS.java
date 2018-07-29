@@ -36,7 +36,7 @@ public class REMISS {
 			return System.in;
 		}
 		String path = System.getProperty("user.dir");
-		InputStream in = new FileInputStream(path + "/REMISS.txt");
+		InputStream in = new FileInputStream(path + "/src/main/inputs/REMISS.txt");
 		return in;
 
 	}

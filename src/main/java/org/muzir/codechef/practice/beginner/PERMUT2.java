@@ -86,7 +86,7 @@ public class PERMUT2 {
 		}
 		String path = System.getProperty("user.dir");
 		InputStream in;
-		in = new FileInputStream(path + "/PERMUT2");
+		in = new FileInputStream(path + "/src/main/inputs/PERMUT2");
 		return in;
 
 	}

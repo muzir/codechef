@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 public class FLOW014 {
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
-		// FileInputStream fs = new FileInputStream(System.getProperty("user.dir") + "/FLOW014.txt");
+		// FileInputStream fs = new FileInputStream(System.getProperty("user.dir") + "/src/main/inputs/FLOW014.txt");
 		// InputStreamReader isr = new InputStreamReader(fs);
 		InputStreamReader isr = new InputStreamReader(System.in);
 		BufferedReader br = new BufferedReader(isr);

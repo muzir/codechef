@@ -150,7 +150,7 @@ public class PERMPAL {
 			isr = new InputStreamReader(System.in);
 		} else {
 			String path = System.getProperty("user.dir");
-			String filePath = path + "/PERMPAL.txt";
+			String filePath = path + "/src/main/inputs/PERMPAL.txt";
 			FileInputStream fis = new FileInputStream(filePath);
 			isr = new InputStreamReader(fis);
 		}

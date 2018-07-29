@@ -48,7 +48,7 @@ public class RD19 {
 			isr = new InputStreamReader(System.in);
 		} else {
 			String path = System.getProperty("user.dir");
-			String filePath = path + "/RD19.txt";
+			String filePath = path + "/src/main/inputs/RD19.txt";
 			FileInputStream fis = new FileInputStream(filePath);
 			isr = new InputStreamReader(fis);
 		}

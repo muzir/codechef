@@ -54,7 +54,7 @@ public class NW1 {
 			isr = new InputStreamReader(System.in);
 		} else {
 			String path = System.getProperty("user.dir");
-			String filePath = path + "/NW1.txt";
+			String filePath = path + "/src/main/inputs/NW1.txt";
 			FileInputStream fis = new FileInputStream(filePath);
 			isr = new InputStreamReader(fis);
 		}

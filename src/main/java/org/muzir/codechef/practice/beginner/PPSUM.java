@@ -41,7 +41,7 @@ public class PPSUM {
 			return System.in;
 		}
 		String path = System.getProperty("user.dir");
-		InputStream in = new FileInputStream(path + "/PPSUM.txt");
+		InputStream in = new FileInputStream(path + "/src/main/inputs/PPSUM.txt");
 		return in;
 
 	}

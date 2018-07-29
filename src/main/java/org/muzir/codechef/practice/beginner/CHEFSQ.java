@@ -53,7 +53,7 @@ public class CHEFSQ {
 			return System.in;
 		}
 		String path = System.getProperty("user.dir");
-		InputStream in = new FileInputStream(path + "/CHEFSQ.txt");
+		InputStream in = new FileInputStream(path + "/src/main/inputs/CHEFSQ.txt");
 		return in;
 
 	}

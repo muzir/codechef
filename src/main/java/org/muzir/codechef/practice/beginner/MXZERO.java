@@ -56,7 +56,7 @@ public class MXZERO {
 			return System.in;
 		}
 		String path = System.getProperty("user.dir");
-		InputStream in = new FileInputStream(path + "/MXZERO.txt");
+		InputStream in = new FileInputStream(path + "/src/main/inputs/MXZERO.txt");
 		return in;
 
 	}
