@@ -1,6 +1,7 @@
 package org.muzir.codechef.practice.beginner;
 
 import java.io.*;
+import java.util.Arrays;
 
 public class TRACE {
 	private static boolean isCodechefModeOn = false;
@@ -9,9 +10,24 @@ public class TRACE {
 		BufferedReader br = createInputStream();
 		int testCaseCount = Integer.parseInt(br.readLine());
 		for (int i = 0; i < testCaseCount; i++) {
-			System.out.println();
+			int n = Integer.parseInt(br.readLine());
+			int[][] matrix = new int[n][n];
+			for (int j = 0; j < n; j++) {
+				matrix[j] = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
+			}
+			System.out.println(findMatrixMaxTrace(matrix, n));
 		}
 		br.close();
+	}
+
+	public static int findMatrixMaxTrace(int[][] matrix, int n) {
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < n; j++) {
+
+				System.out.println(matrix[i][j]);
+			}
+		}
+		return 0;
 	}
 
 	private static BufferedReader createInputStream() throws FileNotFoundException {
