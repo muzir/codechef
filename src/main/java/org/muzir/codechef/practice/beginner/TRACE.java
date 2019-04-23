@@ -21,13 +21,24 @@ public class TRACE {
 	}
 
 	public static int findMatrixMaxTrace(int[][] matrix, int n) {
+		int maxSum = 0;
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < n; j++) {
-
-				System.out.println(matrix[i][j]);
+				int l = i + 1;
+				maxSum = Math.max(maxSum, findTraceSum(matrix, i, j, l));
 			}
 		}
-		return 0;
+		return maxSum;
+	}
+
+	private static int findTraceSum(int[][] matrix, int row, int col, int l) {
+		int sum = 0;
+		for (int i = row; i < l; i++) {
+			for (int j = col; j < l; j++) {
+				sum = sum + matrix[i][j];
+			}
+		}
+		return sum;
 	}
 
 	private static BufferedReader createInputStream() throws FileNotFoundException {
