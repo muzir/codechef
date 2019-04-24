@@ -22,13 +22,10 @@ public class TRACE {
 
 	public static int findMatrixMaxTrace(int[][] matrix, int n) {
 		int maxSum = 0;
-		for (int l = 1; l <= n; l++) {
-			for (int i = 0; i < n; i++) {
-				for (int j = 0; j < n; j++) {
-					int partialSum = findTraceSum(matrix, i, j, l, n);
-					//System.out.println("Row:" + i + " col:" + j + " l:" + l + " sum: " + partialSum);
-					maxSum = Math.max(maxSum, partialSum);
-				}
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < n; j++) {
+				int partialSum = findTraceSum(matrix, i, j, n - i, n);
+				maxSum = Math.max(maxSum, partialSum);
 			}
 		}
 		return maxSum;
