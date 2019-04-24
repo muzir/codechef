@@ -22,21 +22,34 @@ public class TRACE {
 
 	public static int findMatrixMaxTrace(int[][] matrix, int n) {
 		int maxSum = 0;
-		for (int i = 0; i < n; i++) {
-			for (int j = 0; j < n; j++) {
-				int l = i + 1;
-				maxSum = Math.max(maxSum, findTraceSum(matrix, i, j, l));
+		for (int l = 1; l <= n; l++) {
+			for (int i = 0; i < n; i++) {
+				for (int j = 0; j < n; j++) {
+					int partialSum = findTraceSum(matrix, i, j, l, n);
+					//System.out.println("Row:" + i + " col:" + j + " l:" + l + " sum: " + partialSum);
+					maxSum = Math.max(maxSum, partialSum);
+				}
 			}
 		}
 		return maxSum;
 	}
 
-	private static int findTraceSum(int[][] matrix, int row, int col, int l) {
+	private static int findTraceSum(int[][] matrix, int row, int col, int l, int n) {
 		int sum = 0;
-		for (int i = row; i < l; i++) {
-			for (int j = col; j < l; j++) {
-				sum = sum + matrix[i][j];
+		if (l == 1) {
+			return matrix[row][col];
+		}
+		int depth = 0;
+		while (depth < l) {
+			int element = matrix[row][col];
+			sum = sum + element;
+			row = row + 1;
+			col = col + 1;
+			if ((row == n) || (col == n)) {
+				break;
 			}
+			depth = depth + 1;
+
 		}
 		return sum;
 	}
