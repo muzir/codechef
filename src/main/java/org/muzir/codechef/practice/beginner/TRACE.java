@@ -15,24 +15,26 @@ public class TRACE {
 			for (int j = 0; j < n; j++) {
 				matrix[j] = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
 			}
-			System.out.println(findMatrixMaxTrace(matrix, n));
+			System.out.println(findMatrixMaxTrace(matrix));
 		}
 		br.close();
 	}
 
-	public static int findMatrixMaxTrace(int[][] matrix, int n) {
+	public static int findMatrixMaxTrace(int[][] matrix) {
 		int maxSum = 0;
+		int n = matrix.length;
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < n; j++) {
-				int partialSum = findTraceSum(matrix, i, j, n - i, n);
+				int partialSum = findTraceSum(matrix, i, j, n - i);
 				maxSum = Math.max(maxSum, partialSum);
 			}
 		}
 		return maxSum;
 	}
 
-	private static int findTraceSum(int[][] matrix, int row, int col, int l, int n) {
+	private static int findTraceSum(int[][] matrix, int row, int col, int l) {
 		int sum = 0;
+		int n = matrix.length;
 		if (l == 1) {
 			return matrix[row][col];
 		}
@@ -46,7 +48,6 @@ public class TRACE {
 				break;
 			}
 			depth = depth + 1;
-
 		}
 		return sum;
 	}
