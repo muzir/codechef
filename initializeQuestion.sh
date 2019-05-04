@@ -1,7 +1,8 @@
 #!/bin/bash
-cp ALTARAY.txt src/main/java/$1.txt
-cp src/main/java/org/muzir/codechef/practice/beginner/ALTARAY.java  src/main/java/org/muzir/codechef/practice/beginner/$1.java
+touch src/main/inputs/$1.txt
+touch src/main/java/org/muzir/codechef/practice/beginner/$1.java
+touch src/test/java/org/muzir/codechef/practice/beginner/$1Test.java
 chmod 744 src/main/java/org/muzir/codechef/practice/beginner/$1.java
-gedit src/main/java/org/muzir/codechef/practice/beginner/$1.java &
-gedit src/main/java/$1.txt &
+chmod 744 src/test/java/org/muzir/codechef/practice/beginner/$1Test.java
+chmod 744 src/main/inputs/$1.txt
 echo $1
