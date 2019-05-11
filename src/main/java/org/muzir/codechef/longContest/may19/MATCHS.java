@@ -1,11 +1,14 @@
 package org.muzir.codechef.longContest.may19;
 
 import java.io.*;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Arrays;
 
 public class MATCHS {
 	static final String RICH = "Rich";
 	static final String ARI = "Ari";
+	static String[] candidates = {ARI, RICH};
 
 	private static boolean isCodechefModeOn = false;
 
@@ -14,6 +17,7 @@ public class MATCHS {
 		int testCaseCount = Integer.parseInt(br.readLine());
 		for (int i = 0; i < testCaseCount; i++) {
 			long[] nm = Arrays.stream(br.readLine().split(" ")).mapToLong(Long::parseLong).toArray();
+			resetCandidate();
 			System.out.println(solution(nm[0], nm[1]));
 		}
 		br.close();
@@ -34,15 +38,31 @@ public class MATCHS {
 	}
 
 	static String solution(long n, long m) {
-		if (n == m) {
-			return ARI;
+		String winner = candidates[0];
+		//System.out.println("N:" + n + "M:" + m + "Winner:" + winner);
+		long max = Math.max(n, m);
+		long min = Math.min(n, m);
+		if (max % min == 0) {
+			resetCandidate();
+			return winner;
 		}
-		long x = Math.max(n, m);
-		long y = Math.min(n, m);
-		long div = x / y;
-		if ((div % 2) == 1 && div > 1) {
-			return ARI;
+		long div = BigDecimal.valueOf(max).divide(BigDecimal.valueOf(min), RoundingMode.DOWN).longValue();
+		if (div > 1) {
+			resetCandidate();
+			return winner;
 		}
-		return RICH;
+		swapCandidate();
+		return solution(max - min, min);
+	}
+
+	private static void swapCandidate() {
+		String temp = candidates[0];
+		candidates[0] = candidates[1];
+		candidates[1] = temp;
+	}
+
+	private static void resetCandidate() {
+		candidates[0] = ARI;
+		candidates[1] = RICH;
 	}
 }
