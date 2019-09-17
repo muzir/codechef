@@ -1,11 +1,11 @@
-package org.muzir.codechef.longContest.june18;
+package org.muzir.codechef.longContest.june19;
 
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.math.BigInteger;
 
-import static org.muzir.codechef.longContest.june18.RSIGNS.MODULO_CONSTANT;
+import static org.muzir.codechef.longContest.june19.RSIGNS.MODULO_CONSTANT;
 
 public class RSIGNSTest {
 

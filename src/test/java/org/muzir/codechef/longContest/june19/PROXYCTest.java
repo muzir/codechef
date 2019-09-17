@@ -1,4 +1,4 @@
-package org.muzir.codechef.longContest.june18;
+package org.muzir.codechef.longContest.june19;
 
 import org.junit.Assert;
 import org.junit.Test;
