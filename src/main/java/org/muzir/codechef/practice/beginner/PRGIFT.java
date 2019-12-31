@@ -25,19 +25,15 @@ public class PRGIFT {
 
 	static String solution(int k, int[] params) {
 		int evenCounter = 0;
-		int maxCounter = 0;
 		for (int i = 0; i < params.length; i++) {
 			if (isEven(params[i])) {
 				evenCounter++;
-			} else {
-				evenCounter = 0;
 			}
-			maxCounter = Math.max(maxCounter, evenCounter);
 		}
-		if (k == 0 && maxCounter == params.length) {
+		if (k == 0 && evenCounter == params.length) {
 			return NO;
 		}
-		if (maxCounter >= k) {
+		if (evenCounter >= k) {
 			return YES;
 		}
 		return NO;
