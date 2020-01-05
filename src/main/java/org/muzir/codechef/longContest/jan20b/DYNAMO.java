@@ -28,11 +28,13 @@ public class DYNAMO {
 		DynamoEngine dynamoEngine = new DynamoEngine(n);
 
 		dynamoEngine.a = Long.parseLong(br.readLine());
+		dynamoEngine.s = 2 * dynamoEngine.upperLimit + dynamoEngine.a;
 		System.out.println(dynamoEngine.s);
 		dynamoEngine.b = Long.parseLong(br.readLine());
+		dynamoEngine.c = dynamoEngine.upperLimit - dynamoEngine.b;
 		System.out.println(dynamoEngine.c);
 		dynamoEngine.d = Long.parseLong(br.readLine());
-		dynamoEngine.calculate();
+		dynamoEngine.e = dynamoEngine.upperLimit - dynamoEngine.d;
 		System.out.println(dynamoEngine.e);
 		//System.out.println(dynamoEngine.toString());
 		return Integer.parseInt(br.readLine());
@@ -61,15 +63,11 @@ public class DYNAMO {
 		private long c;
 		private long d;
 		private long e;
+		private long upperLimit;
 
 		public DynamoEngine(int n) {
 			this.n = n;
-			this.s = 5 * (long) Math.pow(10, n);
-			this.c = 1;
-		}
-
-		void calculate() {
-			this.e = s - (a + b + c + d);
+			this.upperLimit = (long) Math.pow(10, n);
 		}
 
 		@Override
