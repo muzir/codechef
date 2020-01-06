@@ -23,22 +23,32 @@ public class BRKBKS {
 	static int solution(String line) {
 		int[] params = Arrays.stream(line.split(" ")).mapToInt(Integer::parseInt).toArray();
 		int s = params[0];
-		validateParams(params);
-		int sumOfBricksWidth = 0;
-		for (int i = 1; i < params.length; i++) {
-			sumOfBricksWidth += params[i];
-		}
-		int division = sumOfBricksWidth / s;
-		if (sumOfBricksWidth % s == 0) {
-			return division;
-		}
-		return division + 1;
+		int[] parameters = Arrays.copyOfRange(params, 1, 4);
+		validateParams(parameters, s);
+		int hitCount = calculateHitCount(parameters, s);
+		int reversedHitCount = calculateHitCount(reverseArray(parameters), s);
+		return Math.min(hitCount, reversedHitCount);
 	}
 
-	private static void validateParams(int[] params) {
-		int s = params[0];
+	private static int calculateHitCount(int[] paramaters, int s) {
+		int hitCount = 1;
+		int sumBricksWidth = 0;
+		for (int i = 0; i < paramaters.length; i++) {
+			sumBricksWidth += paramaters[i];
+			if (s < sumBricksWidth && i == 1) {
+				hitCount = hitCount + 2;
+				sumBricksWidth = 0;
+			} else if (s < sumBricksWidth && i == 2) {
+				hitCount = hitCount + 1;
+				sumBricksWidth = 0;
+			}
+		}
+		return hitCount;
+	}
+
+	private static void validateParams(int[] params, int s) {
 		int maxOfTheSequence = 0;
-		for (int i = 1; i < params.length; i++) {
+		for (int i = 0; i < params.length; i++) {
 			maxOfTheSequence = Math.max(maxOfTheSequence, params[i]);
 		}
 		if (maxOfTheSequence > s) {
@@ -58,5 +68,13 @@ public class BRKBKS {
 		}
 		BufferedReader br = new BufferedReader(isr);
 		return br;
+	}
+
+	private static int[] reverseArray(int[] params) {
+		int[] reversedArray = new int[params.length];
+		for (int i = 0; i < params.length; i++) {
+			reversedArray[params.length - 1 - i] = params[i];
+		}
+		return reversedArray;
 	}
 }

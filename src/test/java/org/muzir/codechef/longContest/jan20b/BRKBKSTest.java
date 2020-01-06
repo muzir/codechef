@@ -34,7 +34,7 @@ public class BRKBKSTest {
 	@Test
 	public void test2() {
 		assertEquals(3, BRKBKS.solution("2 2 2 2"));
-		assertEquals(2, BRKBKS.solution("3 2 2 2"));
+		assertEquals(3, BRKBKS.solution("3 2 2 2"));
 		assertEquals(2, BRKBKS.solution("4 2 2 2"));
 		assertEquals(2, BRKBKS.solution("5 2 2 2"));
 		assertEquals(1, BRKBKS.solution("6 2 2 2"));
