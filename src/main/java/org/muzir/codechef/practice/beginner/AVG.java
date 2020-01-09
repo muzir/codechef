@@ -61,7 +61,7 @@ public class AVG {
 
 		int solve() {
 			int total = average * (arrayLength + missingElementCount) - arraySum;
-			if (total < 0) {
+			if (total <= 0) {
 				return -1;
 			}
 			if ((total % missingElementCount) == 0) {
