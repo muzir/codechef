@@ -50,6 +50,10 @@ public class FANCYTest {
 	@Test
 	public void test8() {
 		Assert.assertEquals(REGULARY_FANCY, FANCY.solution("t"));
+		Assert.assertEquals(REGULARY_FANCY, FANCY.solution("t"));
+		Assert.assertEquals(REGULARY_FANCY, FANCY.solution("notnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnotnot"));
+		Assert.assertEquals(REGULARY_FANCY, FANCY.solution("t"));
+		Assert.assertEquals(REGULARY_FANCY, FANCY.solution(" donot"));
 	}
 
 	@Test
@@ -57,5 +61,14 @@ public class FANCYTest {
 		Assert.assertEquals(REAL_FANCY, FANCY.solution("not"));
 		Assert.assertEquals(REAL_FANCY, FANCY.solution(" not"));
 		Assert.assertEquals(REAL_FANCY, FANCY.solution("not "));
+		Assert.assertEquals(REAL_FANCY, FANCY.solution(" not "));
+		Assert.assertEquals(REAL_FANCY, FANCY.solution(" donot                                 not "));
+		Assert.assertEquals(REAL_FANCY, FANCY.solution("        not                                  "));
+		Assert.assertEquals(REAL_FANCY, FANCY.solution("        not       "));
+	}
+
+	@Test
+	public void test10() {
+
 	}
 }
