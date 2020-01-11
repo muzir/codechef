@@ -27,18 +27,25 @@ public class FANCY {
 		char[] array;
 		int index = 0;
 		while (index != -1) {
+			line = line.substring(index);
 			array = line.toCharArray();
+			index = line.indexOf(NOT);
+			if (isIndexValid(index)) {
+				break;
+			}
 			if (isValidStarting(index, array) && isValidEnd(index + 2, array)) {
 				return REAL_FANCY;
 			}
 			index = getNextIndex(index, array);
-			if (index < 0) {
+			if (isIndexValid(index)) {
 				break;
 			}
-			line = line.substring(index);
-			index = line.indexOf(NOT);
 		}
 		return REGULARY_FANCY;
+	}
+
+	private static boolean isIndexValid(int index) {
+		return index < 0;
 	}
 
 	private static int getNextIndex(int currentIndex, char[] charArray) {
@@ -51,9 +58,6 @@ public class FANCY {
 	}
 
 	private static boolean isValidEnd(int lastIndex, char[] lineArray) {
-		if (lastIndex > lineArray.length - 1) {
-			return false;
-		}
 		if (lastIndex == lineArray.length - 1) {
 			return true;
 		}

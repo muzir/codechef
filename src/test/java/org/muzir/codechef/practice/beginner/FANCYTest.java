@@ -69,6 +69,9 @@ public class FANCYTest {
 
 	@Test
 	public void test10() {
-
+		Assert.assertEquals(REAL_FANCY, FANCY.solution(" not "));
+		Assert.assertEquals(REAL_FANCY, FANCY.solution(" not"));
+		Assert.assertEquals(REAL_FANCY, FANCY.solution("not "));
+		Assert.assertEquals(REAL_FANCY, FANCY.solution("t  notg notg notg notg not "));
 	}
 }
