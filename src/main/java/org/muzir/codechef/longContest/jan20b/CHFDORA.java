@@ -14,12 +14,14 @@ public class CHFDORA {
 		BufferedReader br = createInputStream();
 		int testCaseCount = Integer.parseInt(br.readLine());
 		for (int i = 0; i < testCaseCount; i++) {
-			int rowCount = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray()[0];
-			String[] matrix = new String[rowCount];
-			for (int j = 0; j < rowCount; j++) {
+			int[] nm = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
+			int n = nm[0];
+			int m = nm[1];
+			String[] matrix = new String[n];
+			for (int j = 0; j < n; j++) {
 				matrix[j] = br.readLine();
 			}
-			System.out.println(solution(matrix));
+			System.out.println(solution(matrix, n, m));
 		}
 		br.close();
 	}
@@ -38,9 +40,7 @@ public class CHFDORA {
 		return br;
 	}
 
-	public static int solution(String[] matrix) {
-		int n = matrix.length;
-		int m = matrix[0].length();
+	public static int solution(String[] matrix, int n, int m) {
 		int[][] intMatrix = new int[n][m];
 		int k = 0;
 		for (String s : matrix) {
@@ -48,14 +48,15 @@ public class CHFDORA {
 			intMatrix[k] = row;
 			k = k + 1;
 		}
-		System.out.println(Arrays.deepToString(intMatrix));
-		for (int x = 2; x < n; x = x + 3) {
-			for (int y = 2; y < m; y = y + 3) {
-
-				for (int i = 0; i < x; i++) {
-					for (int j = 0; j < y; j++) {
-						System.out.println(intMatrix[i][j]);
+		//System.out.println(Arrays.deepToString(intMatrix));
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < m; j++) {
+				for (int y = 0; y < m; y = y + 2) {
+					String s = " ";
+					for (int x = i; x <= y; x = x + 1) {
+						s = s + intMatrix[i][x];
 					}
+					System.out.println(s);
 				}
 			}
 		}
