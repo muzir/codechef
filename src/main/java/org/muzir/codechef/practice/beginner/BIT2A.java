@@ -17,7 +17,7 @@ public class BIT2A {
 		for (int i = 0; i < testCaseCount; i++) {
 			br.readLine();
 			String parameters = br.readLine();
-			System.out.println(solution(parameters));
+			System.out.println(solution1(parameters));
 		}
 		br.close();
 	}
@@ -39,6 +39,27 @@ public class BIT2A {
 				}
 			}
 			strictlyGreaterArray[i] = greaterCounter;
+		}
+		String result = Arrays.stream(strictlyGreaterArray).mapToObj(String::valueOf).collect(Collectors.joining(" "));
+		return result;
+	}
+
+	static String solution1(String parameters) {
+		int[] sortedArray = Arrays.stream(parameters.split(" ")).mapToInt(Integer::parseInt).toArray();
+		int length = sortedArray.length;
+		int[] strictlyGreaterArray = new int[length];
+		for (int i = 0; i < length; i++) {
+			int currentValue = sortedArray[i];
+			if (i == length - 1) {
+				strictlyGreaterArray[i] = 0;
+			} else {
+				int nextValue = sortedArray[i + 1];
+				if (currentValue == nextValue) {
+					strictlyGreaterArray[i] = 0;
+				} else {
+					strictlyGreaterArray[i] = (length - 1) - i;
+				}
+			}
 		}
 		String result = Arrays.stream(strictlyGreaterArray).mapToObj(String::valueOf).collect(Collectors.joining(" "));
 		return result;
