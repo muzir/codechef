@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.math.BigInteger;
 
 public class MAX2 {
 	private static boolean isCodechefModeOn = false;
@@ -13,19 +14,22 @@ public class MAX2 {
 		BufferedReader br = createInputStream();
 		int n = Integer.parseInt(br.readLine());
 		String binaryString = br.readLine();
-		System.out.println(solution(binaryString));
+		System.out.println(solution1(binaryString));
 		br.close();
 	}
 
 	static int solution(String binaryString) {
-		int decimalValue = calculateDecimalFromBinary(binaryString);
+		BigInteger decimalValue = calculateDecimalFromBinary(binaryString);
 		return calculateHighestPowerOfTwo(decimalValue);
 	}
 
-	private static int calculateHighestPowerOfTwo(int decimalValue) {
+	static int solution1(String binaryString) {
+		int length = binaryString.length();
+		char[] charArray = binaryString.toCharArray();
 		int highestPower = 0;
-		while (true) {
-			if (decimalValue % (int) Math.pow(2, highestPower) == 0) {
+		for (int i = length - 1; i >= 0; i--) {
+			char c = charArray[i];
+			if (c == '0') {
 				highestPower++;
 			} else {
 				break;
@@ -34,17 +38,28 @@ public class MAX2 {
 		return highestPower;
 	}
 
-	private static int calculateDecimalFromBinary(String binaryString) {
-		int total = 0;
+	private static int calculateHighestPowerOfTwo(BigInteger decimalValue) {
+		int highestPower = 0;
+		while (true) {
+			if (decimalValue.mod(BigInteger.valueOf((long) Math.pow(2, highestPower))).compareTo(BigInteger.ZERO) == 0) {
+				highestPower++;
+			} else {
+				highestPower--;
+				break;
+			}
+		}
+		return highestPower;
+	}
+
+	private static BigInteger calculateDecimalFromBinary(String binaryString) {
+		BigInteger total = BigInteger.ZERO;
 		char[] binaryCharArray = binaryString.toCharArray();
 		int length = binaryCharArray.length;
 		for (int i = length - 1; i >= 0; i--) {
 			char c = binaryCharArray[i];
-			int currentDigitValueInDecimal = 0;
 			if (c == '1') {
-				currentDigitValueInDecimal = (int) Math.pow(2, length-1-i);
+				total = total.add(BigInteger.valueOf(2).pow(length - 1 - i));
 			}
-			total += currentDigitValueInDecimal;
 		}
 		return total;
 	}
