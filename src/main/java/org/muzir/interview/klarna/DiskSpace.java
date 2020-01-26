@@ -6,40 +6,36 @@ import java.util.Set;
 public class DiskSpace {
 	public static boolean isWritable(int blockSize, int fileSize, Set<Integer> occupiedSectors) {
 		if (occupiedSectors == null) {
-			return false;
+			throw new IllegalArgumentException("occupiedSectors can't be null");
 		}
 		if (occupiedSectors.isEmpty()) {
 			return blockSize >= fileSize;
 		}
 		int[] occupiedSectorsArray = occupiedSectors.stream().mapToInt(Integer::intValue).toArray();
-		int occupiedSectorsArrayLength = occupiedSectorsArray.length;
-		if (occupiedSectorsArrayLength == 1) {
-			int firstChunk = occupiedSectorsArray[0];
-			int lastChunk = blockSize - occupiedSectorsArray[0];
-			return firstChunk > fileSize || lastChunk > fileSize;
-		}
 		Arrays.sort(occupiedSectorsArray);
+		if (isFirstOrLastChunkHasEnoughSpace(occupiedSectorsArray, fileSize, blockSize)) {
+			return true;
+		}
+		return isEnoughSpaceBetweenChunks(occupiedSectorsArray, fileSize);
+	}
 
-		for (int i = 0; i < occupiedSectorsArrayLength; i++) {
-			if (i == 0) {
-				int firstChunk = occupiedSectorsArray[i];
-				if (firstChunk > fileSize) {
-					return true;
-				}
-			}
-			if (i == occupiedSectorsArrayLength - 1) {
-				int lastChunk = (blockSize - 1) - occupiedSectorsArray[i];
-				if (lastChunk > fileSize) {
-					return true;
-				}
-			} else {
-				int current = occupiedSectorsArray[i];
-				int next = occupiedSectorsArray[i + 1];
-				if (next - current > fileSize) {
-					return true;
-				}
+	private static boolean isEnoughSpaceBetweenChunks(int[] occupiedSectorsArray, int fileSize) {
+		int lastChunkIndex = occupiedSectorsArray.length - 1;
+		for (int i = 0; i < lastChunkIndex; i++) {
+			int currentChunkValue = occupiedSectorsArray[i];
+			int nextChunkValue = occupiedSectorsArray[i + 1];
+			if ((nextChunkValue - currentChunkValue) > fileSize) {
+				return true;
 			}
 		}
 		return false;
+	}
+
+	private static boolean isFirstOrLastChunkHasEnoughSpace(int[] occupiedSectorsArray, int fileSize, int blockSize) {
+		int lastChunkIndex = occupiedSectorsArray.length - 1;
+		int lastChunkValue = occupiedSectorsArray[lastChunkIndex];
+		int firstChunkSpace = occupiedSectorsArray[0];
+		int lastChunkSpace = blockSize - lastChunkValue;
+		return firstChunkSpace > fileSize || (lastChunkSpace != 0 && lastChunkSpace >= fileSize);
 	}
 }

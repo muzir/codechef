@@ -11,41 +11,70 @@ import java.util.stream.Collectors;
 
 public class Transactions {
 
-
 	public static List<String> findRejectedTransactions(List<String> transactions, int creditLimit) {
 		if (transactions.isEmpty()) {
 			return Collections.emptyList();
 		}
-		Map<Integer, BigDecimal> consumerSumMap = new HashMap<>();
-		List<String> rejectedList = new ArrayList<>();
-		BigDecimal CREDIT_LIMIT = new BigDecimal(creditLimit);
 		List<Consumer> consumers = transactions.stream()
 				.map(t -> mapToConsumer(t))
 				.collect(Collectors.toList());
-		consumers.forEach(c -> {
-			if (CREDIT_LIMIT.compareTo(c.getAmount()) < 0) {
-				rejectedList.add(c.getTransactionId());
+		Balance balance = new Balance(new BigDecimal(creditLimit));
+		return getRejectedList(consumers, balance);
+	}
+
+	private static List<String> getRejectedList(List<Consumer> consumers, Balance balance) {
+		List<String> rejectedList = new ArrayList<>();
+		consumers.forEach(consumer -> {
+			if (isTransactionAmountGreaterThanCreditLimit(balance.creditLimit, consumer.getAmount())) {
+				rejectedList.add(consumer.getTransactionId());
 			} else {
-				int consumerHashCode = c.hashCode();
-				BigDecimal existingConsumerSum = consumerSumMap.get(consumerHashCode);
-				if (existingConsumerSum != null) {
-					BigDecimal newSum = existingConsumerSum.add(c.getAmount());
-					if (CREDIT_LIMIT.compareTo(newSum) < 0) {
-						rejectedList.add(c.getTransactionId());
-					} else {
-						consumerSumMap.put(consumerHashCode, newSum);
-					}
-				} else {
-					consumerSumMap.put(consumerHashCode, c.getAmount());
+				if (hasConsumerTransactionExceedCreditLimit(balance, consumer)) {
+					rejectedList.add(consumer.getTransactionId());
 				}
 			}
 		});
 		return rejectedList;
 	}
 
+	private static boolean hasConsumerTransactionExceedCreditLimit(Balance balance, Consumer consumer) {
+		BigDecimal existingConsumerBalance = getConsumerBalance(consumer.hashCode(), balance.consumerBalances);
+		if (existingConsumerBalance != null) {
+			BigDecimal newSum = existingConsumerBalance.add(consumer.getAmount());
+			if (isTransactionAmountGreaterThanCreditLimit(balance.creditLimit, newSum)) {
+				return true;
+			} else {
+				addConsumerBalance(consumer.hashCode(), newSum, balance.consumerBalances);
+			}
+		} else {
+			addConsumerBalance(consumer.hashCode(), consumer.getAmount(), balance.consumerBalances);
+		}
+		return false;
+	}
+
+	private static BigDecimal getConsumerBalance(int consumerHashCode, Map<Integer, BigDecimal> consumerBalances) {
+		return consumerBalances.get(consumerHashCode);
+	}
+
+	private static BigDecimal addConsumerBalance(int consumerHashCode, BigDecimal consumerBalance, Map<Integer, BigDecimal> consumerBalances) {
+		return consumerBalances.put(consumerHashCode, consumerBalance);
+	}
+
+	private static boolean isTransactionAmountGreaterThanCreditLimit(BigDecimal creditLimit, BigDecimal transactionAmount) {
+		return creditLimit.compareTo(transactionAmount) < 0;
+	}
+
 	private static Consumer mapToConsumer(String transaction) {
 		String[] consumerArr = transaction.trim().split(",");
 		return new Consumer(consumerArr[0], consumerArr[1], consumerArr[2], new BigDecimal(consumerArr[3]), consumerArr[4]);
+	}
+
+	static class Balance {
+		private final BigDecimal creditLimit;
+		private Map<Integer, BigDecimal> consumerBalances = new HashMap<>();
+
+		public Balance(BigDecimal creditLimit) {
+			this.creditLimit = creditLimit;
+		}
 	}
 
 	static class Consumer {

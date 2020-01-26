@@ -11,14 +11,19 @@ public class Smoothie {
 		if (order == null || order.equals("")) {
 			throw new IllegalArgumentException("Invalid Input");
 		}
-		String[] orders = order.split(",");
-		String orderMenuOption = orders[0];
-		String allergic = getAllergic(orders);
-		String[] orderValues = MENU_OPTIONS.getValue(orderMenuOption);
+		String allergic = getAllergic(order);
+		String[] orderValues = getOrderValues(order);
 		return prepareOrders(orderValues, allergic);
 	}
 
-	private static String getAllergic(String[] orders) {
+	private static String[] getOrderValues(String order) {
+		String[] orders = order.split(",");
+		String orderMenuOption = orders[0];
+		return MENU_OPTIONS.getValue(orderMenuOption);
+	}
+
+	private static String getAllergic(String order) {
+		String[] orders = order.split(",");
 		List<String> allergicOrders = new ArrayList<>();
 		if (orders.length == 1) {
 			return "";
