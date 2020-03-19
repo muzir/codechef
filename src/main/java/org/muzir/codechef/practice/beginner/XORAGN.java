@@ -23,15 +23,32 @@ public class XORAGN {
 		return 2 * computeXOR(sequenceA);
 	}
 
-	static long[] calculateSequenceB(long[] sequenceA) {
-		long[] sequenceB = new long[sequenceA.length * sequenceA.length];
-		for (int i = 0; i < sequenceA.length; i++) {
+	static long[] calculateDeep2(long... sequenceA) {
+		int length = sequenceA.length;
+		long[] sequenceB = new long[length * length];
+		for (int i = 0; i < length; i++) {
 			long currentItem = sequenceA[i];
-			for (int j = 0; j < sequenceA.length; j++) {
+			for (int j = 0; j < length; j++) {
 				long subItem = sequenceA[j];
 				long newItem = currentItem + subItem;
-				int index = (i * sequenceA.length) + j;
+				int index = (i * length) + j;
 				sequenceB[index] = newItem;
+			}
+		}
+		return sequenceB;
+	}
+
+	static long[] calculateDeepN(int n, long... sequenceA) {
+		int length = sequenceA.length;
+		// -2 is coming from calculateDeep2 n power 2
+		int cycleCount = (int) Math.pow(length, n - 2);
+		int arraySize = (int) Math.pow(length, n);
+		long[] sequenceB = new long[arraySize];
+		for (int i = 0; i < cycleCount; i++) {
+			long[] temp = calculateDeep2(sequenceA);
+			for (int j = 0; j < temp.length; j++) {
+				int index = (i * temp.length) + j;
+				sequenceB[index] = temp[j];
 			}
 		}
 		return sequenceB;
@@ -66,4 +83,6 @@ public class XORAGN {
 		BufferedReader br = new BufferedReader(isr);
 		return br;
 	}
+
+
 }
