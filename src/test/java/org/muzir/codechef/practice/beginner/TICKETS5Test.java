@@ -1,8 +1,8 @@
 package org.muzir.codechef.practice.beginner;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class TICKETS5Test {
 	private static final String NO = "NO";

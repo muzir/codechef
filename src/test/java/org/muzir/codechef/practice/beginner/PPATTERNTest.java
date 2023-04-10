@@ -1,6 +1,6 @@
 package org.muzir.codechef.practice.beginner;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class PPATTERNTest {
 	@Test

@@ -1,7 +1,7 @@
 package org.muzir.codechef.practice.beginner;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 public class HILLSTest {
 
@@ -10,7 +10,7 @@ public class HILLSTest {
 		int[] a = {2, 5, 2, 6, 3};
 		int u = 3;
 		int d = 2;
-		Assert.assertEquals(3, HILLS.solution(a, u, d));
+		assertEquals(3, HILLS.solution(a, u, d));
 	}
 
 	@Test
@@ -18,7 +18,7 @@ public class HILLSTest {
 		int[] a = {4, 4, 4, 4, 4};
 		int u = 2;
 		int d = 3;
-		Assert.assertEquals(5, HILLS.solution(a, u, d));
+		assertEquals(5, HILLS.solution(a, u, d));
 	}
 
 	@Test
@@ -26,6 +26,6 @@ public class HILLSTest {
 		int[] a = {1, 4, 3, 2, 1};
 		int u = 2;
 		int d = 7;
-		Assert.assertEquals(1, HILLS.solution(a, u, d));
+		assertEquals(1, HILLS.solution(a, u, d));
 	}
 }

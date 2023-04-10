@@ -1,6 +1,6 @@
 package org.muzir.codechef.longContest.aprill18;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.math.BigInteger;
 

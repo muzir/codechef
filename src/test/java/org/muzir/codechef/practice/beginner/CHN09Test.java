@@ -1,7 +1,7 @@
 package org.muzir.codechef.practice.beginner;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 public class CHN09Test {
 
@@ -11,12 +11,12 @@ public class CHN09Test {
 	@Test
 	public void test() {
 		String s = "aba";
-		Assert.assertEquals(0, CHN09.sizeOfColour(null, colourCode_a));
-		Assert.assertEquals(0, CHN09.sizeOfColour(null, colourCode_b));
-		Assert.assertEquals(0, CHN09.sizeOfColour("", colourCode_a));
-		Assert.assertEquals(0, CHN09.sizeOfColour("", colourCode_b));
-		Assert.assertEquals(2, CHN09.sizeOfColour(s, colourCode_a));
-		Assert.assertEquals(1, CHN09.sizeOfColour(s, colourCode_b));
+		assertEquals(0, CHN09.sizeOfColour(null, colourCode_a));
+		assertEquals(0, CHN09.sizeOfColour(null, colourCode_b));
+		assertEquals(0, CHN09.sizeOfColour("", colourCode_a));
+		assertEquals(0, CHN09.sizeOfColour("", colourCode_b));
+		assertEquals(2, CHN09.sizeOfColour(s, colourCode_a));
+		assertEquals(1, CHN09.sizeOfColour(s, colourCode_b));
 	}
 
 }

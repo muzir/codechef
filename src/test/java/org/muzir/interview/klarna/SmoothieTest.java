@@ -1,42 +1,50 @@
 package org.muzir.interview.klarna;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SmoothieTest {
 
-	@Test(expected = IllegalArgumentException.class)
-	public void throwIllegalArgumentException_IfOrderIsNull() {
-		Smoothie.ingredients(null);
-	}
+    @Test
+    public void throwIllegalArgumentException_IfOrderIsNull() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Smoothie.ingredients(null);
+        });
 
-	@Test(expected = IllegalArgumentException.class)
-	public void throwIllegalArgumentExceptionIfOrderIsEmpty() {
-		Smoothie.ingredients("");
-	}
+    }
+
+    @Test
+    public void throwIllegalArgumentExceptionIfOrderIsEmpty() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Smoothie.ingredients("");
+        });
+    }
 
 
-	@Test
-	public void classicSmoothie() {
-		assertEquals("banana,honey,mango,peach,pineapple,strawberry",
-				Smoothie.ingredients("Classic"));
-	}
+    @Test
+    public void classicSmoothie() {
+        assertEquals("banana,honey,mango,peach,pineapple,strawberry",
+                Smoothie.ingredients("Classic"));
+    }
 
-	@Test
-	public void classicSmoothieAllergicToStrawberry() {
-		assertEquals("banana,honey,mango,peach,pineapple",
-				Smoothie.ingredients("Classic,-strawberry"));
-	}
+    @Test
+    public void classicSmoothieAllergicToStrawberry() {
+        assertEquals("banana,honey,mango,peach,pineapple",
+                Smoothie.ingredients("Classic,-strawberry"));
+    }
 
-	@Test
-	public void greenieSmoothieAllergicToGreenAppleAndLimeAndAvocadoAndAppleJuice() {
-		assertEquals("ice,spinach",
-				Smoothie.ingredients("Greenie,-green apple,-lime,-avocado,-apple juice"));
-	}
+    @Test
+    public void greenieSmoothieAllergicToGreenAppleAndLimeAndAvocadoAndAppleJuice() {
+        assertEquals("ice,spinach",
+                Smoothie.ingredients("Greenie,-green apple,-lime,-avocado,-apple juice"));
+    }
 
-	@Test(expected = IllegalArgumentException.class)
-	public void throwIllegalArgumentException_IfOrderContainsAdditionalIngredients() {
-		Smoothie.ingredients("Classic,chocolate");
-	}
+    @Test
+    public void throwIllegalArgumentException_IfOrderContainsAdditionalIngredients() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Smoothie.ingredients("Classic,chocolate");
+        });
+    }
 }

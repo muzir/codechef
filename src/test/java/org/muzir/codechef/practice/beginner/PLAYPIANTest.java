@@ -1,15 +1,15 @@
 package org.muzir.codechef.practice.beginner;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 public class PLAYPIANTest {
 	@Test
 	public void test() {
-		Assert.assertEquals(PLAYPIAN.YES, PLAYPIAN.solution("AB"));
-		Assert.assertEquals(PLAYPIAN.YES, PLAYPIAN.solution("ABBA"));
-		Assert.assertEquals(PLAYPIAN.NO, PLAYPIAN.solution("ABAABB"));
-		Assert.assertEquals(PLAYPIAN.NO, PLAYPIAN.solution("ABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABAA"));
-		Assert.assertEquals(PLAYPIAN.NO, PLAYPIAN.solution("AA"));
+		assertEquals(PLAYPIAN.YES, PLAYPIAN.solution("AB"));
+		assertEquals(PLAYPIAN.YES, PLAYPIAN.solution("ABBA"));
+		assertEquals(PLAYPIAN.NO, PLAYPIAN.solution("ABAABB"));
+		assertEquals(PLAYPIAN.NO, PLAYPIAN.solution("ABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABAA"));
+		assertEquals(PLAYPIAN.NO, PLAYPIAN.solution("AA"));
 	}
 }

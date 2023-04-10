@@ -1,6 +1,6 @@
 package org.muzir.codechef.longContest.legacy;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.security.SecureRandom;
 import java.util.Comparator;
@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.TreeMap;
 import java.util.concurrent.TimeUnit;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.muzir.codechef.longContest.legacy.CAPIMOVE;
 
 public class CAPIMOVETest {

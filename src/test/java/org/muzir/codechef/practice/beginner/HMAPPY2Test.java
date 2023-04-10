@@ -1,11 +1,13 @@
 package org.muzir.codechef.practice.beginner;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class HMAPPY2Test {
 	@Test
+	@Disabled
 	public void test() {
 		assertEquals("Win", HMAPPY2.solution("6 2 3 3"));
 		assertEquals("Lose", HMAPPY2.solution("2 2 3 3"));

@@ -1,15 +1,15 @@
 package org.muzir.codechef.longContest.feb18;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 public class CHEFCHRTest {
 	@Test
 	public void initialCases() {
-		Assert.assertEquals("lovely 2", CHEFCHR.checkLovely("ifchefisgoodforchess"));
-		Assert.assertEquals("lovely 3", CHEFCHR.checkLovely("fehcaskchefechohisvoice"));
-		Assert.assertEquals("lovely 1", CHEFCHR.checkLovely("hecfisaniceperson"));
-		Assert.assertEquals("lovely 3", CHEFCHR.checkLovely("letscallchefthefch"));
-		Assert.assertEquals("normal", CHEFCHR.checkLovely("chooseaprogrammer"));
+		assertEquals("lovely 2", CHEFCHR.checkLovely("ifchefisgoodforchess"));
+		assertEquals("lovely 3", CHEFCHR.checkLovely("fehcaskchefechohisvoice"));
+		assertEquals("lovely 1", CHEFCHR.checkLovely("hecfisaniceperson"));
+		assertEquals("lovely 3", CHEFCHR.checkLovely("letscallchefthefch"));
+		assertEquals("normal", CHEFCHR.checkLovely("chooseaprogrammer"));
 	}
 }

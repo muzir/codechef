@@ -1,37 +1,37 @@
 package org.muzir.codechef.longContest.may18;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 public class RD19Test {
 	@Test
 	public void test() {
 		int[] parameters = {2, 4, 6, 8};
-		Assert.assertEquals(-1, RD19.solution(parameters));
+		assertEquals(-1, RD19.solution(parameters));
 	}
 
 	@Test
 	public void test1() {
 		int[] parameters = {2, 4, 6, 9};
-		Assert.assertEquals(0, RD19.solution(parameters));
+		assertEquals(0, RD19.solution(parameters));
 	}
 
 	@Test
 	public void test2() {
 		int[] parameters = {2, 3};
-		Assert.assertEquals(0, RD19.solution(parameters));
+		assertEquals(0, RD19.solution(parameters));
 	}
 
 	@Test
 	public void test3() {
 		int[] parameters = {23, 23};
-		Assert.assertEquals(-1, RD19.solution(parameters));
+		assertEquals(-1, RD19.solution(parameters));
 	}
 
 	@Test
 	public void test4() {
 		int[] parameters = {23, 23};
-		Assert.assertEquals(-1, RD19.solution(parameters));
+		assertEquals(-1, RD19.solution(parameters));
 	}
 
 	@Test
