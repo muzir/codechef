@@ -26,6 +26,10 @@ reated by https://www.gitignore.io/api/java,macos,intellij
 # Gradle:
 .idea/**/gradle.xml
 .idea/**/libraries
+.gradle/
+gradle/
+gradlew
+gradlew.bat
 
 # CMake
 cmake-build-debug/
