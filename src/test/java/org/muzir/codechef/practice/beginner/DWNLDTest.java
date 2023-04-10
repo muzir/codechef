@@ -1,10 +1,12 @@
 package org.muzir.codechef.practice.beginner;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class DWNLDTest {
 
@@ -15,7 +17,7 @@ public class DWNLDTest {
         internetUsages.add(iu);
 
         List<DWNLD.InternetUsage> actualInternetUsages = DWNLD.reduceFreeMinutes(internetUsages, 1);
-        Assert.assertTrue(actualInternetUsages.isEmpty());
+        assertTrue(actualInternetUsages.isEmpty());
     }
 
     @Test
@@ -25,7 +27,7 @@ public class DWNLDTest {
         internetUsages.add(iu);
 
         List<DWNLD.InternetUsage> actualInternetUsages = DWNLD.reduceFreeMinutes(internetUsages, 1);
-        Assert.assertTrue(actualInternetUsages.size() == 1);
+        assertTrue(actualInternetUsages.size() == 1);
     }
 
     @Test
@@ -41,7 +43,7 @@ public class DWNLDTest {
         internetUsages.add(iu3);
 
         List<DWNLD.InternetUsage> actualInternetUsages = DWNLD.reduceFreeMinutes(internetUsages, 5);
-        Assert.assertTrue(actualInternetUsages.size() == 2);
-        Assert.assertEquals(DWNLD.calculateInternetUsages(actualInternetUsages), 3);
+        assertTrue(actualInternetUsages.size() == 2);
+        assertEquals(DWNLD.calculateInternetUsages(actualInternetUsages), 3);
     }
 }

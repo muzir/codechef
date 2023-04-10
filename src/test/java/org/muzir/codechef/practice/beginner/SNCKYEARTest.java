@@ -1,21 +1,21 @@
 package org.muzir.codechef.practice.beginner;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 public class SNCKYEARTest {
 
 	@Test
 	public void test1() {
-		Assert.assertEquals(SNCKYEAR.HOSTED, SNCKYEAR.solution(2010));
-		Assert.assertEquals(SNCKYEAR.NOT_HOSTED, SNCKYEAR.solution(2011));
-		Assert.assertEquals(SNCKYEAR.NOT_HOSTED, SNCKYEAR.solution(2012));
-		Assert.assertEquals(SNCKYEAR.NOT_HOSTED, SNCKYEAR.solution(2013));
-		Assert.assertEquals(SNCKYEAR.NOT_HOSTED, SNCKYEAR.solution(2014));
-		Assert.assertEquals(SNCKYEAR.HOSTED, SNCKYEAR.solution(2015));
-		Assert.assertEquals(SNCKYEAR.HOSTED, SNCKYEAR.solution(2016));
-		Assert.assertEquals(SNCKYEAR.HOSTED, SNCKYEAR.solution(2017));
-		Assert.assertEquals(SNCKYEAR.NOT_HOSTED, SNCKYEAR.solution(2018));
-		Assert.assertEquals(SNCKYEAR.HOSTED, SNCKYEAR.solution(2019));
+		assertEquals(SNCKYEAR.HOSTED, SNCKYEAR.solution(2010));
+		assertEquals(SNCKYEAR.NOT_HOSTED, SNCKYEAR.solution(2011));
+		assertEquals(SNCKYEAR.NOT_HOSTED, SNCKYEAR.solution(2012));
+		assertEquals(SNCKYEAR.NOT_HOSTED, SNCKYEAR.solution(2013));
+		assertEquals(SNCKYEAR.NOT_HOSTED, SNCKYEAR.solution(2014));
+		assertEquals(SNCKYEAR.HOSTED, SNCKYEAR.solution(2015));
+		assertEquals(SNCKYEAR.HOSTED, SNCKYEAR.solution(2016));
+		assertEquals(SNCKYEAR.HOSTED, SNCKYEAR.solution(2017));
+		assertEquals(SNCKYEAR.NOT_HOSTED, SNCKYEAR.solution(2018));
+		assertEquals(SNCKYEAR.HOSTED, SNCKYEAR.solution(2019));
 	}
 }

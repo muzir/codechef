@@ -1,7 +1,7 @@
 package org.muzir.codechef.practice.beginner;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 public class CHEGLOVETest {
 	@Test
@@ -9,7 +9,7 @@ public class CHEGLOVETest {
 		int[] chefFingers = {1, 2, 3};
 		int[] gloveLenghts = {2, 3, 4};
 		CHEGLOVE.Matcher matcher = new CHEGLOVE.Matcher(chefFingers, gloveLenghts);
-		Assert.assertEquals("front", matcher.solution());
+		assertEquals("front", matcher.solution());
 	}
 
 	@Test
@@ -17,7 +17,7 @@ public class CHEGLOVETest {
 		int[] chefFingers = {1, 2, 1};
 		int[] gloveLenghts = {1, 2, 1};
 		CHEGLOVE.Matcher matcher = new CHEGLOVE.Matcher(chefFingers, gloveLenghts);
-		Assert.assertEquals("both", matcher.solution());
+		assertEquals("both", matcher.solution());
 	}
 
 	@Test
@@ -25,7 +25,7 @@ public class CHEGLOVETest {
 		int[] chefFingers = {3, 2, 1};
 		int[] gloveLenghts = {1, 2, 3};
 		CHEGLOVE.Matcher matcher = new CHEGLOVE.Matcher(chefFingers, gloveLenghts);
-		Assert.assertEquals("back", matcher.solution());
+		assertEquals("back", matcher.solution());
 	}
 
 	@Test
@@ -33,6 +33,6 @@ public class CHEGLOVETest {
 		int[] chefFingers = {1, 3, 2, 4};
 		int[] gloveLenghts = {1, 2, 3, 5};
 		CHEGLOVE.Matcher matcher = new CHEGLOVE.Matcher(chefFingers, gloveLenghts);
-		Assert.assertEquals("none", matcher.solution());
+		assertEquals("none", matcher.solution());
 	}
 }

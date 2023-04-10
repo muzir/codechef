@@ -1,14 +1,14 @@
 package org.muzir.codechef.practice.beginner;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 public class XENTASKTest {
     @Test
     public void test() {
         String xenny = "2 1 2";
         String yana = "3 2 1";
-        Assert.assertEquals(5, XENTASK.retrieveTotalMinTaskTime(xenny, yana, 3));
+        assertEquals(5, XENTASK.retrieveTotalMinTaskTime(xenny, yana, 3));
     }
 
     @Test
@@ -20,7 +20,7 @@ public class XENTASKTest {
         String xenny = tasks.toString();
         String yana = tasks.toString();
         Long start = System.currentTimeMillis();
-        Assert.assertEquals(2_000_000_000, XENTASK.retrieveTotalMinTaskTime(xenny, yana, 20000));
+        assertEquals(2_000_000_000, XENTASK.retrieveTotalMinTaskTime(xenny, yana, 20000));
         Long end = System.currentTimeMillis();
         System.out.println(end - start);
     }

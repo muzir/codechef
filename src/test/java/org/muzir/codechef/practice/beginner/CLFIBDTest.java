@@ -1,22 +1,22 @@
 package org.muzir.codechef.practice.beginner;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 public class CLFIBDTest {
 	@Test
 	public void test1() {
-		Assert.assertEquals(CLFIBD.solution("aaaabccc"), CLFIBD.DYNAMIC);
-		Assert.assertEquals(CLFIBD.solution("aabbcc"), CLFIBD.NOT);
-		Assert.assertEquals(CLFIBD.solution("ppppmmnnoooopp"), CLFIBD.DYNAMIC);
-		Assert.assertEquals(CLFIBD.solution(""), CLFIBD.DYNAMIC);
-		Assert.assertEquals(CLFIBD.solution("a"), CLFIBD.DYNAMIC);
-		Assert.assertEquals(CLFIBD.solution("zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzxxxxxxxxxxxxxxzxxxxxxxxxxxxxxzxxxxxxxxxxxxxxzxxxxxxxxxxxxxxzxxxxxxxxxxxxxxzxxxxxxxxxxxxxxzxxxxxxxxxxxxxxzxxxxxxxxxxxxxx"), CLFIBD.DYNAMIC);
-		Assert.assertEquals(CLFIBD.solution("zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzxxxxxxxxxxxxxxzxxxxxxxxxxxxxxzxxxxxxxxxxxxxxzxxxxxxxxxxxxxxzxxxxxxxxxxxxxxzxxxxxxxxxxxxxxzxxxxxxxxxxxxxxzxxxxxxxxxxxxxxc"), CLFIBD.NOT);
-		Assert.assertEquals(CLFIBD.solution("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"), CLFIBD.DYNAMIC);
-		Assert.assertEquals(CLFIBD.solution("ab"), CLFIBD.DYNAMIC);
-		Assert.assertEquals(CLFIBD.solution("abbaabbaabbaaaaaaaaaaaa"), CLFIBD.DYNAMIC);
-		Assert.assertEquals(CLFIBD.solution("abccddddddddddd"), CLFIBD.NOT);
+		assertEquals(CLFIBD.solution("aaaabccc"), CLFIBD.DYNAMIC);
+		assertEquals(CLFIBD.solution("aabbcc"), CLFIBD.NOT);
+		assertEquals(CLFIBD.solution("ppppmmnnoooopp"), CLFIBD.DYNAMIC);
+		assertEquals(CLFIBD.solution(""), CLFIBD.DYNAMIC);
+		assertEquals(CLFIBD.solution("a"), CLFIBD.DYNAMIC);
+		assertEquals(CLFIBD.solution("zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzxxxxxxxxxxxxxxzxxxxxxxxxxxxxxzxxxxxxxxxxxxxxzxxxxxxxxxxxxxxzxxxxxxxxxxxxxxzxxxxxxxxxxxxxxzxxxxxxxxxxxxxxzxxxxxxxxxxxxxx"), CLFIBD.DYNAMIC);
+		assertEquals(CLFIBD.solution("zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzxxxxxxxxxxxxxxzxxxxxxxxxxxxxxzxxxxxxxxxxxxxxzxxxxxxxxxxxxxxzxxxxxxxxxxxxxxzxxxxxxxxxxxxxxzxxxxxxxxxxxxxxzxxxxxxxxxxxxxxc"), CLFIBD.NOT);
+		assertEquals(CLFIBD.solution("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"), CLFIBD.DYNAMIC);
+		assertEquals(CLFIBD.solution("ab"), CLFIBD.DYNAMIC);
+		assertEquals(CLFIBD.solution("abbaabbaabbaaaaaaaaaaaa"), CLFIBD.DYNAMIC);
+		assertEquals(CLFIBD.solution("abccddddddddddd"), CLFIBD.NOT);
 	}
 
 	@Test
@@ -48,7 +48,7 @@ public class CLFIBDTest {
 		String y = generateString('y', 121393);
 		String z = generateString('z', 196418);
 		String result = a + b + c + d + e + f + g + h + i + j + k + l + m + n + o + p + q + r + s + t + u + v + w + x + y + z;
-		Assert.assertEquals(CLFIBD.solution(result), CLFIBD.DYNAMIC);
+		assertEquals(CLFIBD.solution(result), CLFIBD.DYNAMIC);
 	}
 
 	@Test
@@ -58,7 +58,7 @@ public class CLFIBDTest {
 		String c = generateString('c', 9);
 		String d = generateString('d', 13);
 		String result = a + b + c + d;
-		Assert.assertEquals(CLFIBD.solution(result), CLFIBD.DYNAMIC);
+		assertEquals(CLFIBD.solution(result), CLFIBD.DYNAMIC);
 	}
 
 	String generateString(char c, int count) {

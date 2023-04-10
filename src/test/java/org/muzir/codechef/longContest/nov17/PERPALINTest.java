@@ -1,28 +1,28 @@
 package org.muzir.codechef.longContest.nov17;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 public class PERPALINTest {
 
 
 	@Test
 	public void test_impossible_cases() {
-		Assert.assertEquals(PERPALIN.IMPOSSIBLE, PERPALIN.constructPeriodicPolindrom(3, 1));
-		Assert.assertEquals(PERPALIN.IMPOSSIBLE, PERPALIN.constructPeriodicPolindrom(1, 3));
-		Assert.assertEquals(PERPALIN.IMPOSSIBLE, PERPALIN.constructPeriodicPolindrom(2, 2));
-		Assert.assertEquals(PERPALIN.IMPOSSIBLE, PERPALIN.constructPeriodicPolindrom(7, 3));
-		Assert.assertEquals(PERPALIN.IMPOSSIBLE, PERPALIN.constructPeriodicPolindrom(8, 3));
-		Assert.assertEquals(PERPALIN.IMPOSSIBLE, PERPALIN.constructPeriodicPolindrom(2, 4));
+		assertEquals(PERPALIN.IMPOSSIBLE, PERPALIN.constructPeriodicPolindrom(3, 1));
+		assertEquals(PERPALIN.IMPOSSIBLE, PERPALIN.constructPeriodicPolindrom(1, 3));
+		assertEquals(PERPALIN.IMPOSSIBLE, PERPALIN.constructPeriodicPolindrom(2, 2));
+		assertEquals(PERPALIN.IMPOSSIBLE, PERPALIN.constructPeriodicPolindrom(7, 3));
+		assertEquals(PERPALIN.IMPOSSIBLE, PERPALIN.constructPeriodicPolindrom(8, 3));
+		assertEquals(PERPALIN.IMPOSSIBLE, PERPALIN.constructPeriodicPolindrom(2, 4));
 	}
 
 
 	@Test
 	public void test_possible_cases() {
-		/*Assert.assertEquals("aba", PERPALIN.constructPeriodicPolindrom(3, 3));
-		Assert.assertEquals("abab", PERPALIN.constructPeriodicPolindrom(4, 2));
-		Assert.assertEquals("abba", PERPALIN.constructPeriodicPolindrom(4, 4));
-		Assert.assertEquals("abaaba", PERPALIN.constructPeriodicPolindrom(6, 3));*/
+		/*assertEquals("aba", PERPALIN.constructPeriodicPolindrom(3, 3));
+		assertEquals("abab", PERPALIN.constructPeriodicPolindrom(4, 2));
+		assertEquals("abba", PERPALIN.constructPeriodicPolindrom(4, 4));
+		assertEquals("abaaba", PERPALIN.constructPeriodicPolindrom(6, 3));*/
 		//System.out.println(PERPALIN.constructPeriodicPolindrom(20, 2));
 		//System.out.println(PERPALIN.constructPeriodicPolindrom(15, 3));
 		//System.out.println(PERPALIN.constructPeriodicPolindrom(100000, 500));
