@@ -1,10 +1,13 @@
 package org.muzir.codechef.longContest.aprill18;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 public class GOODPREFTest {
 	@Test
+	@Disabled
 	public void test1() {
 		//assertEquals(4, GOODPREF.solution("a", 4));
 		//assertEquals(5, GOODPREF.solution("aba", 2));

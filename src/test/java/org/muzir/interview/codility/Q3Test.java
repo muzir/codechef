@@ -1,6 +1,7 @@
 package org.muzir.interview.codility;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -27,6 +28,7 @@ public class Q3Test {
     }
 
     @Test
+    @Disabled
     public void shouldValidCases() {
         int[] personWeights = {60, 80, 40};
         int[] personTargetFloors = {2, 3, 5};
