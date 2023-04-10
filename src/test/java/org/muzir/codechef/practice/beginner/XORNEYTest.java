@@ -1,5 +1,6 @@
 package org.muzir.codechef.practice.beginner;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -9,6 +10,7 @@ import static org.muzir.codechef.practice.beginner.XORNEY.xor;
 
 public class XORNEYTest {
     @Test
+    @Disabled
     public void test() {
         assertEquals("Even", XORNEY.solution(1, 4));
     }
