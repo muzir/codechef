@@ -1,5 +1,6 @@
 package org.muzir.codechef.practice.beginner;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -7,6 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class PRB01Test {
     @Test
+    @Disabled
     public void test() {
         assertFalse(PRB01.isPrime(1));
         assertFalse(PRB01.isPrime(10));

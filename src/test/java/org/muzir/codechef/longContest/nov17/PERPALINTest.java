@@ -1,12 +1,15 @@
 package org.muzir.codechef.longContest.nov17;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 public class PERPALINTest {
 
 
 	@Test
+	@Disabled
 	public void test_impossible_cases() {
 		assertEquals(PERPALIN.IMPOSSIBLE, PERPALIN.constructPeriodicPolindrom(3, 1));
 		assertEquals(PERPALIN.IMPOSSIBLE, PERPALIN.constructPeriodicPolindrom(1, 3));

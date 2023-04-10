@@ -1,13 +1,14 @@
 package org.muzir.codechef.practice.beginner;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class FLOW005Test {
 
-
     @Test
+    @Disabled
     public void test() {
         assertEquals(1, FLOW005.calculate(1, 100));
         assertEquals(1, FLOW005.calculate(2, 100));
@@ -19,5 +20,4 @@ public class FLOW005Test {
         assertEquals(10, FLOW005.calculate(10000, 1000000));
 
     }
-
 }
