@@ -1,4 +1,4 @@
-package org.muzir.interview.hackerrank;
+package org.muzir.interview.hackerrank.week1;
 
 import java.util.ArrayList;
 import java.util.List;
