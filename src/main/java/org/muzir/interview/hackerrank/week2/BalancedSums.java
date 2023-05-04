@@ -1,7 +1,6 @@
 package org.muzir.interview.hackerrank.week2;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class BalancedSums {
     /*
