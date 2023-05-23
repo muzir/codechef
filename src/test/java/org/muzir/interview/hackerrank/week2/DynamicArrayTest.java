@@ -1,4 +1,4 @@
-package org.muzir.interview.hackkerrank.week2;
+package org.muzir.interview.hackerrank.week2;
 
 import org.junit.jupiter.api.Test;
 import org.muzir.interview.hackerrank.week2.DynamicArray;
