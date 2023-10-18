@@ -20,30 +20,73 @@ public class FlippingMatrix {
      * The function is expected to return an INTEGER.
      * The function accepts 2D_INTEGER_ARRAY matrix as parameter.
      */
-
     public static int flippingMatrix(List<List<Integer>> matrix) {
         // Write your code here
         int reverseCounter = 0;
         int matrixSize = matrix.size();
         int subSize = matrixSize / 2;
-        for (int i = 0; i < subSize; i++) {
+
+        while (reverseCounter > 0) {
+            reverseCounter = 0;
+            reverseCounter = iterateRows(matrix, reverseCounter, subSize);
+            reverseCounter = iterateColumns(matrix, reverseCounter, subSize);
+        }
+        System.out.println(matrix);
+        return calculateUpperLeftMatrix(matrix, subSize);
+    }
+
+    private static int calculateUpperLeftMatrix(List<List<Integer>> matrix, int subSize) {
+        return 0;
+    }
+
+    private static int iterateColumns(List<List<Integer>> matrix, int reverseCounter, int subSize) {
+        for (int i = 0; i < matrix.size(); i++) {
+            if (shouldReverseColumn(matrix, i, subSize)) {
+                reverseColumn(matrix, i);
+                reverseCounter = reverseCounter + 1;
+            }
+        }
+        return reverseCounter;
+    }
+
+    private static void reverseColumn(List<List<Integer>> matrix, int colIndex) {
+        List<Integer> colList = getColList(matrix, colIndex);
+        reverse(colList);
+        for (int i = 0; i < matrix.size(); i++) {
+            matrix.get(i).set(colIndex, colList.get(i));
+        }
+    }
+
+    private static boolean shouldReverseColumn(List<List<Integer>> matrix, int cIndex, int subSize) {
+        List<Integer> colList = getColList(matrix, cIndex);
+        return shouldReverse(colList, subSize);
+    }
+
+    private static List<Integer> getColList(List<List<Integer>> matrix, int cIndex) {
+        List<Integer> colList = new ArrayList<>();
+        for (int i = 0; i < matrix.get(0).size(); i++) {
+            colList.add(matrix.get(i).get(cIndex));
+        }
+        return colList;
+    }
+
+    private static int iterateRows(List<List<Integer>> matrix, int reverseCounter, int subSize) {
+        for (int i = 0; i < matrix.size(); i++) {
             List<Integer> row = matrix.get(i);
-            int currentRowSum = sum(row, subSize);
-            List<Integer> reverseRow = new ArrayList<>(row);
-            reverse(reverseRow);
-            int reverseRowSum = sum(reverseRow, subSize);
-            if (reverseRowSum > currentRowSum) {
+            if (shouldReverse(row, subSize)) {
                 reverse(row);
                 reverseCounter = reverseCounter + 1;
             }
         }
+        return reverseCounter;
+    }
 
-        for (int i = 0, j = 0; i < matrix.get(0).size(); i++, j++) {
-            
-        }
-
-        System.out.println(matrix);
-        return -1;
+    static boolean shouldReverse(List<Integer> ls, int subSize) {
+        int currentRowSum = sum(ls, subSize);
+        List<Integer> reverseRow = new ArrayList<>(ls);
+        reverse(reverseRow);
+        int reverseRowSum = sum(reverseRow, subSize);
+        return reverseRowSum > currentRowSum;
     }
 
     private static int sum(List<Integer> list, int subSize) {
