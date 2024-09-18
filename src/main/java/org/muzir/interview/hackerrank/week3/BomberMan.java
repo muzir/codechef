@@ -1,14 +1,9 @@
 package org.muzir.interview.hackerrank.week3;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class BomberMan {
-
-    private static Map<Integer, List<String>> map = new HashMap<>();
 
     /*
      * Complete the 'bomberMan' function below.
@@ -21,16 +16,60 @@ public class BomberMan {
 
     public static List<String> bomberMan(int n, List<String> grid) {
         // Write your code here
-        List<String> initialState = List.copyOf(grid);
-        map.put(0, initialState);
-        map.put(1, fullBomb(grid));
-        map.put(2, reverseInitialState(grid));
-        return Collections.emptyList();
+        if (n % 2 == 0) {
+            return fullBomb(grid);
+        } else if (n % 4 == 1) {
+            return grid;
+        }
+        return reverseInitialState(grid);
     }
 
     private static List<String> reverseInitialState(List<String> grid) {
         // apply bomb detonate algorithm
-        return null;
+        int column = grid.get(0).length();
+        int size = grid.size();
+        char[][] matrix = new char[size][column];
+
+        for (int i = 0; i < size; i++) {
+            matrix[i] = grid.get(i).toCharArray();
+        }
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < column; j++) {
+                char c = matrix[i][j];
+                if (c == 'O') {
+                    matrix[i][j] = '*';
+                    setCharNeighbour(matrix, i - 1, j, '*');
+                    setCharNeighbour(matrix, i + 1, j, '*');
+                    setCharNeighbour(matrix, i, j - 1, '*');
+                    setCharNeighbour(matrix, i, j + 1, '*');
+                }
+            }
+        }
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < column; j++) {
+                char c = matrix[i][j];
+                if (c == '*') {
+                    matrix[i][j] = '.';
+                } else {
+                    matrix[i][j] = 'O';
+                }
+            }
+        }
+        List<String> newGrid = new ArrayList<>();
+        for (int i = 0; i < size; i++) {
+            newGrid.add(new String(matrix[i]));
+        }
+        return newGrid;
+    }
+
+    private static void setCharNeighbour(char[][] grid, int i, int j, char newChar) {
+        int row = grid.length;
+        int column = grid[0].length;
+        if ((0 <= i && i < row) && (0 <= j && j < column)) {
+            if (grid[i][j] != 'O') {
+                grid[i][j] = newChar;
+            }
+        }
     }
 
     private static List<String> fullBomb(List<String> grid) {
